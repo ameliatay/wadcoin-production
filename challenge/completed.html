@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    <!-- Axios Library -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Vue Framework -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+
+    <script type="module" src="../index.js"></script>
+
+    <!--Import popup-->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Import common files-->
+    <script src="../jquery-3.6.0.js"></script> 
+    <script>
+        $(document).ready(function(){
+            $('#header').load("../general/header.html");
+            $('#footer').load("../general/footer.html");
+        });
+    </script>
+
+<script src = "../experience/functions.js"></script>
+
+    <title>Challenges</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    </head>
+<body>
+    <div id="header"></div>
+    <div class="row"></div>
+
+    <div class="customMargins">
+    <div class="container-fluid m-0 p-4" data-aos='fade-right'>
+
+        <div style='font-weight: bold; font-size: 30px;'>Cryptocurrency Games, Challenges & Trivia</div>
+        <div>Earn additional points while playing interactive games that build your trading acumen and cryptocurrency knowledge!</div>
+        <hr>
+
+        <!-- active / completed buttons -->
+        <div class="container-fluid" id="app1">
+            <div class="w-100 center my-5" id='spinner'>
+                <div class="spinner-border" role="status">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="footer"></div>
+
+    <script type="module">
+
+        import { collection, doc, setDoc, getDoc, getFirestore, query, where, getDocs, Timestamp, updateDoc, arrayUnion, arrayRemove } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"
+        import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+
+        const db = getFirestore();
+        const auth = getAuth();
+
+        onAuthStateChanged(auth, async (userDetails) => { 
+            // get user info
+
+            const userRef = doc(db, "users", userDetails.uid)
+            const userSnap = await getDoc(userRef)
+            const user = userSnap.data()
+            const userChallenge = user.challenges
+            const userCompleted = user.completed
+            const userComDate = user.comDate
+            var numChallenges = userChallenge.length
+            var doneChallenges = userCompleted.length
+
+            var currentDisplay = document.getElementById('completedChallenge');
+
+            var output = `
+            <div class="col" data-aos='zoom-out'>
+            <div class="d-flex h-auto">
+                <div class="w-auto mb-2" style="border-radius: 5px; background-color: #6d78a8">
+                <a type="button" class="btn btn-link position-relative m-1 text-decoration-none text-muted" href="active.html">
+                    <h4 class="m-0 text-white">Active</h4> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ num }}</span>
+                </a>
+                </div>
+
+                <div class="w-auto mb-2 ms-2" style="border-radius: 5px; background-color: #6d78a8">
+            <button type="button" class="btn btn-link position-relative m-1 text-decoration-none">
+                <h4 class="text-white">Completed</h4> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">{{ doneNum }}</span>
+            </button>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="row mb-3" id="completedChallenge">
+            `
+            
+            if (doneChallenges <= 0) {
+                output += `
+                
+                <div class="card mb-3 border-0" style='background-color: var(--lightbeige); height:300px'>
+                    <div class="card-body text-center center">
+                        <p class="card-text"><small class="text-muted">No completed challenge. Go to active challenges to find some!</small></p></br>
+                    </div>
+                </div>
+                `
+            }
+            else { 
+                for (var chaId of userCompleted) {
+                    const chaRef = doc(db, "challenges", chaId)
+                    const chaSnap = await getDoc(chaRef)
+                    const cha = chaSnap.data()
+
+                    var path = cha.type
+                    
+                        output += 
+                            `
+                            <div class="card mb-3" style="max-width: 1300px;" data-aos="flip-left">
+                                <div class="row g-0 shadow-lg">
+                                    <div class="col-md-3 text-center">
+                                        <img src="img/${path}2.png" class="shadow-sm img-fluid rounded-start rounded-end" style="max-height: 180px;" alt="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${ cha.title }</h5>
+                                            <p class="card-text">${ cha.description }</p>
+                                            <p class="card-text"><small class="text-muted">Completed ${userComDate.toDate().toDateString() }</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            `
+                
+                    }
+            }
+
+            document.getElementById('app1').innerHTML = output + "</div>"
+                
+                const app1 = Vue.createApp({
+                    data() {
+                        return {
+                            num: numChallenges,
+                            doneNum: doneChallenges
+                        }
+                    }
+                }).mount("#app1")
+
+
+        })
+        
+    </script>
+    <script type='module'>
+        import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+        const auth = getAuth();
+        onAuthStateChanged(auth, async (userDetails) => {
+            if (userDetails) {
+
+            } else {
+                //user is signed out
+				swal ({
+					title: "Log Out",
+                    text: "Successfully logged out! You will be redirected to the login page.",
+                    icon: "info",
+					icon: "info",
+					closeOnClickOutside: false,
+				})
+				.then(function() {
+					window.location.href = '../auth/login.html'
+				})
+            }
+        })
+    </script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>

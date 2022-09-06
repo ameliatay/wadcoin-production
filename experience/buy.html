@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+	<!-- Import style.css -->
+	<link rel="stylesheet" href="../style.css">
+
+	<!-- Vue 3: development -->
+	<script src="https://unpkg.com/vue@next"></script>
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<!-- AXIOS -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	
+	<!-- VUEJS -->
+	<script src="https://unpkg.com/vue@next"></script>
+
+	<!-- Imports functions from functions.js -->
+	<script src="functions.js"></script>
+
+	<!-- Import database data -->
+	<script type="module" src="../index.js"></script>
+	
+	<script type = "text/javascript" src = "../config.js"></script>
+
+	<!--Import popup-->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+	
+	<!-- Import common files-->
+	<script src="../jquery-3.6.0.js"></script> 
+	<script>
+		$(document).ready(function(){
+			$('#header').load("../general/header.html");
+			$('#footer').load("../general/footer.html");
+		});
+	</script>
+
+	<title>Buy Crypto</title>
+</head>
+
+<body>
+	<div id='header'></div>
+	<div class="customMargins">
+	<div class="w-100 center my-5" id='spinner'>
+		<div class="spinner-border" role="status">
+			<span class="sr-only"></span>
+		</div>
+	</div>
+	<div class="container-fluid d-none" id = "buy-container-main">
+		<div class="row my-3" data-aos='fade-up'>
+			<div class="col text-center">
+				<h2>Buy</h2>
+			</div>
+		</div>
+		<div class="row mx-5" data-aos='fade-up'>
+			<div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-md-start justify-content-center">
+				<h4 id = "wallet">Wallet: ${{formattedUserWallet}}</h4>
+			</div>
+			<div class = "col-lg-6 col-md-6 col-sm-12 d-flex justify-content-md-end justify-content-center">
+				<a href= 'coinspage.html' id = "buy-sell-page-btn" class='btn text-white active me-1 fw-bold ' style='background-color: var(--darkblue);'>Main Page</a>
+				<a href= 'sell.html' id = "buy-sell-page-btn" class='btn btn-danger active ms-1' >Sell</a>
+			</div>
+		</div>
+		<div class = "row mx-5 mt-3" data-aos='fade-up'>
+			<div class = "col-lg-6">
+
+				<div>
+					<h4 class = "text-center mt-2">Enter Details</h4>
+				</div>
+
+                <div class = "row">
+                    <div class = "col-8"> 
+                        <div>
+                            <label for="select-crypto" class="form-label"><h5>Cryptocurrency</h5></label>
+                            <select id = "select-crypto" class="form-select form-select-md mb-3" aria-label=".form-select-md example" v-model="selectCrypto">
+                                <option selected value = "">Select Crypto</option>
+                                <option value="BTC">Bitcoin</option>
+                                <option value="ETH">Ethereum</option>
+								<option value = "XRP">XRP</option>
+								<option value = "LTC">Litecoin</option>
+								<option value = "ADA">Cardano</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class ="col-4">
+                        <!-- Button to view selected crypto info -->
+                        <button id = "viewDetails" class="btn text-dark fw-bold" style='background-color: var(--lightblue);' onclick = "viewDetails()">View Details</button>
+                    </div>
+                </div>
+
+                <div class = "row">
+                    <div class = "col-8">
+                        <div id ="buy-div">
+                            <label for="buy-amt" class="form-label"><h5>Paying ($)</h5></label> <!-- HAVE TO ADD CURRENT BALANCE VAR INTO CHECKBALANCE BELOW-->
+                            <input type="number" id="buy-amt" class="form-control" aria-describedby="buy-desc" v-model="amtInput" v-on:input="checkBalance">
+                            <div id="buy-help-text" class="form-text">
+                                Paying amount can be in integers (8) or decimals (8.88)
+                            </div>
+                            <!-- Initial empty div that will be invoked based on amount input -->
+                        </div><br>
+                    </div>
+                    <div class = "col-4">
+                        <div id = "check-balance">
+                        </div>
+                    </div>
+                </div>
+                    
+				<div id = "purchase">
+					<button id = "purchase-btn" class="btn btn-outline-success" v-on:click="makePurchase">Buy</button>
+					<div id = "check-purchase" class = "mt-2"></div>
+				</div>
+
+				<!-- Initially empty div but content will appear after buy botton has been pressed -->
+				<div id = "buy-confirm"></div>
+
+				<!-- Button will appear after makePurchase is invoked -->
+				<!-- Button cannot be added via DOM as attribute v-on:click cannot be set via document.setAttribute -->
+				<button id = "confirm-buy-button" class = "btn btn-primary" v-on:click = "confirmPurchase" hidden>Confirm</button>
+
+			</div>
+
+			<!-- Intially empty info-list that will be populated after viewDetails button has been pressed -->
+			<div class = "col-lg-6">
+				<div>
+					<h4 class = "text-center">Cryptocurrency Information
+						<span>
+							<svg id = "info-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" style= "cursor:pointer" class="bi bi-info-circle" viewBox="0 0 16 16" onclick="infoPopUp()">
+								<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+								<path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+							</svg>
+						</span>
+					</h4>
+					
+				</div>
+				<div id = "buy-info">
+					<p id = "info-msg" style='background-color: var(--dirt);' class = "mt-5 p-2 text-center text-white border w-75">Select a cryptocurrency on the left before clicking on 'View Details' button to view its information.</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+		
+	</div>
+	<div id='footer'></div>
+	<script type = "module">
+		import { collection, doc, setDoc, getDoc, getFirestore, query, where, getDocs, deleteDoc } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+		import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+
+		const db = getFirestore();
+		const auth = getAuth();
+
+		onAuthStateChanged(auth, async (userDetails) => {
+            if (userDetails) {
+
+				// Retrieve current data
+				const docRef = doc(db, "users", userDetails.uid);
+				const docSnap = await getDoc(docRef);
+
+				if (docSnap.exists()) {
+					var user = docSnap.data();
+					var userWallet = parseFloat(user.wallet);
+				}
+
+				const buyPage = Vue.createApp({ 
+					data() {
+						return {
+							user: user,
+							userWallet: userWallet,
+							amtInput: "",
+							selectCrypto: "",
+							rocket: true
+						}
+					},
+					methods: {
+						checkBalance() {
+							if (document.getElementById("buy-error")) {
+								document.getElementById("buy-error").remove();
+							}
+							if (document.getElementById("buy-success")) {
+								document.getElementById("buy-success").remove()
+							}
+
+							// This if is needed to prevent invoking id = error when the user backspaces all his inputs
+							if (this.amtInput !== "") {
+								var totalPrice = parseFloat(this.amtInput) * 1.01;
+								var checkBalance = document.getElementById("check-balance")
+								var newNode = document.createElement("p");
+
+								if (this.amtInput <= 0) {
+									newNode.id = "buy-error";
+									var textNode = document.createTextNode("Input amount must be > 0.");
+									newNode.appendChild(textNode);
+									checkBalance.appendChild(newNode)
+									return false
+								}
+								
+								// If user has enough money
+								if (this.userWallet > totalPrice) {
+									newNode.id = "buy-success";
+									var textNode = document.createTextNode("Current wallet balance is sufficient");
+									newNode.appendChild(textNode);
+									checkBalance.appendChild(newNode)
+									return true
+								}
+
+								// If user does not have enough money
+								else {
+									newNode.id = "buy-error";
+									var textNode = document.createTextNode("Current wallet balance is insufficient.");
+									newNode.appendChild(textNode);
+									checkBalance.appendChild(newNode)
+									return false
+								}
+							}
+						},
+
+						makePurchase() {
+							document.getElementById("confirm-buy-button").setAttribute("hidden", "true");
+							document.getElementById("purchase-btn").disabled = true
+
+							if (document.getElementById("buy-confirm-content")) {
+								document.getElementById("buy-confirm-content").remove()
+							}
+
+							if (document.getElementById("check-purchase-error")) {
+								document.getElementById("check-purchase-error").remove() 
+							}
+
+							document.getElementById("check-purchase").innerText = "";
+
+							var cryptoSymbol = this.selectCrypto;
+							var amt = this.amtInput;
+							
+							// If user has not selected a crypto or an amount
+							if (cryptoSymbol == "" || amt == "") {
+								var newNode = document.createElement("p");
+								newNode.id = "check-purchase-error"
+								var textNode = document.createTextNode("Please select a cryptocurrency and fill in an appropriate amount before clicking 'Buy'")
+								newNode.appendChild(textNode)
+
+								document.getElementById("check-purchase").appendChild(newNode);
+								document.getElementById("purchase-btn").disabled = false
+							}
+							else {
+								// If user's current amount input exceeds his/her wallet balance
+								if (!buyPage.checkBalance()) {
+									var newNode = document.createElement("p");
+									newNode.id = "check-purchase-error"
+									var textNode = document.createTextNode("The amount you entered is invalid. Please input a new amount before clicking 'Buy'")
+									newNode.appendChild(textNode)
+									document.getElementById("check-purchase").appendChild(newNode);
+									document.getElementById("purchase-btn").disabled = false
+								}
+
+								// User has keyed in the 2 inputs and amount does not exceed his/her wallet balance
+								else {
+									var idDiv = document.getElementById("buy-confirm");
+									var idDivContent = document.createElement("div");
+									idDivContent.id = "buy-confirm-content"
+								
+									var url = "https://www.alphavantage.co/query?function=CRYPTO_INTRADAY&symbol=" + cryptoSymbol + "&market=SGD&interval=1min&apikey=" + config.ALPHA_VANTAGE_KEY 
+									axios.get(url)
+									.then (response => { 
+										var dateTime = getFormattedDate(8)[0];
+										if (dateTime in response.data["Time Series Crypto (1min)"]) {
+											var closePrice = parseFloat(response.data["Time Series Crypto (1min)"][dateTime]["4. close"]);
+										} else {
+											var lastKey = Object.keys(response.data["Time Series Crypto (1min)"]).pop()
+											var closePrice = parseFloat(response.data["Time Series Crypto (1min)"][lastKey]["4. close"]);
+										}
+
+										// Qty is obtained by getting the selected coin's current price and divide by amount input
+										amt = parseFloat(amt)
+										var qty = limitDecimals(amt / closePrice,6);
+										var fee = amt / 100;
+										var totalTransaction = amt + fee;
+									
+										var newNode = document.createElement("h5")
+										var textNode = document.createTextNode("Please confirm the following details");
+										newNode.appendChild(textNode);
+										idDivContent.appendChild(newNode);
+									
+										// Creating List with appropriate data
+										var list1 = [cryptoSymbol, amt, qty, fee, totalTransaction];
+										var list2 = ["Cryptocurrency being purchased: ", "Amount Input: $", "Quantity To Buy: ", "Brokerage Fee (capped at 1%): $", "Total Transaction: $"]
+									
+										var listNode = document.createElement("ol"); 
+									
+										for (let i = 0; i < list1.length; i++) {
+											if (i == 2) {
+												// For Quantity Received to add the crypto symbol behind
+												// Expected output: Quantity Recevied: 0.5 BTC
+												var liNode = document.createElement("li");
+												var liText = document.createTextNode(list2[i] + list1 [i] + " " + cryptoSymbol)
+											}
+											else {
+												var liNode = document.createElement("li");
+												var liText = document.createTextNode(list2[i] + list1 [i])
+											}
+											liNode.appendChild(liText);
+											listNode.appendChild(liNode);
+										}
+									
+										// Creating last red text
+										var pNode = document.createElement("p");
+										pNode.id = "final-msg"
+										pNode.setAttribute("class", "text-danger");
+										var textNode = document.createTextNode("Final price may change depending on the time of clicking the confirm button")
+										pNode.appendChild(textNode);
+
+										
+										// Adding list - red text - button to idDIv
+										idDivContent.appendChild(listNode)
+										idDivContent.appendChild(pNode)
+										idDiv.appendChild(idDivContent);
+
+										// Button has to be set in html for v-on:click attribute
+										// DOM setAttribute does not work for vue JS
+										document.getElementById("confirm-buy-button").removeAttribute("hidden")
+										document.getElementById("purchase-btn").disabled = false
+									})
+								}
+							}
+						},
+
+						confirmPurchase() {
+							document.getElementById("confirm-buy-button").disabled = true;
+							var cryptoSymbol = this.selectCrypto;
+							var amt = this.amtInput;
+							var userWallet = this.userWallet
+
+							var url = "https://www.alphavantage.co/query?function=CRYPTO_INTRADAY&symbol=" + cryptoSymbol + "&market=SGD&interval=1min&apikey=" + config.ALPHA_VANTAGE_KEY 
+								axios.get(url)
+								.then (async response => { 
+									var dateTime = getFormattedDate(8)[0];
+									if (dateTime in response.data["Time Series Crypto (1min)"]) {
+										var closePrice = parseFloat(response.data["Time Series Crypto (1min)"][dateTime]["4. close"]);
+									} else {
+										var lastKey = Object.keys(response.data["Time Series Crypto (1min)"]).pop()
+										var closePrice = parseFloat(response.data["Time Series Crypto (1min)"][lastKey]["4. close"]);
+									}
+
+									// Qty is obtained by getting the selected coin's current price and divide by amount input
+									amt = parseFloat(amt)
+									var qty = amt / closePrice;
+									var fee = amt / 100;
+									var totalTransaction = amt + fee;
+									var newWallet = userWallet - totalTransaction;
+
+									var userCurrent = this.user.current
+									// Obtain user firebase document reference
+									const docRef2 = doc(db, "users", userDetails.uid);
+
+									// User is currently already holding some of the coin 
+									if (Object.keys(userCurrent).includes(cryptoSymbol)) {
+
+										// Obtain current data
+										var userCurrentKey = userCurrent[cryptoSymbol]
+										var currTotalCostPrice = parseFloat(userCurrentKey.totalCostPrice);
+										var currQty = parseFloat(userCurrentKey.quantity);
+
+										// Calculate new data
+										var newtotalCostPrice = currTotalCostPrice + amt;
+										var newQty = currQty + qty;
+										var newAverageCostPrice = newtotalCostPrice / newQty;
+
+										userCurrentKey.quantity = newQty;
+										userCurrentKey.averageCostPrice = newAverageCostPrice;
+										userCurrentKey.totalCostPrice = newtotalCostPrice;
+				
+									}
+									// User not currently holding any of the coin
+									else {
+										var newQty = qty;
+										var newtotalCostPrice = amt;
+										var newAverageCostPrice = closePrice;
+
+										var newData= {
+											name: cryptoSymbol,
+											quantity: newQty,
+											averageCostPrice: newAverageCostPrice,
+											totalCostPrice: newtotalCostPrice
+										}
+										userCurrent[cryptoSymbol] = newData
+									}
+
+									// Update wallet movement
+									this.user.move -= totalTransaction;
+
+									// Update wallet amount
+									this.user.wallet = newWallet
+
+									//Update data in firebase
+									await setDoc(doc(db, "users", userDetails.uid), user)
+									.then(() => {
+									swal ({
+										title: "Purchasing Cryptocurrency",
+										text: "Cryptocurrency successfully purchased.",
+										icon: "success",
+										closeOnClickOutside: false,
+									}).then(function() {
+										window.location.href = 'coinspage.html'
+									})
+									})
+									.catch(() => {
+										swal ({
+										title: "Purchasing Cryptocurrency",
+										text: "An error has occured. The page will be refreshed.",
+										icon: "error",
+										closeOnClickOutside: false,
+										})
+										.then(function() {
+											location.reload();
+										})
+									})
+
+								})
+								.catch(error => {
+									swal ({
+										title: "Page Loading Error",
+										text: "An error has occured. The page will be refreshed.",
+										icon: "error",
+										closeOnClickOutside: false,
+									})
+									.then(function() {
+											location.reload();
+									})
+								})
+						},
+
+						moveRocket() {
+							moveRocketGeneral(0);
+						}
+					},
+					computed: {
+						formattedUserWallet() {
+							return formatNumber(limitDecimals(this.userWallet,2));
+						}
+					},
+					mounted() {
+						document.getElementById('buy-container-main').classList.remove('d-none')
+						document.getElementById('spinner').classList.add('d-none')
+						
+					}
+				}).mount("#buy-container-main")
+			}
+
+			// User authentication failed, redirect user to login page
+			else {
+				swal ({
+					title: "Log Out",
+					text: "Successfully logged out! You will be redirected to the login page.",
+					icon: "info",
+					closeOnClickOutside: false,
+				})
+				.then(function() {
+					window.location.href = '../auth/login.html'
+				})
+			} 
+		})
+
+	
+
+	</script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+
+</body>

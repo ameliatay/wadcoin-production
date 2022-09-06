@@ -1,0 +1,26 @@
+{
+  "name": "WADCoin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jquery-3.6.0.js",
+  "dependencies": {
+    "firebase": "^9.1.3",
+    "jquery": "^3.6.0",
+    "videojs-youtube": "^2.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ameliatay/wadcoin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ameliatay/wadcoin/issues"
+  },
+  "homepage": "https://github.com/ameliatay/wadcoin#readme"
+}

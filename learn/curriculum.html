@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Video.js CDN -->
+    <link type="text/css" rel="stylesheet" href="../node_modules/video.js/dist/video-js.min.css" />
+
+    <!-- Import style.css -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <!-- VUEJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <!--Import popup-->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Import common files-->
+    <script src="../jquery-3.6.0.js"></script> 
+    <script>
+        $(document).ready(function(){
+           $('#header').load("../general/header.html");
+           $('#footer').load("../general/footer.html");
+        });
+     </script>
+
+    <script src = "../experience/functions.js"></script>
+
+     <style>
+        .navbarLink {
+            padding-left: 20px;
+            font-weight: 300;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            color: black;
+        }
+
+        .navbarLink:hover {
+            color:blue;
+            cursor: pointer;
+        }
+
+        .iframe-container{
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; 
+            height: 0;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .iframe-container iframe{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+     </style>
+    
+    <title>
+        WADCoin
+    </title>
+</head>
+<body>
+    <div id='header'></div>
+    <div id="app" class='customMargins'>
+        <div class='row'>
+            <div class="container m-0 p-0 col-12 " data-aos='fade-right'>
+                <div class='row mx-2'>
+                    <div class="col-md-8 p-4 order-2">
+                        <div class="row">
+                            <div class="col-6" >
+                                <div style='font-weight: bold; font-size: 30px;'>WADCoin's Modules</div>
+                                <div>Gain the skills needed from a structured curriculum!</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h4 id='sectionTitle'></h4>
+                        <h6 id='sectionDesc' class='fw-100'></h6>
+                        <div class='p-3 rounded-1 text-white' style='background-color: var(--darkblue);'>
+                            <h4>Module Overview</h4>
+                            <div>Title: <span id='modTitle'></span></div>
+                            <div>Description: <span id='modDesc' class='fw-100'></span></div>
+                        </div>
+                        <div id='media' class='iframe-container'>
+                            <div class="w-100 center" id='spinnerMedia'>
+                                <div class="spinner-border" role="status">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-4 p-4 order-1">
+                        <div id='contentpg' class="container-fluid p-4" style='border: 2px solid rgba(0, 0, 0, 0.849); border-radius: 5px'>
+                            <div class="w-100 center" id='spinnerContentPg'>
+                                <div class="spinner-border" role="status">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='footer'></div>
+    <script type='module' src='../index.js'></script>
+    <script type='module' src='curriculum_controller.js'></script>
+    <script type='module'>
+        import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+        const auth = getAuth();
+        onAuthStateChanged(auth, async (userDetails) => {
+            if (userDetails) {
+
+            } else {
+                //user is signed out
+            swal ({
+                title: "Log Out",
+                text: "Successfully logged out! You will be redirected to the login page.",
+                icon: "info",
+                closeOnClickOutside: false,
+            })
+            .then(function() {
+                window.location.href = '../auth/login.html'
+            })
+            }
+        })
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>

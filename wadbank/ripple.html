@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- API: Expires 27th Nov, max 100 calls each month -->
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+
+    <!-- Bootstrap CSS // BOOTSTRAP 5.1.0 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- VUEJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Import common files-->
+    <script src="../jquery-3.6.0.js"></script> 
+    <script>
+        $(document).ready(function(){
+           $('#header').load("../general/header.html");
+           $('#footer').load("../general/footer.html");
+        });
+     </script>
+     <script type='module' src='../index.js'></script>
+     <script src = "../experience/functions.js"></script>
+
+    <title>
+        Ripple
+    </title>
+</head>
+<body>
+    <div id='header'></div>
+    <div class="customMargins">
+    <div class="container-fluid m-0 p-4" data-aos='fade-right'>
+        <div style='font-weight: bold; font-size: 30px;'>XRP (Ripple)</div>
+        <div>A digital payment network</div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-8">
+                <div id="history">
+                    <h2>History:</h2>
+                    <p> XRP was developed by Ripple Labs, Inc. And while some people use the terms XRP and Ripple interchangeably, they are
+                        different. It was first released in 2012; it was co-founded by Chris Larsen and Jed McCaleb. Ripple's main process
+                        is a payment settlement asset exchange and remittance system, similar to the SWIFT system for international money
+                        and security transfers, which is used by banks and financial middlemen dealing across currencies. </p>
+                    </div>
+    
+                <div id="works">
+                    <h2>How it works:</h2>
+                    <p> The Ripple network does not run with a proof-of-work (PoW) system like bitcoin or a proof-of-stake (PoS) system like
+                        ADA. Instead, transactions rely on a consensus protocol in order to validate account balances and transactions on
+                        the system. The consensus works to improve the integrity of the system by preventing double-spending.</p>
+                    </div>
+    
+                <div id="mainfunctions">
+                    <h2>Main functions:</h2>
+                    <p> Ripple operates on an open-source and peer-to-peer decentralized platform that allows for a seamless transfer of
+                        money in any form, whether it's dollars, Yen, euros, or cryptocurrencies, like bitcoin. Ripple is a global payments
+                        network and counts major banks and financial services amongst its customers. XRP is used in its products to
+                        facilitate quick conversion between different currencies. You can buy XRP as an investment, as a coin to exchange
+                        for other cryptocurrencies, or as a way to finance transactions on Ripple.</p>
+                    </div>
+    
+                <div id="sources">
+                    <h2>Sources:</h2>
+                    <ul>
+                        <li style='overflow-wrap: break-word;'><a href="https://www.investopedia.com/terms/r/ripple-cryptocurrency.asp">https://www.investopedia.com/terms/r/ripple-cryptocurrency.asp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-4 p-4">
+                <div class="container-fluid p-4 overflow-auto bg-white" style='border: 2px solid rgba(0, 0, 0, 0.849); border-radius: 5px; max-height:40rem' id='newstracker'>
+                    <h3>Ripple News</h3>
+                    <hr style="color: black; margin-top: 0px;">
+                    <div v-for="news in newsArticles" >
+                            <div class="card my-3" >
+                                <img :src="news.image_url" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title" style="text-decoration: none;">{{news.title}}</h5>
+                                <p style="font-style: italic;">{{news.date}}</p>
+                                <p class="card-text">{{news.text}}</p>
+                                </div>
+                                <div class="card-body text-end">
+                                    <a :href="news.news_url" style="text-decoration: none;">Read more</a>
+                                    <!-- <a href="#" class="card-link">Another link</a> -->
+                                </div>
+                            </div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id='footer'></div>
+    <script type = "module">
+        import { collection, doc, setDoc, getDoc, getDocs, getFirestore, query, orderBy, deleteDoc } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+        import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+        const db = getFirestore();
+        const auth = getAuth();
+
+        onAuthStateChanged(auth, (userDetails) => {
+            if (userDetails) {
+                
+            } else {
+                //user is signed out
+                swal ({
+                    title: "Log Out",
+                    text: "Successfully logged out! You will be redirected to the login page.",
+                    icon: "info",
+                    closeOnClickOutside: false,
+                })
+                .then(function() {
+                    window.location.href = '../auth/login.html'
+                })
+            }
+        })
+    </script>
+
+    <script type = "text/javascript" src = "../config.js"></script>
+    <script>
+        var cryptoURL = 'https://cryptonews-api.com/api/v1?tickers=XRP&items=50&token=' + config.NEWS_TRACKER_KEY; //expires 27th Nov
+
+        const newstracker = Vue.createApp({
+            data() {
+                return {
+                    newsArticles: {
+                        // news1: {
+                        //     title: 'abc',
+                        //     image_url: '',
+                        //     news_url: '',
+                        //     date: "Thu, 14 Oct 2021 06:36:29 -0400"
+                        // }
+                    }
+                }
+            },
+            methods: {
+                getNews() {
+                    axios.get(cryptoURL, {})
+                    .then (response => {
+                        var dataList = response.data.data
+                        for (let i = 0; i < 30; i++) {
+                            var article = {};
+                            article.title = dataList[i].title;
+                            article.image_url = dataList[i].image_url;
+                            article.date = dataList[i].date.slice(0, 17);
+                            article.news_url = dataList[i].news_url;
+                            article.text = dataList[i].text;
+
+
+                            propDataName = "news" + String(i);
+                            this.newsArticles[propDataName] = article;
+                        }
+                        
+                    })
+                    .catch (error => {
+                    })
+                   
+                }
+            },
+            created() {
+                this.getNews();
+            }
+        })
+
+        const vm = newstracker.mount('#newstracker');
+
+    </script>
+    <!-- Bundled Bootstrap JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script> -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+
+</html>

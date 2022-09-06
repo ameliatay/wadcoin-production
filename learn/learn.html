@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Import style.css -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- VUEJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <!-- Import common files-->
+    <script src="../jquery-3.6.0.js"></script> 
+    <script>
+        $(document).ready(function(){
+           $('#header').load("../general/header.html");
+           $('#footer').load("../general/footer.html");
+        });
+     </script>
+
+    <script src = "../experience/functions.js"></script>
+
+     <style>
+         #searchBar {
+            border-radius: 25px;
+            border: 2px solid black;
+            padding: 20px; 
+            width: 200px;
+            height: 15px;    
+        }
+
+        .userPost:hover{
+            background-color: var(--darkbeige);
+        }
+     </style>
+    
+    <title>
+        WADCoin
+    </title>
+</head>
+<body>
+    <div id='header'></div>
+    <div class="customMargins">
+        <div class='row'>
+            <div class="container m-0 p-0 col-12" data-aos='fade-right'>
+                <div class='row mx-2'>
+                    <div class="col-md-8 p-4 order-1 order-md-0">
+                        <div class="row" style='margin-bottom: 30px;'>
+                            <div class="col-9" >
+                                <div style='font-weight: bold; font-size: 30px;'>Learn from the WADCoin Community</div>
+                                <div>Post questions and get answers from other experienced users!</div>
+                            </div>
+                            <div class="col-3" style='justify-content: center; align-items: center; display: flex;'>
+                                <a class="btn text-white fw-bold" style='background-color: var(--darkblue);' style='font-size: 20px;' href='make_post.html'>Make a Post</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-11 d-flex"><input type="text" id="searchBar" class='w-100' placeholder="Search for posts"/></div>
+                            <div class="col-1 p-0"><div class='h-100 center'><img src="../images/search.png" style='height: 30px;' class='center' id='searchBtn'></div></div>
+                        </div>
+                        <div class="row my-2" id='posts'>
+                            <div class="w-100 center my-5" id='spinner'>
+                                <div class="spinner-border" role="status">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-4 order-0 order-md-1">
+                        <div class="container-fluid p-4" style='border: 2px solid rgba(0, 0, 0, 0.849); border-radius: 5px'>
+                            <div style='font-weight: 200;'>Learn through Lessons</div>
+                            <h3>WADCoin's Modules</h3>
+                            <div>Here at WADcoin, we are committed to helping individuals from all backgrounds get started on learning about the intricacies of cryptocurrency trading. For those looking to solidify your foundations and knowledge, we have prepared modules for you to pick up the skill at your own pace!</div>
+                            <a class="btn btn-success my-3" href='curriculum.html'>Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='footer'></div>
+    <script type='module' src='../index.js'></script>
+    <script type='module' src='learn_controller.js'></script>
+    <script type='module'>
+        import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+        const auth = getAuth();
+        onAuthStateChanged(auth, async (userDetails) => {
+            if (userDetails) {
+
+            } else {
+                //user is signed out
+                swal ({
+                    title: "Log Out",
+                    text: "Successfully logged out! You will be redirected to the login page.",
+                    icon: "info",
+                    closeOnClickOutside: false,
+            })
+            .then(function() {
+                window.location.href = '../auth/login.html'
+            })
+            }
+        })
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>

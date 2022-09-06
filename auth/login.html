@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <script src="../jquery-3.6.0.js"></script> 
+    <!-- Bootstrap CSS // BOOTSTRAP 5.1.0 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- VUEJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <style>
+        body {
+            background-color: var(--darkbeige);
+            /* color: white; */
+            min-height: 100%
+        }
+        div {
+            color: black
+        }
+        table {
+            width: 100%
+        }
+        tr {
+            text-align: right;
+            /* height: 50px; */
+            /* padding: 20px; */
+            /* border: solid white !important; */
+        }
+
+        td {
+            padding: 10px;
+            /* border: solid white !important; */
+        }
+        
+        .vertical-center {
+            min-height: 75%;
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #registrationDetails {
+            width: 35%;
+            border-radius: 25px;
+            justify-content: left;
+            align-items: center;
+        }
+        .icon {
+            background: url('../images/g-logo.png') transparent 5px 50% no-repeat;
+            display: inline-flex;
+            vertical-align: middle;
+            width: 35px;
+            /* max-width:100%; */
+            /* width:auto; */
+            height: 35px;
+            object-fit: fill;
+            
+        }
+        .buttonText {
+            display: inline-block;
+            vertical-align: middle;
+            /* padding-left: 42px; */
+            padding-right: 12px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .errorDiv {
+            color:rgb(240, 65, 65);
+            text-align: right;
+        }
+
+        .container {
+            margin: 0;
+            padding: 0;
+            top:0;
+            left: 0;
+            width: 100%;
+            position: relative;
+        }
+        /* End of General Styles */
+
+        /* Page Background */
+        .bg {
+            /* The image used */
+            background-image: url("../images/cryptoBG.jpg");
+
+            /* Full height */
+            height: 100%; 
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: var(--lightbeige);
+            opacity: 0.8;
+        }
+        /* End of Page Background */
+
+        /* Navbar */
+        .top-bar{
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            z-index: 100;
+            margin: 0;
+        }
+
+        .navbar{
+            position: fixed;
+            top: 1.5rem;
+            width: 100%;
+            padding-right: 1rem;
+            z-index: 100;
+        }
+
+        .navbar-link{
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: black;
+            padding-left: 20px;
+            padding-right: 20px;
+        } 
+
+        a {
+            text-decoration: none;
+        }
+
+        .logo { 
+            position: fixed;
+            top:1rem;
+            left:1.5rem;
+            font-size: 2rem;
+            color:black;
+            z-index: 2000;
+        }
+        /* End of Navbar */
+    </style>
+    
+    <title>
+        Login
+    </title>
+</head>
+
+<body>
+    <!--Navigation-->
+    <div class = "container-fluid top-bar">
+        <div class="row">
+            <nav class="navbar navbar-expand-md navbar-light" style='background: var(--darkbeige); top:0; padding-top: 20px;' >
+                <a id = "wadcoin" class="text-black" href="../index.html#home-section"><h1>WADCoin</h1></a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="../index.html#home-section" class="navbar-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../index.html#our-mission" class="navbar-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../index.html#our-solution" class="navbar-link">Our Solution</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" class="navbar-link">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="registration.html" class="navbar-link">Sign Up</a>
+                        </li>
+                      </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!--End of Navigation-->
+
+
+    <div class="container-fluid d-flex align-items-center bg" style="position:relative; height:92vh;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-xs-0 col-xl-4"></div>
+            
+            <!-- login div begin -->
+            <div class="col p-4" style='background-color: var(--darkbeige);box-shadow: 2px 3px 5px black;' data-aos="zoom-in">
+                <!-- header -->
+                <p class='fw-bold text-center mt-3' scope="row" style="color:black; font-size: 30px;">Log In</p>
+                <!-- header end -->
+
+                <label for="email" class="col-md-3 col-sm-4 col-form-label" id='emailField'>Email</label>
+                <div class="col">
+                    <input type="email" class="form-control" id='email' >
+                </div>
+                <!-- email error div -->
+                <div id='emailError' style='opacity: 0' class='text-danger'>placeholder</div>
+
+                <label for="pw" class="col-md-3 col-sm-4 col-form-label">Password</label>
+                <div class="col">
+                    <input type="password" class="form-control" id='pw'>
+                </div>
+                <!-- pw error div -->
+                <div id='pwError' style='opacity: 0' class='text-danger'>placeholder</div>
+
+                <div class="row mb-3 g-3">
+                    <div class="col text-end">
+                        <button type="button" class="btn btn-primary" id='login'>Login</button>
+                    </div>
+                </div>
+            </div>
+            <!-- login div end -->
+
+            <div class="col-sm-3 col-xs-0 col-xl-4"></div>
+    </div>
+</div>
+    
+    <!-- Import common files-->
+    <script type='module' src='../index.js'></script>
+    <!-- Bundled Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>  
+    <script type="module">
+
+    import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+
+    const auth = getAuth();
+
+
+    var loginButt = document.getElementById('login');
+        loginButt.addEventListener('click', function() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('pw').value;
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    if (user) {
+                        window.location.href = "../experience/coinspage.html"
+                    }
+                })
+                .catch((error) => {
+                    //reset error codes
+                    document.getElementById('emailError').setAttribute('style', 'opacity:0')
+                    document.getElementById('pwError').setAttribute('style', 'opacity:0')
+                    document.getElementById('emailError').innerText = 'placeholder';
+                    document.getElementById('pwError').innerText = 'placeholder';
+                    //rese error codes end
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+
+                    if (errorCode == 'auth/user-not-found') {
+                        swal ({
+                            title: "Login",
+                            text: "User not found.",
+                            icon: "error",
+                            closeOnClickOutside: false,
+                        })
+                    }
+                   
+                    if (errorCode == 'auth/invalid-email') {
+                        document.getElementById('emailError').setAttribute('style', 'opacity:100')
+                        document.getElementById('emailError').innerText = "Invalid email"
+                    }
+                    
+                    if (errorCode == 'auth/wrong-password') {
+                        document.getElementById('pwError').setAttribute('style', 'opacity:100')
+                        document.getElementById('pwError').innerText = 'Wrong password'
+                    }
+
+                    if (errorCode == 'auth/internal-error') {
+                        document.getElementById('pwError').setAttribute('style', 'opacity:100')
+                        document.getElementById('pwError').innerText = 'Password must be entered'
+                    }
+                });
+  
+        })
+    
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            window.location.href = "../experience/coinspage.html"
+        }
+        else {
+            //user is signed out
+        }
+    });
+
+
+    </script>  
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- API: Expires 27th Nov, max 100 calls each month -->
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+
+    <!-- Bootstrap CSS // BOOTSTRAP 5.1.0 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- VUEJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Import common files-->
+    <script src="../jquery-3.6.0.js"></script> 
+    <script>
+        $(document).ready(function(){
+           $('#header').load("../general/header.html");
+           $('#footer').load("../general/footer.html");
+        });
+     </script>
+     <script type='module' src='../index.js'></script>
+     <script src = "../experience/functions.js"></script>
+    <title>
+        Ethereum
+    </title>
+</head>
+<body>
+    <div id='header'></div>
+    <div class="customMargins">
+    <div class="container-fluid m-0 p-4" data-aos='fade-right'>
+        <div style='font-weight: bold; font-size: 30px;'>Ethereum</div>
+        <div>The world's programmable blockchain</div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-8">
+                <div id="history">
+                    <h2>History:</h2>
+                    <p> Ethereum was conceived in 2013 by programmer Vitalik Buterin. In 2014, development work commenced and was
+                        crowdfunded, and the network went live on 30 July 2015. The platform allows anyone to deploy permanent and immutable
+                        decentralized applications onto it, with which users can interact. Decentralized finance (DeFi) applications provide
+                        a broad array of financial services without the need for typical financial intermediaries like brokerages,
+                        exchanges, or banks, such as allowing cryptocurrency users to borrow against their holdings or lend them out for
+                        interest. </p>
+                        <p>It’s still a very young platform, but its potential and applications could be limitless. Ethereum’s
+                        infrastructure was enhanced over the last few years when it was challenged with security issues and since it’s less
+                        monopolistic than Bitcoin, it is more open to reform measures that might ultimately make it a superior solution to
+                        Bitcoin.</p>
+                    </div>
+    
+                <div id="works">
+                    <h2>How it works:</h2>
+                    <p> Ether (ETH), the native Ethereum currency, was developed as a form of payment on the Ethereum platform. Ether was
+                        the number two virtual currency, behind Bitcoin. It is also generated using a proof-of-work system. However, unlike
+                        Bitcoin, there is no limit to the number of ETHs that can be created. Ethereum was created to enable developers to
+                        build and publish smart contracts and distributed applications (dApps) that can be used without the risks of
+                        downtime, fraud, or interference from a third party.</p>
+                        <p>
+                        It distinguishes itself from Bitcoin as a programmable network that serves as a marketplace for financial services,
+                        games, and apps, all of which can be paid for in Ether cryptocurrency and are safe from fraud, theft, or censorship.
+                        </p>
+                    </div>
+    
+                <div id="mainfunctions">
+                    <h2>Main functions:</h2>
+                    <p> Ethereum has helped fuel many initial coin offerings, since many of the ICOs used Ethereum blockchain. Ethereum has
+                        also been behind the boom in non-fungible tokens (NFTs) — digital versions of art or collectibles that are linked to
+                        a blockchain and made one-of-a-kind. </p>
+                    </div>
+    
+                <div id="sources">
+                    <h2>Sources:</h2>
+                    <ul>
+                        <li style='overflow-wrap: break-word;'><a href="https://www.investopedia.com/terms/e/ethereum.asp">https://www.investopedia.com/terms/e/ethereum.asp</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-4 p-4">
+                <div class="container-fluid p-4 overflow-auto bg-white" style='border: 2px solid rgba(0, 0, 0, 0.849); border-radius: 5px; max-height:50rem' id='newstracker'>
+                    <h3>Ethereum News</h3>
+                    <hr style="color: black; margin-top: 0px;">
+                    <div v-for="news in newsArticles" >
+                            <div class="card my-3" >
+                                <img :src="news.image_url" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title" style="text-decoration: none;">{{news.title}}</h5>
+                                <p style="font-style: italic;">{{news.date}}</p>
+                                <p class="card-text">{{news.text}}</p>
+                                </div>
+                                <div class="card-body text-end">
+                                    <a :href="news.news_url" style="text-decoration: none;">Read more</a>
+                                    <!-- <a href="#" class="card-link">Another link</a> -->
+                                </div>
+                            </div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id='footer'></div>
+
+<script type = "module">
+    import { collection, doc, setDoc, getDoc, getDocs, getFirestore, query, orderBy, deleteDoc } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+    import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+    const db = getFirestore();
+    const auth = getAuth();
+
+    onAuthStateChanged(auth, (userDetails) => {
+        if (userDetails) {
+            
+        } else {
+            //user is signed out
+            swal ({
+                title: "Log Out",
+                text: "Successfully logged out! You will be redirected to the login page.",
+                icon: "info",
+                closeOnClickOutside: false,
+            })
+            .then(function() {
+                window.location.href = '../auth/login.html'
+            })
+        }
+    })
+</script>
+
+<script type = "text/javascript" src = "../config.js"></script>
+<script>
+        var cryptoURL = 'https://cryptonews-api.com/api/v1?tickers=ETH&items=50&token=' + config.NEWS_TRACKER_KEY; //expires 27th Nov
+
+        const newstracker = Vue.createApp({
+            data() {
+                return {
+                    newsArticles: {
+                        // news1: {
+                        //     title: 'abc',
+                        //     image_url: '',
+                        //     news_url: '',
+                        //     date: "Thu, 14 Oct 2021 06:36:29 -0400"
+                        // }
+                    }
+                }
+            },
+            methods: {
+                getNews() {
+                    axios.get(cryptoURL, {})
+                    .then (response => {
+                        var dataList = response.data.data
+                        for (let i = 0; i < 30; i++) {
+                            var article = {};
+                            article.title = dataList[i].title;
+                            article.image_url = dataList[i].image_url;
+                            article.date = dataList[i].date.slice(0, 17);
+                            article.news_url = dataList[i].news_url;
+                            article.text = dataList[i].text;
+
+
+                            propDataName = "news" + String(i);
+                            this.newsArticles[propDataName] = article;
+                        }
+                        
+                    })
+                    .catch (error => {
+                    })
+                   
+                }
+            },
+            created() {
+                this.getNews();
+            }
+        })
+
+        const vm = newstracker.mount('#newstracker');
+
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+
+</html>

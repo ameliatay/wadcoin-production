@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS // BOOTSTRAP 5.1.0 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- VUEJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="../experience/functions.js"></script>
+
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            background-color: var(--darkbeige);
+            /* color: black; */
+            height: 100%
+        }
+        div {
+            color: black
+        }
+        table {
+            width: 100%
+        }
+        tr {
+            text-align: right;
+        }
+
+        td {
+            padding: 10px;
+        }
+        
+        .vertical-center {
+            min-height: 75%;
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #registrationDetails {
+            width: 35%;
+            border-radius: 25px;
+            justify-content: left;
+            align-items: center;
+        }
+
+        #googleSignIn {
+            display: inline-block;
+            background: black;
+            color: #444;
+            width: 190px;
+            border-radius: 5px;
+            border: thin solid #888;
+            box-shadow: 1px 1px 1px grey;
+            black-space: nowrap;
+        }
+
+        #googleSignIn :hover{
+            cursor:pointer;
+        }
+
+        .icon {
+            background: url('g-logo.png') transparent 5px 50% no-repeat;
+            display: inline-flex;
+            vertical-align: middle;
+            width: 42px;
+            /* max-width:100%; */
+            /* width:auto; */
+            height: 42px;
+            object-fit: fill;
+            
+        }
+        
+        .buttonText {
+            display: inline-block;
+            vertical-align: middle;
+            /* padding-left: 42px; */
+            /* padding-right: 42px; */
+            font-size: 14px;
+            font-weight: bold;
+            /* Use the Roboto font that is loaded in the <head> */
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #profilePic {
+            width: 150px;
+            height: 150px
+        }
+
+        input:disabled {
+            background-color: black;
+        }
+        /* Page Background */
+        .bg {
+            /* The image used */
+            background-image: url("../images/cryptoBG.jpg");
+
+            /* Full height */
+            height: 100%; 
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: var(--lightbeige);
+            opacity: 0.8;
+        }
+        /* End of Page Background */
+    </style>
+    
+    <title>
+        Profile
+    </title>
+    
+    <script >
+    
+    </script>
+
+</head>
+
+<body>
+    <div id='header'></div>
+<div class="container-fluid bg" style='height: 92vh;'>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg p-5" style='background-color: var(--darkbeige);box-shadow: 2px 3px 5px black; margin-top: 100px;' data-aos="zoom-in">
+
+            <div class="row mb-3 justify-content-center">
+                <img src="../images/guest.png" id="profilePic">
+            </div>
+            <div class="row mb-3 g-3">
+                <div class="col text-center">
+                    <button type="button" class="btn btn-primary" id='editPic'>Edit picture</button>
+                    <button type="button" class="btn btn-danger" id='remove' style='display:none'>Remove picture</button>
+                    <button type="button" class="btn btn-danger" id='cancel' style='display:none'>Cancel</button>
+                </div>
+            </div>
+
+            <!-- upload display picture fields -->
+            <div class="row mb-3 g-3" id='uploadFields' style='display:none'>
+                <div class="col-md-9 col-7" >
+                    <input class="form-control mx-auto" type="file" id="choosePic" accept="image/*">
+                </div>
+                <div class="col-md-3 col-5">
+                    <button type="button" class="btn btn-success" id='uploadPic'>Confirm upload</button>
+                </div>
+            </div>
+            <!-- upload display picture end -->
+
+            <div class="row mb-3 g-3">
+                <label for="email" class="col-sm-2 col-form-label fw-bold" id='emailField'>Email</label>
+                <div class="col-sm-8 col-10">
+                  <input type="email" class="form-control" id='email' disabled>
+                </div>
+                <div class="col">
+                    <button type='button' class="btn btn-outline-dark px-1 py-0" id='changeEmail'><i class="bi bi-pencil-square " style="font-size: 1.5rem"></i></button>
+                    
+                </div>
+              </div>
+
+              <!-- reauth fields for change email -->
+            <div class="row mb-3 g-3 reauth" style="display:none">
+                <label for="oldEmail" class="col-sm-2 col-form-label fw-bold">Old email</label>
+                <div class="col-sm-8 col-10">
+                  <input type="email" class="form-control" id='oldEmail'>
+                </div>
+            </div>
+            <div class="row mb-3 g-3 reauth" style="display:none">
+                <label for="password" class="col-sm-2 col-form-label fw-bold">Password</label>
+                <div class="col-sm-8 col-10">
+                  <input type="password" class="form-control" id='password'>
+                </div>
+                <div class="col">
+                    <button type='button' id='confirmEmail' class="btn btn-success" style="display:none">Confirm</button>
+                </div>
+            </div>
+            <!-- reauth fields end -->
+
+              <div class="row mb-3 g-3">
+                <label for="displayName" class="col-sm-2 col-xs-0 col-form-label fw-bold">Display name</label>
+                <div class="col-sm-8 col-10">
+                  <input type="text" class="form-control" id='displayName' disabled>
+                </div>
+                <div class="col" style="height: 50px">
+                    <button type='button' class="btn btn-outline-dark px-1 py-0" id='changeDisplay'><i class="bi bi-pencil-square " style="font-size: 1.5rem"></i></button>
+                    <button type='button' class="btn btn-success" id='confirmName' style="display:none">Confirm</button>
+                </div>
+              </div>
+
+            <div class="row mb-3 g-3">
+                <div class="col text-end">
+                    <a href="changepw.html">
+                        <button type="button" class="btn btn-primary me-2" id='resetPW'>Change Password</button>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="delete.html">
+                        <button type="button" class="btn btn-danger " id='deleteAcc'>Delete Account</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+        
+        
+        <!-- Import common files-->
+        <script type='module' src='../index.js'></script>
+        <script src="../jquery-3.6.0.js"></script> 
+        <script>
+            $(document).ready(function(){
+               $('#header').load("../general/header.html");
+            });
+         </script>
+         <script type="module">
+    
+        import { getAuth, signOut, onAuthStateChanged,  GoogleAuthProvider, signInWithPopup, updateProfile, updateEmail, reauthenticateWithCredential, EmailAuthProvider, reauthenticateWithPopup } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+        import { getStorage, ref, getDownloadURL, uploadBytes, deleteObject } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-storage.js";
+        import { collection, doc, setDoc, getDoc, getFirestore, query, where, getDocs, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+
+        const auth = getAuth();
+        const storage = getStorage();
+        const db = getFirestore();
+        globalThis.gotPicture = false;
+
+        var user_id = '';
+        var displayName = document.getElementById('displayName');
+        var email = document.getElementById('email');
+        onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            user_id = user.uid
+            globalThis.docRef = doc(db, "users", `${user_id}`);
+            const docSnap = await getDoc(docRef);
+            const pictureBool = docSnap.data().profilePic;
+            if (pictureBool) {
+                gotPicture = true;
+                getDownloadURL(ref(storage, 'users/' + user_id + '/profile.jpg')).then((url) => {
+                    profilePic.src = url;
+                }).catch((error) => {})
+            }
+
+            if (user.displayName == null) {
+                displayName.value = user.email
+                let userName = user.email
+                let index = userName.indexOf('@');
+                displayName.value = userName.slice(0, index);
+                // displayName.setAttribute('placeholder', user.email) 
+            }
+            else {
+                displayName.value = user.displayName;
+            }
+
+            email.value = user.email;
+        }
+        else {
+            //user is signed out
+            swal ({
+                title: "Log Out",
+                text: "Successfully logged out! You will be redirected to the login page.",
+                icon: "info",
+                icon: "info",
+                closeOnClickOutside: false,
+            })
+            .then(function() {
+                window.location.href = '../auth/login.html'
+            })
+        }
+    });
+
+    //************************************************************************
+    //UPLOAD PROFILE PICTURE 
+    //************************************************************************
+
+    //edit picture button functions
+    document.getElementById('editPic').addEventListener('click', function() {
+        document.getElementById('uploadFields').style = 'display:flex';
+        document.getElementById('cancel').style='display:inline-block';
+        document.getElementById('editPic').style = 'display: none'
+        if (gotPicture) {
+            document.getElementById('remove').style='display:inline-block';
+        }
+    })
+
+    document.getElementById('cancel').addEventListener('click', function() {
+        document.getElementById('uploadFields').style = 'display:none';
+        document.getElementById('cancel').style='display:none';
+        document.getElementById('remove').style='display:none';
+        document.getElementById('editPic').style = 'display: inline-block'
+    })  
+    //edit picture button functions end
+
+    let file = {};
+    function chooseFile(e) {
+        file = e.target.files[0];
+    }
+
+    async function changePicBool(bool) {
+        
+        if (bool) {
+            setDoc(docRef, { profilePic: true }, { merge: true });
+        } else {
+            setDoc(docRef, { profilePic: false }, { merge: true });
+        }
+    }
+
+    function uploadPicture() {
+        let storageRef = ref(storage, 'users/' + user_id + '/profile.jpg');
+        changePicBool(true)
+        uploadBytes(storageRef, file).then((snapshot) => {
+            swal ({
+                title: "Upload Profile Picture",
+                text: "Picture successfully uploaded",
+                icon: "success",
+                closeOnClickOutside: false,
+            })
+            .then(function() {
+                window.location.reload(true);
+            })
+        })
+        .catch(error => {
+        })
+    }
+
+    var choosePic = document.getElementById('choosePic');
+    choosePic.addEventListener('change', chooseFile);
+
+    var uploadPic = document.getElementById('uploadPic');
+    uploadPic.addEventListener('click', (e) => {
+        if (choosePic.value != "") {
+            uploadPicture()
+        } else {
+            swal ({
+                title: "Upload Profile Picture",
+                text: "Please choose a file!",
+                icon: "error",
+                closeOnClickOutside: false,
+            })
+        }
+    });
+
+    document.getElementById('remove').addEventListener('click', (e) => {
+        const storageRef = ref(storage, 'users/' + user_id + '/profile.jpg');
+        changePicBool(false)
+        deleteObject(storageRef).then(() => {
+            swal ({
+                title: "Delete Profile Picture",
+                text: "Picture successfully deleted",
+                icon: "success",
+                closeOnClickOutside: false,
+            })
+            .then(function() {
+                window.location.reload(true);
+            })
+        }).catch((error) => {
+            swal ({
+                title: "Delete Profile Picture",
+                text: "Something went wrong. Please try again later!",
+                icon: "error",
+                closeOnClickOutside: false,
+            })
+        });
+    })
+
+    var profilePic = document.getElementById('profilePic');
+
+    //************************************************************************
+    //CHANGE DISPLAY NAME BUTTON FUNCTIONS
+    //************************************************************************
+
+    var changeNameButt = document.getElementById('changeDisplay');
+    var confirmNameButt = document.getElementById('confirmName');
+
+    changeNameButt.addEventListener('click', function() {
+        displayName.disabled = false;
+        changeNameButt.style = "display: none";
+        confirmNameButt.style = "display: inline-block"
+
+        swal ({
+            title: "Change Display Name",
+            text: "Please enter a new display name",
+            icon: "info",
+            closeOnClickOutside: false,
+        })
+    })
+
+    confirmNameButt.addEventListener('click', function() {
+        // update user auth
+        confirmNameButt.style = "display: none";
+        changeNameButt.style = "display: inline-block";
+        displayName.disabled = true;
+
+        if (displayName.value == "" || displayName.value.length == 0) {
+            swal ({
+                title: "Error",
+                text: "Display name cannot be empty",
+                icon: "error",
+                closeOnClickOutside: false,
+            })
+
+            displayName.disabled = false;
+            changeNameButt.style = "display: none";
+            confirmNameButt.style = "display: inline-block"
+
+        } else {
+            updateProfile(auth.currentUser, {
+                displayName: displayName.value
+            }).then(() => {
+            })
+            .catch(error => {
+            })
+            
+            //update user doc "name" field
+            const userRef = doc(db, "users", user_id);
+            updateDoc(userRef, {
+                name: displayName.value
+            })
+        }
+
+
+    })
+
+    //*****************************************************************
+    //CHANGE EMAIL BUTTON FUNCTIONS
+    //*****************************************************************
+    var changeEmailButt = document.getElementById('changeEmail');
+    var confirmEmailButt = document.getElementById('confirmEmail');
+
+    changeEmailButt.addEventListener('click', function() {
+        email.disabled = false;
+        changeEmailButt.style = "display: none";
+        confirmEmailButt.style = "display: inline-block"
+        document.getElementById('emailField').innerText = 'New Email'
+        document.getElementById('email').value = '';
+
+        swal ({
+            title: "Change Email",
+            text: "Please re-enter your old email and password to change your email",
+            icon: "info",
+            closeOnClickOutside: false,
+        })
+        
+
+        //display reauth fields
+        let reauthFields = document.getElementsByClassName('reauth');
+        for (let i = 0; i< reauthFields.length; i++) {
+            reauthFields[i].style="display: flex";
+        }
+    })
+
+    confirmEmailButt.addEventListener('click', function() {
+        confirmEmailButt.style = "display: none";
+        changeEmailButt.style = "display: inline-block";
+        email.disabled = true;
+        var newEmail = email.value
+
+        const user = auth.currentUser;
+        let oldEmail = document.getElementById('oldEmail').value;
+        let password = document.getElementById('password').value;
+        const credential = EmailAuthProvider.credential(oldEmail, password);
+            
+        reauthenticateWithCredential(user, credential)
+        
+        .then(() => {
+            //user re-authenticated
+            updateEmail(auth.currentUser, newEmail)
+
+            .then(() => {
+                //email updated
+                email.value = newEmail;
+            })
+            .catch(error => {
+            })
+
+            //update user doc 'email' field
+            const userRef = doc(db, "users", user_id);
+
+            updateDoc(userRef, {
+                email: email.value
+            })
+        
+            .then(() => {
+                swal ({
+                    title: "Change Email",
+                    text: "Email successfully changed",
+                    icon: "success",
+                    closeOnClickOutside: false,
+                })
+            })
+        })
+        .catch(error => {
+            //user not re-authenticated
+            email.value = user.email;
+            swal ({
+                title: "Change Email",
+                text: "Old email/password entered was wrong. Please try again.",
+                icon: "error",
+                closeOnClickOutside: false,
+            })
+        })
+
+        // reset fields
+        let reauthFields = document.getElementsByClassName('reauth');
+        for (let i = 0; i< reauthFields.length; i++) {
+            reauthFields[i].style="display: none";
+        }
+        document.getElementById('oldEmail').value = '';
+        document.getElementById('password').value = '';
+        document.getElementById('emailField').innerText = 'Email'
+        
+    })
+</script>    
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+
+</html>

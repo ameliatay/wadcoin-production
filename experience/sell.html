@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+	<!-- Axios -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+	<!-- Import style.css -->
+	<link rel="stylesheet" href="../style.css">
+
+    <!-- Vue 3: development -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+	<!-- Import database data -->
+	<script type="module" src="../index.js"></script>
+
+	<script type = "text/javascript" src = "../config.js"></script>
+	
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<!--Import popup-->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+
+	<!-- Import common files-->
+	<script src="../jquery-3.6.0.js"></script> 
+	<script>
+		$(document).ready(function(){
+			$('#header').load("../general/header.html");
+			$('#footer').load("../general/footer.html");
+		});
+	</script>
+
+	<title>Sell Crypto</title>
+</head>
+
+<body>
+	<div id='header'></div>
+	<div class="customMargins">
+
+	
+	<div class="w-100 center my-5" id='spinner'>
+		<div class="spinner-border" role="status">
+			<span class="sr-only"></span>
+		</div>
+	</div>
+	<div class="container-fluid d-none" id = "sell-container-main" data-aos='fade-right'>
+		<div class="row my-3">
+			<div class="col text-center">
+				<h2>Sell</h2>
+			</div>
+		</div>
+		<div class="row mx-5">
+			<div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-md-start justify-content-center">
+				<h4 id = "wallet">Wallet: ${{formattedUserWallet}} </h4>
+			</div>
+			<div class = "col-lg-6 col-md-6 col-sm-12 d-flex justify-content-md-end justify-content-center">
+				<a href= 'coinspage.html' id = "buy-sell-page-btn" class='btn text-white active me-1 fw-bold ' style='background-color: var(--darkblue);'>Main Page</a>
+				<a href= 'buy.html' id = "buy-sell-page-btn" class='btn btn-success active ms-1' >Buy</a>
+			</div>
+		</div>
+		<div class = "row mx-5 mt-3">
+			<div class = "col-lg-6">
+				<div>
+					<h4 class = "text-center">Enter Details</h4>
+				</div>
+                <div class = "row">
+                    <div class = "col-8">
+                        <div>
+                            <label for="select-crypto" class="form-label"><h5>Cryptocurrency</h5></label>
+                            <select id = "select-crypto" class="form-select form-select-md mb-3" aria-label=".form-select-md example" v-model="selectCrypto">
+                                <option selected value = "">Select Crypto</option>
+                                <option value = "BTC">Bitcoin</option>
+                                <option value = "ETH">Ethereum</option>
+								<option value = "XRP">XRP</option>
+								<option value = "LTC">Litecoin</option>
+								<option value = "ADA">Cardano</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class = "col-4">
+                        <!-- Button to view selected crypto info -->
+                        <button id = "viewDetails" class="btn text-dark fw-bold" style='background-color: var(--lightblue);' onclick = "viewDetails()">View Details</button>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "col-8">
+                        <div id = "sell-option">
+                            <h5>Select method:</h5>
+                            
+                            <label for = "sell-option-qty" >Quantity</label>
+                            <input id = "sell-option-qty" class = "ms-2" type = "radio" value = "sell-option-qty" name = "sell-method" checked v-model = "sellMethod"> 
+        
+                            <label for = "sell-option-percent" class = "ms-3">Percentage</label>
+                            <input id = "sell-option-percent" class = "ms-2 mb-3" type = "radio" value = "sell-option-percent" name = "sell-method" v-model = "sellMethod"> 
+                        </div>
+        
+                        <div id ="sell-qty" v-if="sellMethodqty">
+                            <label for="sell-qty-input" class="form-label">Quantity</label>
+                            <input type="number" id="sell-qty-input" class="form-control" aria-describedby="sell-desc" v-model="qtyInput" v-on:input="checkQuantity">
+							<div id="sell-help-text" class="form-text">
+                                Quantity can be in integers (8) or decimals (8.88)
+                            </div>
+                        </div>
+        
+                        <div id = "sell-percent" v-else>
+                            <label for="sell-percent-input" class="form-label">Percentage (%)</label>
+                            <input type="number" id="sell-percent-input" class="form-control" aria-describedby="sell-desc" v-model="percentInput" v-on:input="checkPercent">
+							<div id="sell-help-text" class="form-text">
+                                Percentage should be in integers
+                            </div>
+                        </div><br>
+                    </div>
+                    <div class = "col-4">
+                        <!-- Initial empty div that will be invoked based on percent / quantity input -->
+                        <div id = "check-sell-input">
+                        </div>
+                    </div>
+                </div>
+
+				<div id = "sell">
+					<button id = "sell-btn" class="btn btn-outline-danger" v-on:click = "makeSale">Sell</button>
+					<div id = "check-sell" class = "mt-2"></div>
+				</div>
+
+				<!-- Initially empty div but content will appear after sell botton has been pressed -->
+				<div id = "sell-confirm"></div>
+
+				<!-- Button will appear after makeSale is invoked -->
+				<!-- Button cannot be added via DOM as attribute v-on:click cannot be set via document.setAttribute -->
+				<button id = "confirm-sell-button" class = "btn btn-primary" v-on:click = "confirmSale" hidden>Confirm</button>
+			</div>
+			 
+			<!-- Intially empty info-list that will be populated after viewDetails button has been pressed -->
+			<div class = "col-lg-6">
+				<div>
+					<h4 class = "text-center">Cryptocurrency Information
+						<span>
+							<svg id = "info-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" style= "cursor:pointer" class="bi bi-info-circle" viewBox="0 0 16 16" onclick="infoPopUp()">
+								<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+								<path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+							</svg>
+						</span>
+					</h4>
+				</div>
+				<div id = "buy-info">
+					<p id = "info-msg" style='background-color: var(--dirt);' class = "mt-5 p-2 text-center text-white border w-50">Select a cryptocurrency on the left before clicking on 'View Details' button to view its information.</p>
+
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	</div>
+	<div id='footer'></div>
+	<!-- Import external js files -->
+	<script src="functions.js"></script>  
+
+	<!-- Import Firebase Data -->
+	<script type = "module">
+
+        import { collection, doc, setDoc, getDoc, getFirestore, query, where, getDocs, deleteDoc } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+        import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+
+        // STEP TWO: Initialise the services you need
+        const db = getFirestore();
+        const auth = getAuth();
+
+		onAuthStateChanged(auth, async (userDetails) => {
+            if (userDetails) {
+
+				// Retrieve current data
+				const docRef = doc(db, "users", userDetails.uid);
+				const docSnap = await getDoc(docRef);
+
+				if (docSnap.exists()) {
+					var user = docSnap.data();
+					var userWallet = parseFloat(user.wallet);
+				}
+
+				const sellPage = Vue.createApp({
+					data() {
+						return {
+							user: user,
+							userWallet: userWallet,
+							qtyInput: "",
+							percentInput: "",
+							selectCrypto: "",
+							sellMethod: "sell-option-qty",
+							rocket: this.true
+						}
+					},
+
+					methods: {
+						checkPercent() {
+							if (document.getElementById("sell-percent-error")) {
+								document.getElementById("sell-percent-error").remove()
+							}
+							if (document.getElementById("sell-percent-success")) {
+								document.getElementById("sell-percent-success").remove()
+							}
+							if (document.getElementById("sell-qty-error")) {
+								document.getElementById("sell-qty-error").remove()
+							}
+							if (document.getElementById("sell-qty-success")) {
+								document.getElementById("sell-qty-success").remove()
+							}
+							
+							var cryptoSymbol = this.selectCrypto;
+							var percent = this.percentInput;
+							var checkSell = document.getElementById("check-sell-input");
+							var newNode = document.createElement("p");
+
+							// If number is an integer
+
+							if (cryptoSymbol !== "") {
+								if (percent !== "") {
+									
+									if (Object.keys(this.user.current).includes(cryptoSymbol)) {
+										percent = parseFloat(percent);
+			
+										// Percent must be within 0 and 100
+										if (percent <= 0 || percent > 100) {
+											newNode.id = "sell-percent-error";
+											var textNode = document.createTextNode("Percentage must be > 0 and <= 100");
+											newNode.appendChild(textNode);
+											checkSell.appendChild(newNode);
+											return false
+										}
+									
+										else if (Number.isInteger(percent)) {
+											newNode.id = "sell-percent-success";
+											newNode.setAttribute("class", "mt-5")
+											var textNode = document.createTextNode("Percentage entered is valid");
+											newNode.appendChild(textNode);
+											checkSell.appendChild(newNode);
+											return true
+										}
+										else {
+											newNode.id = "sell-percent-error";
+											var textNode = document.createTextNode("Percentage entered is not an integer");
+											newNode.appendChild(textNode);
+											checkSell.appendChild(newNode);
+											return false
+										}
+									}	
+									else {
+										newNode.id = "sell-percent-error";
+										var textNode = document.createTextNode("You do not own any of the cryptocurrency selected");
+										newNode.appendChild(textNode);
+										checkSell.appendChild(newNode);
+										return false
+									}
+								}
+							}
+						},
+						
+						checkQuantity() {
+							if (document.getElementById("sell-qty-error")) {
+								document.getElementById("sell-qty-error").remove()
+							}
+							if (document.getElementById("sell-qty-success")) {
+								document.getElementById("sell-qty-success").remove()
+							}
+							if (document.getElementById("sell-percent-error")) {
+								document.getElementById("sell-percent-error").remove()
+							}
+							if (document.getElementById("sell-percent-success")) {
+								document.getElementById("sell-percent-success").remove()
+							}
+
+							var cryptoSymbol = this.selectCrypto;
+							var qtyInput = this.qtyInput;
+							
+							// Ensure that crypto has been selected
+							if (cryptoSymbol !== "") {
+
+								// This if is needed to prevent invoking id = error when the user backspaces all his inputs
+								if (qtyInput !== "") {
+									qtyInput = parseFloat(qtyInput);
+									var checkSell = document.getElementById("check-sell-input");
+									var newNode = document.createElement("p");
+
+									var userCurrent = this.user.current
+									
+									// If user has holdings of the current crypto selected
+									if (Object.keys(userCurrent).includes(cryptoSymbol)) {
+
+										var userCurrQty = userCurrent[cryptoSymbol].quantity;
+
+										if (qtyInput <= 0) {
+											newNode.id = "sell-qty-error";
+											newNode.setAttribute("class", "mt-5")
+											var textNode = document.createTextNode("Quantity must be more than 0");
+											newNode.appendChild(textNode); 
+											checkSell.appendChild(newNode);
+											return false
+										}
+			
+										// If user has enough Quantity
+										else if (qtyInput <= userCurrQty) {
+											newNode.id = "sell-qty-success";
+											newNode.setAttribute("class", "mt-5")
+											var textNode = document.createTextNode("Quantity entered is valid");
+											newNode.appendChild(textNode);
+											checkSell.appendChild(newNode);
+											return true
+										}
+										else {
+											newNode.id = "sell-qty-error";
+											newNode.setAttribute("class", "mt-5")
+											var textNode = document.createTextNode("Quantity entered is too large");
+											newNode.appendChild(textNode); 
+											checkSell.appendChild(newNode);
+											return false
+										}
+									}
+									// User does not have any holdings on the current coin
+									else {
+										newNode.id = "sell-qty-error";
+										newNode.setAttribute("class", "mt-5")
+										var textNode = document.createTextNode("You do not own any of the cryptocurrency selected");
+										newNode.appendChild(textNode); 
+										checkSell.appendChild(newNode);
+										return false
+									}
+								}
+							}
+						},
+
+						makeSale() {
+							document.getElementById("confirm-sell-button").setAttribute("hidden", "true")
+							document.getElementById("sell-btn").disabled = true
+
+							// Remove prompt texts if any
+							if (document.getElementById("sell-confirm-content")) {
+								document.getElementById("sell-confirm-content").remove();
+							}
+							if (document.getElementById("check-sell-error")) {
+								document.getElementById("check-sell-error").remove();
+							}
+
+							document.getElementById("check-sell").innerText = "";
+
+							var cryptoSymbol = this.selectCrypto;
+							var qty = this.qtyInput;
+							var percent = this.percentInput;
+
+							// If user has not entered an qty / percent or selected a crypto
+							if ((qty == "" && percent == "") || cryptoSymbol == "") {
+								var newNode = document.createElement("p");
+								newNode.id = "check-sell-error"
+								var textNode = document.createTextNode("Please select a cryptocurrency and fill in either an quantity or percent correctly before clicking 'Sell'");
+								newNode.appendChild(textNode);
+								document.getElementById("check-sell").appendChild(newNode);
+								document.getElementById("sell-btn").disabled = false
+								return
+							}
+
+							// If user enters qty and qty input fails checkQuantity
+							if (percent == "" && !sellPage.checkQuantity()) {
+								var newNode = document.createElement("p");
+								newNode.id = "check-sell-error"
+								var textNode = document.createTextNode("The quantity you entered is invalid. Please input a new quantity");
+								newNode.appendChild(textNode);
+								document.getElementById("check-sell").appendChild(newNode);
+								document.getElementById("sell-btn").disabled = false
+								return
+							}
+
+							// If user enters percent and percent input fails checkPercent
+							if (qty == "" && !sellPage.checkPercent()) {
+								var newNode = document.createElement("p");
+								newNode.id = "check-sell-error"
+								var textNode = document.createTextNode("The percent you entered is invalid. Please input a new percent");
+								newNode.appendChild(textNode);
+								document.getElementById("check-sell").appendChild(newNode);
+								document.getElementById("sell-btn").disabled = false
+								return
+							}
+
+							// User passes all checks
+							var idDiv = document.getElementById("sell-confirm");
+							var idDivContent = document.createElement("div");
+							idDivContent.id = "sell-confirm-content"
+
+							var url = "https://www.alphavantage.co/query?function=CRYPTO_INTRADAY&symbol=" + cryptoSymbol + "&market=SGD&interval=1min&apikey=" + config.ALPHA_VANTAGE_KEY 
+							axios.get(url)
+
+							.then (response => { 
+								var dateTime = getFormattedDate(8)[0];
+
+								// Obtain latest price
+								if (dateTime in response.data["Time Series Crypto (1min)"]) {
+									var closePrice = parseFloat(response.data["Time Series Crypto (1min)"][dateTime]["4. close"]);
+								} else {
+									var lastKey = Object.keys(response.data["Time Series Crypto (1min)"]).pop()
+									var closePrice = parseFloat(response.data["Time Series Crypto (1min)"][lastKey]["4. close"]);
+								}
+
+								// Obtain user's qty from current
+								var currQty = this.user.current[cryptoSymbol].quantity
+
+								// User sells via percent
+								if (qty == "") {
+									var qtyToSell = currQty / 100 * percent;
+									var saleValue = qtyToSell * closePrice;
+								}
+								
+								// User sells via quantity
+								else {
+									var saleValue = qty * closePrice
+									var qtyToSell = qty
+								}
+
+								var fee = saleValue / 100;
+								var saleValueAfterFee = saleValue - fee;
+
+								var newNode = document.createElement("h5")
+								var textNode = document.createTextNode("Please confirm the following details");
+
+								newNode.appendChild(textNode);
+								idDivContent.appendChild(newNode);
+								var listNode = document.createElement("ol"); 
+
+								// Creating List with appropriate data
+								var list1 = [cryptoSymbol, formatNumber(limitDecimals(saleValue,2)), formatNumber(limitDecimals(qtyToSell,2)), formatNumber(limitDecimals(fee,2)), formatNumber(limitDecimals(saleValueAfterFee,2))]
+								var list2 = ["Cryptocurrency being sold: ", "Value of Sale: $", "Quantity To Sell: ", "Brokerage Fee (capped at 1%): $", "Earnings after fee: $"]
+
+								for (let i = 0; i < list1.length; i++) {
+									if (i == 2) {
+										// For Quantity Received to add the crypto symbol behind
+										// Expected output: Quantity sold: 0.5 BTC
+										var liNode = document.createElement("li");
+										var liText = document.createTextNode(list2[i] + list1 [i] + " " + cryptoSymbol)
+									}
+									else {
+										var liNode = document.createElement("li");
+										var liText = document.createTextNode(list2[i] + list1 [i])
+									}
+									liNode.appendChild(liText);
+									listNode.appendChild(liNode);
+								}
+
+								// Creating last red text
+								var pNode = document.createElement("p");
+								pNode.setAttribute("class", "text-danger");
+								var textNode = document.createTextNode("Final price may change depending on the time of clicking the confirm button")
+								pNode.appendChild(textNode);
+
+								// Adding list - red text - button to idDIv
+								idDivContent.appendChild(listNode)
+								idDivContent.appendChild(pNode)
+
+								idDiv.appendChild(idDivContent);
+
+								document.getElementById("confirm-sell-button").removeAttribute("hidden")
+								document.getElementById("sell-btn").disabled = false
+							})
+							},
+
+						confirmSale() {
+							document.getElementById("confirm-sell-button").disabled = true
+
+							var cryptoSymbol = this.selectCrypto;
+							var qty = this.qtyInput;
+							var percent = this.percentInput;
+
+							var url = "https://www.alphavantage.co/query?function=CRYPTO_INTRADAY&symbol=" + cryptoSymbol + "&market=SGD&interval=1min&apikey=" + config.ALPHA_VANTAGE_KEY 
+							axios.get(url)
+
+							.then (async response => { 
+								var dateTime = getFormattedDate(8)[0];
+
+								// Obtain latest price
+								if (dateTime in response.data["Time Series Crypto (1min)"]) {
+									var closePrice = parseFloat(response.data["Time Series Crypto (1min)"][dateTime]["4. close"]);
+								} else {
+									var lastKey = Object.keys(response.data["Time Series Crypto (1min)"]).pop()
+									var closePrice = parseFloat(response.data["Time Series Crypto (1min)"][lastKey]["4. close"]);
+								}
+								
+								var userCurrent = this.user.current;
+								var userHistory = this.user.history; 
+								var currWallet = this.user.wallet
+								var currPoints = this.user.challengePoints
+
+								// Obtain user's averageCostPrice and qty from current and wallet
+								var currQty = parseFloat(userCurrent[cryptoSymbol].quantity);
+								var averageCostPrice = parseFloat(userCurrent[cryptoSymbol].averageCostPrice);
+								var totalCostPrice = parseFloat(userCurrent[cryptoSymbol].totalCostPrice);
+
+								// User sells via percent
+								if (qty == "") {
+									var qtyToSell = currQty / 100 * percent;
+								}
+								
+								// User sells via quantity
+								else {
+									var qtyToSell = this.qtyInput;
+								}
+
+								var newQty = currQty - qtyToSell;
+								var newTotalCostPrice = newQty * averageCostPrice;
+
+								var dateSold = getFormattedDate(0)[2]
+
+								var saleValue = qtyToSell * closePrice;
+								var fee = saleValue / 100;
+								var saleValueAfterFee = saleValue - fee;
+								var originalValue = qtyToSell * averageCostPrice
+
+								// Profit and %Profit
+								var profit = saleValueAfterFee - originalValue;
+								var pProfit = 100 / originalValue * profit;
+
+								// Change points based on points gained / lost (1 point / $10)
+								var points = (profit / 10).toFixed(0);
+								this.user.challengePoints = currPoints + parseFloat(points);
+
+								// Update wallet movement
+								this.user.move += saleValueAfterFee;
+
+								// Change wallet Amount
+								this.user.wallet = currWallet + saleValueAfterFee;
+
+								// User sells all of his holdings of that coin
+								if (newQty == 0) {
+									// Delete data of current coin
+									delete userCurrent[cryptoSymbol]
+								}
+								else {
+									// Update data in current coin (newQty, newTotalCostPrice)
+									// Average price will not change
+									userCurrent[cryptoSymbol].quantity = newQty;
+									userCurrent[cryptoSymbol].totalCostPrice = newTotalCostPrice
+								}
+
+								// Update history data with new row (averageCostPrice, dateSold, cryptoSymbol, pProfit, profit, qtyToSell, closePrice)
+								var newHistory= {
+									name: cryptoSymbol,
+									quantity: qtyToSell,
+									averageCostPrice: averageCostPrice,
+									dateSold: dateSold,
+									soldPrice: closePrice,
+									profit: profit,
+									pProfit: pProfit
+								}
+
+								var numUserHistory = Object.keys(userHistory).length
+								userHistory[numUserHistory + 1] = newHistory
+
+								//Update data in firebase
+								await setDoc(doc(db, "users", userDetails.uid), user)
+								.then(() => {
+									swal ({
+										title: "Selling Cryptocurrency",
+										text: "Cryptocurrency successfully sold.",
+										icon: "success",
+										closeOnClickOutside: false,
+									})
+									.then(function() {
+										window.location.href = 'coinspage.html'
+									})
+								})
+								.catch(() => {
+									swal ({
+										title: "Selling Cryptocurrency",
+										text: "An error has occured. The page will be refreshed.",
+										icon: "error",
+										closeOnClickOutside: false,
+									})
+									.then(function() {
+										lcoation.reload();
+									})
+								})
+							})
+							.catch(error => {
+								swal ({
+									title: "Page Loading Error",
+									text: "An error has occured. The page will be refreshed.",
+									icon: "error",
+									closeOnClickOutside: false,
+								})
+								.then(function() {
+									location.reload();
+								})
+							})
+						},
+
+						moveRocket() {	
+							moveRocketGeneral(0);
+						}
+					},
+				
+					computed: {
+						formattedUserWallet() {
+							return formatNumber(limitDecimals(this.userWallet,2));
+						},
+
+						sellMethodqty() {
+							if (this.sellMethod == "sell-option-qty") {
+								return true
+							}
+							else {
+								return false
+							}
+						}
+					},
+					mounted() {
+						document.getElementById('sell-container-main').classList.remove('d-none')
+						document.getElementById('spinner').classList.add('d-none')
+					}
+				}).mount("#sell-container-main")
+			} 
+			// User authentication failed, redirect user to login page
+			else {
+				swal ({
+					title: "Log Out",
+                	text: "Successfully logged out! You will be redirected to the login page.",
+					icon: "info",
+					closeOnClickOutside: false,
+				})
+				.then(function() {
+					window.location.href = '../auth/login.html'
+				})
+			}
+		})
+
+	</script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+</body>
+
+</html>

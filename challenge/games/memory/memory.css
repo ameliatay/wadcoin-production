@@ -1,0 +1,12 @@
+.grid {
+  /* display: flex;
+  flex-wrap: wrap; */
+  min-width: 320px;
+  max-width: 500px;
+  height: auto;
+  border: 1px solid
+}
+
+img {
+  margin: 20px;
+}

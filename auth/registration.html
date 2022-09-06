@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS // BOOTSTRAP 5.1.0 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- VUEJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type='module' src='../index.js'></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+
+    <style>
+        body {
+            background-color: var(--darkbeige);
+            /* color: black; */
+            min-height: 100%
+        }
+        div {
+            color: black
+        }
+        table {
+            width: 100%
+        }
+        tr {
+            text-align: right;
+            /* height: 50px; */
+            /* padding: 20px; */
+            /* border: solid black !important; */
+        }
+
+        td {
+            padding: 10px;
+            /* border: solid black !important; */
+        }
+        
+        .vertical-center {
+            min-height: 75%;
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #registrationDetails {
+            width: 35%;
+            border-radius: 25px;
+            justify-content: left;
+            align-items: center;
+        }
+        #googleSignIn {
+            display: inline-block;
+            background: black;
+            color: #444;
+            width: fit-content;
+            border-radius: 5px;
+            border: thin solid #888;
+            box-shadow: 1px 1px 1px grey;
+            black-space: nowrap;
+        }
+        #googleSignIn :hover{
+            cursor:pointer;
+        }
+        .icon {
+            background: url('../images/g-logo.png') transparent 5px 50% no-repeat;
+            display: inline-flex;
+            vertical-align: middle;
+            width: 35px;
+            /* max-width:100%; */
+            /* width:auto; */
+            height: 35px;
+            object-fit: fill;
+            
+        }
+        .buttonText {
+            display: inline-block;
+            vertical-align: middle;
+            /* padding-left: 42px; */
+            padding-right: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            /* Use the Roboto font that is loaded in the <head> */
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .errorDiv {
+            color:rgb(240, 65, 65);
+            text-align: right;
+        }
+
+        .container {
+            margin: 0;
+            padding: 0;
+            top:0;
+            left: 0;
+            width: 100%;
+            position: relative;
+        }
+        /* End of General Styles */
+
+        /* Page Background */
+        .bg {
+            /* The image used */
+            background-image: url("../images/cryptoBG.jpg");
+
+            /* Full height */
+            height: 100%; 
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: var(--lightbeige);
+            opacity: 0.8;
+        }
+        /* End of Page Background */
+
+        /* Navbar */
+        .top-bar{
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            z-index: 100;
+            margin: 0;
+        }
+
+        .navbar{
+            position: fixed;
+            top: 1.5rem;
+            width: 100%;
+            padding-right: 1rem;
+            z-index: 100;
+        }
+
+        .navbar-link{
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: black;
+            padding-left: 20px;
+            padding-right: 20px;
+        } 
+
+        a {
+            text-decoration: none;
+        }
+
+        .logo { 
+            position: fixed;
+            top:1rem;
+            left:1.5rem;
+            font-size: 2rem;
+            color:black;
+            z-index: 2000;
+        }
+        /* End of Navbar */
+    </style>
+    
+    <title>
+        Registration
+    </title>
+</head>
+
+<body>
+    <!--Navigation-->
+    <div class = "container-fluid top-bar">
+        <div class="row">
+            <nav class="navbar navbar-expand-md navbar-light" style='background: var(--darkbeige); top:0; padding-top: 20px;'>
+                <a id = "wadcoin" class="text-black" href="../index.html#home-section"><h1>WADCoin</h1></a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="../index.html#home-section" class="navbar-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../index.html#our-mission" class="navbar-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../index.html#our-solution" class="navbar-link">Our Solution</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" class="navbar-link">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="registration.html" class="navbar-link">Sign Up</a>
+                        </li>
+                      </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!--End of Navigation-->
+
+    <div class="container-fluid d-flex align-items-center bg" style="position:relative; height:92vh;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-xs-0 col-xl-4"></div>
+            
+            <!-- login div begin -->
+            <div class="col p-4" style='background-color: var(--darkbeige);box-shadow: 2px 3px 5px black;' data-aos="zoom-out">
+                <!-- header -->
+                <p class='fw-bold text-center mt-3' scope="row" style="color:black; font-size: 30px;">Registration</p>
+                <!-- header end -->
+
+                <label for="email" class="col-md-3 col-sm-4  col-form-label" id='emailField'>Email</label>
+                <div class="col">
+                    <input type="email" class="form-control" id='email' >
+                </div>
+            <!-- email error div -->
+            <div id='emailError' style='opacity: 0' class='text-danger'>placeholder</div>
+
+            <label for="pw" class="col-form-label">Enter Password</label>
+            <div class="col">
+                <input type="password" class="form-control" id='pw'>
+            </div>
+            <!-- pw error div -->
+            <div id='pwError' style="opacity:0" class='text-danger'>placeholder</div>
+
+            <label for="pw2" class="form-label">Confirm Password</label>
+            <div class="col">
+                <input type="password" class="form-control" id='pw2'>
+            </div>
+            <span style="opacity:0">placeholder</span>
+
+            <div class="row mb-3 g-3">
+                <div class="col text-end">
+                    <button type="button" class="btn btn-primary" id='submit'>Register</button>
+                </div>
+            </div>
+            
+        </div>
+        <!-- login div end -->
+
+        <div class="col-sm-3 col-xs-0 col-xl-4"></div>
+    </div>
+</div>
+    <!-- Bundled Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+     <script type="module">
+    
+    import { getAuth, EmailAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithPopup, signInAnonymously } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+    import { collection, doc, setDoc, getDoc, getFirestore, query, where, getDocs, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+
+    const auth = getAuth();
+    const db = getFirestore();
+    
+    const querySnapshot = await getDocs(collection(db, 'challenges'));
+    var defaultChallenges = []
+            
+    querySnapshot.forEach((doc) => {
+        defaultChallenges.push(doc.id)
+    })
+
+    //async function for redirection AFTER user doc is created
+    async function created(usersRef, userUid, userEmail){
+        let userName = userEmail
+        let index = userName.indexOf('@')
+        let Name = userName.slice(0, index);
+        await setDoc(doc(usersRef, userUid), {
+            name: Name,
+            email: userEmail,
+            userID: userUid,
+            challenges: defaultChallenges,
+            completed: [],
+            challengePoints: 0,
+            current: {},
+            history: {},
+            wallet: 10000, //default wallet starting value
+            move: 0,
+            comDate: serverTimestamp(),
+            profilePic: false
+        }).then(() => {
+            swal ({
+                title: "Welcome!",
+                text: "Account successfully created! You will be redirected to the home page.",
+                icon: "success",
+                closeOnClickOutside: false,
+            })
+            .then(function() {
+                window.location.href = "../experience/coinspage.html"
+            })
+        })
+    }
+
+    var submitButt = document.getElementById('submit');
+        submitButt.addEventListener('click', function() {
+            //reset error messages
+            document.getElementById('emailError').setAttribute('style', 'opacity:0')
+            document.getElementById('emailError').innerText = 'placeholder';
+            document.getElementById('pwError').setAttribute('style', 'opacity:0')
+            document.getElementById('pwError').innerText = 'placeholder';
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('pw').value;
+            var pwd2 = document.getElementById('pw2').value;
+            //user input validation below
+            //email validation:
+            if (!email.includes('@') || email.match(/@/g).length > 1) {
+                document.getElementById('emailError').setAttribute('style', 'opacity:100')
+                document.getElementById('emailError').innerText = 'Please enter a valid email';
+            }
+            else if (password == '' || pwd2 == '') {
+                // document.getElementById('pwError').style = "opacity: 100"
+                document.getElementById('pwError').setAttribute('style', 'opacity:100')
+                document.getElementById('pwError').innerText = 'Both password fields must be filled';
+            }
+            else if (pwd2 != password) {
+                document.getElementById('pwError').style = "opacity: 100"
+                document.getElementById('pw2').value = '';
+                document.getElementById('pwError').innerText = 'Passwords do not match';
+            }
+
+            else {
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                
+                //creation of user data in firestore:
+                const userUid = user.uid;
+                const userEmail = user.email;
+                const usersRef = collection(db, "users");
+
+                swal ({
+                    title: "Welcome!",
+                    text: "Please click 'Ok' and stay on this page for a few seconds while we get your account ready. An alert will notify you when it's been completed!",
+                    icon: "info",
+                    closeOnClickOutside: false,
+                })
+                .then(function() {
+                    created(usersRef, userUid, userEmail)
+                })
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                document.getElementById('pw').value = '';
+                document.getElementById('pw2').value = '';
+                if (errorCode == 'auth/email-already-in-use') {
+                    document.getElementById('emailError').setAttribute('style', 'opacity:100')
+                    document.getElementById('emailError').innerText = 'Email already in use';
+                }
+                if (errorCode == 'auth/weak-password') {
+                    document.getElementById('pwError').setAttribute('style', 'opacity:100')
+                    document.getElementById('pwError').innerText = 'Password needs to have at least 6 characters';
+                }
+                if (errorCode == 'auth/invalid-email') {
+                    document.getElementById('emailError').setAttribute('style', 'opacity:100')
+                    document.getElementById('emailError').innerText = 'Email is invalid';
+                }
+                //user input validation ends
+            });
+        } 
+        })
+
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+        }
+        else {
+        }
+    });
+
+
+    </script>    
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+
+</html>

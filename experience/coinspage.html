@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Import style.css -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Animate On Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- VUEJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <!-- Imports functions from functions.js -->
+    <script src="functions.js"></script>
+
+    <!-- Import database data -->
+    <script type="module" src="../index.js"></script>
+
+    <!-- Import API Keys -->
+    <script type = "text/javascript" src = "../config.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Import database data -->
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+
+    <!-- Import common files-->
+    <script src="../jquery-3.6.0.js"></script> 
+    <script>
+        $(document).ready(function(){
+            $('#header').load("../general/header.html");
+            $('#footer').load("../general/footer.html");
+        });
+    </script>
+    <style>
+        body {
+            background-color: var(--lightbeige) !important; 
+        }
+
+        th {
+            background-color: #6d78a8 !important;
+            color: whitesmoke;
+        }
+
+        table {
+            background-color: white;
+        }
+    </style>
+    
+    <title>Home Page</title>
+</head>
+<body onload="getData('Bitcoin(BTC)')">
+    <body>
+    <div id="header"></div>
+
+    <div class="customMargins">
+    <div class = "container-fluid m-0 p-4" data-aos='fade-right'>
+        <div class="row">
+            <div class="col-md-10 col-12">
+                <div style='font-weight: bold; font-size: 30px;'>WADCoin's Paper-Trading Experience</div>
+                <div>Build your risk appetite by getting accustomed to how trading feels like!</div>
+            </div>
+            <div class="col-md-2 col-12 d-flex justify-content-center">
+                <div class="row">
+                    <button class="btn text-white fw-bold m-1" style='background-color: var(--darkblue);' onclick="introPopUp()">Introduction</button>
+                    <button class="btn text-dark fw-bold m-1" style='background-color: var(--lightblue);' onclick="popUp()" id="pop" >How to Play?</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        
+
+        <div id = "result" class = "table-responsive"></div>
+
+        <div id = "main" data-aos='zoom-in'>
+            <center><div id = "row-logos" class = "row mx-3">
+
+                <div class="col">
+                    <button class="coins" onclick="getData('Bitcoin(BTC)')" >
+                        <img class="coins-logo" src="img/bitcoin.png" alt="">
+                        <p>Bitcoin</p> 
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="coins" onclick="getData('Ethereum(ETH)')">
+                        <img class="coins-logo" src="img/ethereum.png" alt="">
+                        <p>Ethereum</p> 
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="coins" onclick="getData('Ripple(XRP)')" >
+                        <img class="coins-logo" src="img/XRP.png" alt="">
+                        <p>Ripple</p> 
+                    </button>
+                </div>
+                <div class="col">
+                    <button  class="coins"onclick="getData('Litecoin(LTC)')" >
+                        <img class="coins-logo" src="img/litecoin.png" alt="">
+                        <p>Litecoin</p> 
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="coins" onclick="getData('Cardano(ADA)')" >
+                        <img class="coins-logo" src="img/cardano.png" alt="">
+                        <p>Cardano</p> 
+                    </button>
+                </div>
+            </div></center>
+            
+            <div id = "row-about" class = "row mx-2 mt-2 text-center" >
+            </div>
+
+            <div class="container-fluid text-center" id="loading_container">
+                <h6 class='center'>Loading data...</h6>
+                <progress></progress>
+            </div>
+            
+            <div class="container-fluid">
+                <center><div id="chartContainer" class="mx-1 my-2"> 
+                    </div></center>
+            </div>
+
+            <div id="table_container" class = "row mx-2">
+                
+            </div>
+            
+            <hr>
+        
+            <div class = "row mx-2 my-3"  data-aos='fade-up'>
+                <div class = "col text-center" data-aos='fade-up'>
+                    <h3>Your Summary</h3>
+                </div>
+            </div>
+
+            <div id = "summary-reset-main" data-aos='fade-up'>
+                <div class = "row mx-2 my-3">
+                    <div class = "col-lg-4 col-md-4 col-sm-12 d-flex justify-content-md-start justify-content-center">
+                        <h4 id = "wallet">Wallet: $</h4>
+                    </div>
+                    <div class = "col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
+                        <a href= 'buy.html' id = 'home-buy-btn' class='btn btn-success me-1 active text-light w-50' aria-pressed='true'><b>Buy</b></a>
+                        <a href= 'sell.html' id = 'home-sell-btn' class='btn btn-danger ms-1 active text-light w-50' aria-pressed='true'><b>Sell</b></a>
+                    </div>
+                    <div class = "col-lg-4 col-md-4 col-sm-12 d-flex justify-content-md-end justify-content-center mt-lg-0 mt-2">
+                        <button type = "button" class = "btn fw-bold" style='background-color: var(--lightblue);' v-on:click = "resetUser()">Reset</button>
+                    </div>
+                </div>
+                <div id = "reset-row" class = "d-flex justify-content-center">
+                    <button id="confirm-reset-button" class = "btn btn-warning " v-on:click = "confirmResetUser()" hidden>Confirm Reset</button>
+                    <button id="cancel-reset-button" class = "btn btn-primary ms-2" v-on:click="cancelReset()" hidden>Cancel Reset</button>
+                </div> 
+            </div>
+
+            <div id = "main-2" data-aos='fade-up'>
+                <div id = "row-current" class = "row mx-2 my-3" data-aos='fade-up'>
+                    <h4 class = "d-flex justify-content-md-start justify-content-center">Current Holdings</h4>
+                    <div id = "table-current">
+        
+                    </div>
+                </div>
+                
+                <div id = "row-overall" class = "row mx-2 my-3" data-aos='fade-up'>
+                    <h4 class = "d-flex justify-content-md-start justify-content-center">Overall Holdings</h4>
+                    <div id = "table-overall-container">
+                        <table id = "table-overall" class = "table table-hover table-bordered" style = "border-radius: 10px;overflow:hidden;">
+                            <tr class = "table-secondary">
+                                <th>Total Amount Invested</th>
+                                <th>Current Holding Value</th>
+                                <th>Change</th>
+                                <th>% Change</th>
+                            </tr>
+                            <tr>
+                                <td id = "ttlInvested" >0</td>
+                                <td id = "ttlValue" >0</td>
+                                <td id = "ttlChange" >0</td>
+                                <td id = "ttlPChange" >0</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id = "row-history" class = "row mx-2 my-3" data-aos='fade-up'>
+                    <h4 class = "d-flex justify-content-md-start justify-content-center">History</h4>
+                    <div id = "table-history">
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="footer"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <script src="front.js"></script>
+
+    <script type = "module">
+
+        import { collection, doc, setDoc, getDoc, getFirestore, query, where, getDocs, deleteDoc } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+        import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+
+        // STEP TWO: Initialise the services you need
+        const db = getFirestore();
+        const auth = getAuth();
+
+        onAuthStateChanged(auth, async (userDetails) => {
+
+            if (userDetails) {
+                
+                // Retrieve current data
+                const docRef = doc(db, "users", userDetails.uid);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    var user = docSnap.data();
+                    var userWallet = parseFloat(user.wallet);
+                    var walletDiv = document.getElementById("wallet");
+                    walletDiv.innerText = walletDiv.innerText + formatNumber(limitDecimals(userWallet,2));
+                    
+                    if (Object.keys(user.current).length > 0) {
+                
+                        // Retrieve current data
+                        var userCurrent = user.current
+                        getCurrent(userCurrent);
+                    }
+                
+                    // User has no current holdings
+                    else {
+                        var tableCurrent = document.getElementById("table-current");
+                        tableCurrent.innerHTML = "<h6 class = 'text-center text-muted'>You currently have no holdings!</h6>"
+                    }
+                
+                    // If user has historical transactions
+                    if (Object.keys(user.history).length > 0) {
+                        
+                    // Retrieve history data
+                    var userHistory = user.history;
+                    getHistory(userHistory);
+                
+                    }
+                    // If user has no history data
+                    else {
+                        var tableHistory = document.getElementById("table-history");
+                        tableHistory.innerHTML = "<h6 class = 'text-center text-muted'>You have no historical trading with us yet!</h6>"
+                    }
+                
+                    const reset = Vue.createApp({
+                        data() {
+                            return {
+                            }
+                        },
+                        methods: {
+                            resetUser() {
+                                swal({
+                                    title: "Reset User", 
+                                    text: "Are you sure you want to reset? While your challenge points remain the same, all your current earnings, current holdings, historical transactions and wallet will be reset. If confirm, click the 'Confirm Reset' button.",
+                                    icon: "warning",
+                                    closeOnClickOutside: false
+                                })
+                                document.getElementById("confirm-reset-button").removeAttribute("hidden");
+                                document.getElementById("cancel-reset-button").removeAttribute("hidden");
+                            },
+
+                            cancelReset() {
+                                swal({
+                                    title: "Reset User",
+                                    text: "Resetting of stats has been cancelled.",
+                                    icon: "error",
+                                    closeOnClickOutside: false,
+                                });
+                                document.getElementById("confirm-reset-button").setAttribute("hidden","true");
+                                document.getElementById("cancel-reset-button").setAttribute("hidden", "true");
+                            },
+                            
+                            async confirmResetUser() {
+                                // Retrieve user's data
+                                onAuthStateChanged(auth, async (userDetails) => {
+                                    if (userDetails) {
+                                
+                                        const docRef2 = doc(db, "users", userDetails.uid);
+                                        const docSnap2 = await getDoc(docRef2);
+                                        var user = docSnap.data();
+                                        var emptyObj = {};
+                                        user.current = emptyObj;
+                                        user.history = emptyObj;
+                                        user.wallet = 10000;
+                                        await setDoc(doc(db, "users", userDetails.uid), user)
+                                        .then(() => {
+                                            swal({
+                                                title: "Reset User",
+                                                text: "User stats successfully reset. Please refresh the page to view the changes.",
+                                                icon: "success",
+                                                closeOnClickOutside: false,
+                                            })
+                                            .then(function() {
+                                                window.location.href = 'coinspage.html'
+                                            })
+                                        })
+                                        .catch(() => {
+                                            swal({
+                                                title: "Reset User",
+                                                text: "There has been an error. Please refresh the page.",
+                                                icon: "error",
+                                                closeOnClickOutside: false,
+                                            });
+                                        })
+                                    }
+                                })
+                            },
+                        }
+                    }).mount("#summary-reset-main")
+                }
+            }
+
+            else {
+                //user is signed out
+				swal ({
+					title: "Log Out",
+                    text: "Successfully logged out! You will be redirected to the login page.",
+					icon: "info",
+					closeOnClickOutside: false,
+				})
+				.then(function() {
+					window.location.href = '../auth/login.html'
+				})
+            }
+        })
+
+
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    
+</body>
+</html>

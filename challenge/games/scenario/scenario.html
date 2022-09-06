@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Billy</title>
+
+    <script src="scenario.js"></script>
+
+    <link rel="stylesheet" href="scenario.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../images/logos/logo_size_invert.jpg">
+
+    <!--Import popup-->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+
+    <script type="module" src="../../../index.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #FFFCF2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid m-0 p-4">
+
+    
+        <a class='btn btn-outline-secondary' href='../../active.html'>&laquo; Back to Games Page</a>
+
+        <div class="container-fluid text-center" id="instruction">
+            <h2 class='p-3'>Welcome to "Hello Billy &#129299"</h2>
+            <h4 class="text-decoration-underline">Instructions</h4>
+            <p>In this challenge imagine you are Billy and you have $1000 to trade with BTC. This challenge simulates what happened during January 2020 to May 2020. You will be given a series of events that happened during that month and you will need to trade to get <b>at least $1500</b> by the end of the May 2020. 
+
+            <!-- <br><br> You may retry as many times you want. Your score will be recorded when you quit the challenge. Have Fun! &#128077 -->
+                
+            <br><br> Points for this challenge will be awarded by how much you gained by the end of the simulation. </p>
+            <p><b>Point Tier:</b>
+                <ul class="list-group">
+                    <li class="list-group-item">=&gt; $500 will be awarded +50</li>
+                    <li class="list-group-item">=&gt; $600 will be awarded +100</li>
+                    <li class="list-group-item">=&gt; $700 seconds will be awarded +250</li>
+                    <li class="list-group-item">=&gt; $800 seconds will be awarded +500</li>
+                    <li class="list-group-item">=&gt; $900 seconds will be awarded +1000</li>
+                </ul>
+            </p>
+            <p class="text-danger"><b>WHEN YOU ARE READY CLICK <button type="button" class="btn btn-primary" onclick="getting_data()" id="start-btn">START</button> </b></p>
+            
+        </div>
+
+        <div id="wrapper">
+            <div id="challenge" class="d-none">
+                <div class="row mt-3">
+                    <div class="col text-end align-middle"><h5>Your Wallet</h5></div>
+                    <div class="col text-start">
+                        <div id="wallet"></div>
+                        <div id="currencyWallet"></div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            
+            <div id="headlines" class="p-3"> <h5> <b class="text-danger">Disclaimer :</b> The scenario given in this challenge is for entertainment and education purposes only. Please remember to always do your research before trading. The scenario shown in this challenge is not an exact representation of the events that occured during the period stated.</h5> </div>
+            
+            <div id="chartContainer">
+                <!-- <h3> Are you ready? <button onclick="getting_data()">Start</button> </h3> -->
+            </div>
+            <div id="nextPage">
+                <button type="button" class="btn btn-warning btn-lg my-3" onclick="getting_data()">Next Month</button>
+            </div>
+
+            <div class="container pb-5 text-center">
+
+                <div id="status"></div>
+                <div class="row" id="transaction">
+                    <div class="col d-inline">
+                        Amount: <input type="number" name="amount" id="amount" class="">
+
+
+
+                        <div class="col d-lg-inline d-md-block">
+                            <button type="button" class="btn btn-success my-2" id="buy"  onclick="buy()">Buy</button>
+                            <button type="button" class="btn btn-danger my-2" id="sell"  onclick="sell()">Sell</button>
+                        </div>
+                    
+                    </div>
+
+                    
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div id="complete">
+                    <!-- <p>Exit here!</p> -->
+                    <button id="update" class="btn btn-primary" onclick="summary()" role="button">Go to Summary</button>
+                </div>
+                <!-- <div id="restart">
+                    <button type="button" class="btn btn-primary btn-md" onclick="restart()">Restart?</button>
+                    <p>Exit here!</p>
+                    <a class="btn btn-primary" href="#" role="button">Return to Challenges</a>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="container-fluid text-center" id="summary">
+            <div style='font-weight: bold; font-size: 30px; margin-top: 20px;'>Thank you for participating!</div>
+            <div>We hope you had fun experimenting with cryptotrading, watching your wallet amount rise and fall with every decision you make, and attempting to make some inferences about the market's future prices! Whether or not you were able to hit the intended goal, thank you for participating! Look forward to more of such challenges and opportunities to win additional leaderboard points to get ahead of your peers!</div>
+            <hr>
+            <h5><b>Note of Advice</b> <br><br>Only trade with money you can afford to lose! Prices fluctuate beyond what you can analyse at times, don't risk more money than you can afford to.</h5>
+        </div>
+        
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <script type="module">
+        import { increment, collection, doc, setDoc, getDoc, getFirestore, query, where, getDocs, serverTimestamp, updateDoc, arrayUnion, arrayRemove } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"
+        import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+    
+        const db = getFirestore();
+        const auth = getAuth();
+        var userPoints = 0
+        
+        onAuthStateChanged(auth, async (userDetails) => { 
+
+            
+            if (userDetails) {
+                const userId = userDetails.uid
+                
+                const userRef = doc(db, "users", userDetails.uid)
+                const userSnap = await getDoc(userRef)
+                const user = userSnap.data()
+                userPoints = user.challengePoints
+                
+                document.getElementById('update').addEventListener('click', function() {
+                    // userPoints += points
+                    updateDoc(userRef, {
+                        challengePoints: increment(points),
+                        challenges: arrayRemove("o6rFYTQYVTGRNpCQROF8"),
+                        completed: arrayUnion("o6rFYTQYVTGRNpCQROF8"),
+                        comDate: serverTimestamp()
+                    })
+                    // window.location.href = "../../active.html";
+                })
+
+                const chaRef = doc(db, "challenges", "o6rFYTQYVTGRNpCQROF8")
+                const chaSnap = await getDoc(chaRef)
+                const cha = chaSnap.data()
+
+                document.getElementById('start-btn').addEventListener('click', function() {
+                    updateDoc(chaRef, {
+                        participants: increment(1)
+                    })
+                })
+
+            }
+
+        else {
+            //user is signed out
+            swal ({
+                title: "Log Out",
+                text: "Successfully logged out! You will be redirected to the login page.",
+                icon: "info",
+                closeOnClickOutside: false,
+            })
+            .then(function() {
+                window.location.href = '../../../auth/login.html'
+            })
+        }
+        })
+    </script>
+</body>
+</html>

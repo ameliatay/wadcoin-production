@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Axios Library -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Vue Framework -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+
+    <!--Import popup-->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="functions.js"></script>
+
+    <!-- Import common files-->
+    <script src="../jquery-3.6.0.js"></script> 
+    <script>
+        $(document).ready(function(){
+            $('#header').load("../general/header.html");
+            $('#footer').load("../general/footer.html");
+        });
+    </script>
+    <!-- init firebase -->
+    <script type="module" src="../index.js"></script>
+    <script src = "../experience/functions.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        .header {
+            background-color: #6d78a8 !important;
+        }
+        tr {
+            background-color: white;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="customMargins">
+    <div class="container-fluid m-0 p-4" data-aos='fade-right'>
+        <div style='font-weight: bold; font-size: 30px;'>The WADCoin Leader Board</div>
+        <div>Take a look at where you stand amongst other crypto enthusiasts. Challenge yourself to improve your crypto-trading skills and top the leaderboard!</div>
+        <hr>
+
+        <div class="w-100 center" id='spinner'>
+            <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <div id="leaderTable" class='w-auto m-auto'></div>
+    </div>
+</div>
+    <div id="footer"></div>
+
+    <script type="module">
+
+        import { collection, doc, setDoc, getDoc, getFirestore, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+        import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+        const auth = getAuth();
+
+        // Initialize Firestore
+        const db = getFirestore();
+
+        let users = [];
+
+        const querySnapshot = await getDocs(collection(db, "users"));
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+
+
+            // push all users into array
+            users.push(doc.data())
+            });
+
+            
+            // sort users by wallet
+        users.sort(function(a,b) {
+            return b.challengePoints - a.challengePoints;
+        });
+            
+        var output = "";
+        var rank = 0
+        var outputHead = `<table class='table border-3' data-aos='zoom-in'>
+            <tr class='bg-dark text-white'>
+                <th class='header'>Rank</th>
+                <th class='header'>Users</th>
+                <th class='header'>Gain / Loss ($)</th>
+                <th class='header'>Points</th>
+            </tr>`
+
+        onAuthStateChanged(auth, async (userDetails) => {
+            if (userDetails) {
+                for (let user of users) {
+                    rank++
+                    let userName = user.name;
+                    if (userName == ''){
+                        userName = user.email;
+                        let index = userName.indexOf('@');
+                        userName = userName.slice(0, index);
+                    }
+
+                    let movement = user.move;
+                    if (movement == 0) {
+                        var formatted_movement = "-"
+                    } else {
+                        var formatted_movement = formatNumber(limitDecimals(movement,2))
+                    }
+                    if (user.userID == userDetails.uid) {
+                        if (movement < 0) {
+                            output += `
+                            <tr style='background-color: var(--lightblue)'>
+                                <th>${ rank }</th>
+                                <td>${ userName }</td>
+                                <td class="text-danger">${ formatted_movement }</td>
+                                <td>${ formatNumber(user.challengePoints) }</td>
+                            </tr>`
+                        } else if (movement > 0) {
+                            output += `
+                            <tr style='background-color: var(--lightblue)'>
+                                <th>${ rank }</th>
+                                <td>${ userName }</td>
+                                <td class="text-success">${ formatted_movement }</td>
+                                <td>${ formatNumber(user.challengePoints) }</td>
+                            </tr>`
+                        } else {
+                            output += `
+                            <tr style='background-color: var(--lightblue)'>
+                                <th>${ rank }</th>
+                                <td>${ userName }</td>
+                                <td>${ formatted_movement }</td>
+                                <td>${ formatNumber(user.challengePoints) }</td>
+                            </tr>`
+                        }
+                    } else {
+                        if (movement < 0) {
+                            output += `
+                            <tr>
+                                <th>${ rank }</th>
+                                <td>${ userName }</td>
+                                <td class="text-danger">${ formatted_movement }</td>
+                                <td>${ formatNumber(user.challengePoints) }</td>
+                            </tr>`
+                        } else if (movement > 0) {
+                            output += `
+                            <tr>
+                                <th>${ rank }</th>
+                                <td>${ userName }</td>
+                                <td class="text-success">${ formatted_movement }</td>
+                                <td>${ formatNumber(user.challengePoints) }</td>
+                            </tr>`
+                        } else {
+                            output += `
+                            <tr>
+                                <th>${ rank }</th>
+                                <td>${ userName }</td>
+                                <td>${ formatted_movement }</td>
+                                <td>${ formatNumber(user.challengePoints) }</td>
+                            </tr>`
+                        }
+                    }
+                }
+
+                var outputBottom = `</table>`
+                document.getElementById('spinner').style.display = 'none'
+                document.getElementById('leaderTable').innerHTML = outputHead + output + outputBottom;
+            } else {
+                //user is signed out
+				swal ({
+					title: "Log Out",
+                    text: "Successfully logged out! You will be redirected to the login page.",
+                    icon: "info",
+					icon: "info",
+					closeOnClickOutside: false,
+				})
+				.then(function() {
+					window.location.href = '../auth/login.html'
+				})
+            }
+        })
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    
+</body>
+</html>

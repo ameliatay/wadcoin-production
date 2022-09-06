@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Import style.css -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- VUEJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+    
+    <!-- Import common files-->
+    <script src="../jquery-3.6.0.js"></script> 
+    <script>
+        $(document).ready(function(){
+           $('#header').load("../general/header.html");
+           $('#footer').load("../general/footer.html");
+        });
+    </script>
+
+    <script src = "../experience/functions.js"></script>
+
+    <title>
+        WADCoin
+    </title>
+</head>
+<body>
+    <div id='header'></div>
+    <div class="customMargins">
+        <div class='row'>
+            <div class="container m-0 p-0 col-12" data-aos='fade-right'>
+                <div class='row mx-2'>
+                    <div class="col-md-8 p-4">
+                        <a class='btn text-white fw-bold' style='background-color: var(--darkblue);' href='learn.html'>&laquo; Back to Community Page</a>
+                        <div class="card my-3" style='border: 1px solid grey'>
+                            <h3 class="card-header">Make A Post</h3>
+                            <div class="card-body">
+                                <form>
+                                    <div>
+                                        <div>What's the title of your Post?</div>
+                                        <div>
+                                            <input type="text" maxlength="70" style='width:100%' placeholder="Enter a title" id="post-title">
+                                        </div>
+                                        <div class='float-end'><span id='counter'>70</span> / 70 Characters Remaining</div>
+                                    </div>
+                                    <div class='my-3'>
+                                        <div>Description</div>
+                                        <div>
+                                            <textarea type='text' style='width:100%' placeholder="Enter a description" id="post-description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class='my-3'>
+                                        <div class='center float-start'>Tags <span class="badge alert-pill alert-dark" id='tagInfo'>?</span></div>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" id='tagInput' placeholder="Enter a Tag" aria-label="Enter a Tag" aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id='tagInputBtn'>Add Tag</button>
+                                            </div>
+                                        </div>
+                                        <div id='tags'></div>
+                                    </div>
+                                    <div class="btn btn-success" id='submit'>Post</div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-4">
+                        <div class="container-fluid p-4" style='border: 2px solid rgba(0, 0, 0, 0.849); border-radius: 5px'>
+                            <div style='font-weight: 200;'>What's New?</div>
+                            <h3>Recent Posts</h3>
+                            <div id='recents'>
+                                <div class="w-100 center my-5" id='spinnerNew'>
+                                    <div class="spinner-border" role="status">
+                                        <span class="sr-only"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='footer'></div>
+    <script type='module' src='../index.js'></script>
+    <script type='module' src='whats_new.js'></script>
+    <script type='module'>
+        import { collection, addDoc, getFirestore } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+        const db = getFirestore();
+        const auth = getAuth();
+
+        const submitBtn = document.querySelector('#submit');
+        globalThis.tagArr = [];
+
+        const title = document.getElementById('post-title');
+
+        title.addEventListener('input', (e) => {
+            var counter = document.getElementById('counter')
+            var remainder = 70 - title.value.trim().length
+            counter.innerText = remainder
+        })
+
+        submitBtn.addEventListener('click', () => {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    const uid = user.uid;
+                    const time = new Date();
+                    const dateStr = time.toDateString();
+                    const timeStr = time.toTimeString();
+                    const description = document.getElementById("post-description");
+
+                    if (title.value.trim().length == 0) {
+                        swal({
+                            text: "Title cannot be empty.",
+                            icon: 'warning'
+                        })
+                    } else if (description.value.trim().length == 0) {
+                        swal({
+                            text: "Description cannot be empty.",
+                            icon: 'warning'
+                        })
+                    } else {
+                        swal({
+                            title: 'Posted!',
+                            text: "Please wait a few seconds. You will be redirected to the main community page",
+                            icon: 'success'
+                        }).then(function() {
+                            const postRef = collection(db, 'posts');
+                            addDoc(postRef,{
+                                'posterID': uid,
+                                'time': time,
+                                'dateStr': dateStr,
+                                'timeStr': timeStr,
+                                'title': title.value,
+                                'desc': description.value,
+                                'tags': tagArr
+                            })
+                            .then(() => {
+                                window.location.href = "learn.html"
+                                swal({
+                                    title: 'Posted!',
+                                    text: "You will be redirected to the main community page",
+                                    icon: 'success'
+                                }).then(function() {
+                                    window.location.href = "learn.html"
+                                })
+                            })
+                        })
+                    }
+                }
+                else {
+                    swal ({
+                        title: "Log Out",
+                        text: "Successfully logged out! You will be redirected to the login page.",
+                        icon: "info",
+                        closeOnClickOutside: false,
+                    })
+                    .then(function() {
+                        window.location.href = '../auth/login.html'
+                    })
+                }
+            })
+        })
+
+        document.getElementById('tagInputBtn').addEventListener('click', (e) => {
+            var tagInput = document.getElementById('tagInput')
+            if (tagInput.value.trim().length == 0) {
+                swal({
+                    text: "Tags cannot be empty strings.",
+                    icon: 'warning'
+                })
+            } else if (tagArr.length == 3) {
+                swal({
+                    text: "A maximum of 3 tags can be added.",
+                    icon: 'warning'
+                })
+            } else {
+                var tag = tagInput.value.trim().toLowerCase()
+                tagArr.push(tag)
+                document.getElementById('tags').innerHTML += `
+                <span class='bg-secondary text-white p-1 rounded-1 m-1' style='width: fit-content;' id='${tag}'>${tag} <span onclick='removeTag(this)'>&#x2715</span></span>
+                `
+                tagInput.value = ""
+            }
+        })
+
+        document.getElementById('tagInfo').addEventListener('click', (e) => {
+            swal({
+                title: 'Add Tags',
+                text: "Tags are used to categorise your posts. When community users search for posts, the search results will utilise your tags! Add relevant tags to help other users find your post with ease.",
+                icon: 'info'
+            })
+        })
+
+    </script>
+    <script>
+        function removeTag(node) {
+            tagArr.splice(tagArr.indexOf(node.parentNode.id), 1)
+            node.parentNode.remove()
+        }
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>

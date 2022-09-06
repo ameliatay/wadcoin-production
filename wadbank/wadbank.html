@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- TO-DO:
+        - add short blurbs for coins
+        - maybe a carousel at the bottom for news articles? -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+
+    <!-- Bootstrap CSS // BOOTSTRAP 5.1.0 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- VUEJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Import common files-->
+    <script src="../jquery-3.6.0.js"></script> 
+    <script>
+        $(document).ready(function(){
+           $('#header').load("../general/header.html");
+           $('#footer').load("../general/footer.html");
+        });
+     </script>
+
+    <script type='module' src='../index.js'></script>
+
+    <script src = "../experience/functions.js"></script>
+
+    <style>
+        a {
+            color: #6d78a8 !important;
+            text-decoration: none;
+        }
+    </style>
+    
+    <title>
+        WADBank
+    </title>
+</head>
+<body>
+    <div id='header'></div>
+    <div class="customMargins">
+    <div class="container-fluid m-0 p-4" data-aos='fade-right'>
+        <div style='font-weight: bold; font-size: 30px;'>WADBank</div>
+        <div>Learn more about popular crypto-currencies with WADCoin's very own crypto repository</div>
+        <hr>
+        <div class="row g-4 mx-0" id="coinDiv">
+            <div class="col-xl col-lg-3 col-md-4 col-sm-6" v-for="coin of coins">
+                <div class="card">
+                    <img :src="'./coin_images/' + convertLink(coin) + '.jpg'" class="card-img-top" style="height: 10rem">
+                    <div class="card-body border border-top " style="max-height:20rem; overflow: auto;">
+                      <h5 class="card-title">{{coin.coinName}}</h5>
+                    <p class="card-text">{{coin.coinDesc}}</p>
+                    </div>
+                    <div class="text-end p-2"><a :href="convertLink(coin) + '.html'">Learn More</a></div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id='footer'></div>
+    <script type = "module">
+        import { collection, doc, setDoc, getDoc, getDocs, getFirestore, query, orderBy, deleteDoc } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+        import { getAuth, EmailAuthProvider, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+        const db = getFirestore();
+        const auth = getAuth();
+
+        onAuthStateChanged(auth, (userDetails) => {
+            if (userDetails) {
+                
+            } else {
+                //user is signed out
+                swal ({
+                    title: "Log Out",
+                    text: "Successfully logged out! You will be redirected to the login page.",
+                    icon: "info",
+                    closeOnClickOutside: false,
+                })
+                .then(function() {
+                    window.location.href = '../auth/login.html'
+                })
+            }
+        })
+    </script>
+
+    <script>
+
+        const app = Vue.createApp({
+            data() {
+                return {
+                    // coins1: ['BitCoin', 'Ethereum', 'Cardano (ADA)', 'Ripple', 'Litecoin'],
+                    coins:[
+                        {
+                            coinName: 'BitCoin',
+                            coinDesc: "Launched in 2009, BitCoin is the world's largest cryptocurrency by market capitalization. It was designed to be independent of any government or central bank, and has a turbulent history as a store of value. It is the earliest virtual currency to meet widespread popularity and success, and is the inspiration of many other cryptocurrencies created in its wake."
+                        },
+                        {
+                            coinName:'Ethereum',
+                            coinDesc:"Ethereum describes itself as \"the world's programmable blockchain.\" It is a database of information that is designed to be unhackable. Ether, or ETH, is the cryptocurrency used to complete transactions on the blockchain. Ethereum serves as a marketplace for financial services, games, and apps, all of which can be paid for in Ether cryptocurrency and are safe from fraud, theft, or censorship."
+                        },
+                        {
+                            coinName:'Cardano (ADA)',
+                            coinDesc:"Cardano bills itself as a third-generation blockchain platform, a decentralized proof-of-stake (PoS) blockchain platform designed to be a more efficient alternative to proof-of-work (PoW) networks. The platform's main applications are in identity management and traceability, and the cryptocurrency used on Cardano is referred to as ADA."
+                        },
+                        {
+                            coinName: 'Ripple',
+                            coinDesc: "Ripple is a blockchain-based digital payment network and protocol that utilises its own cryptocurrency called 'XRP'. Rather than utilising blockchain mining, Ripple uses a consensus mechanism to confirm transactions which make them more energy efficient, faster and cheaper. Ripple ranks among the top 6 most valuable blockchain-based tokens by market capitalization"
+                        },
+                        {
+                            coinName: 'Litecoin',
+                            coinDesc:"Founded in 2011 by a former Google engineer, Litecoin was launched with the aim of being the 'silver' to Bitcoin's 'gold'. It thus has many of the same features as BitCoin, while also changing some aspects the development team felt could be improved. Though Litecoin's popularity has waned in recent years, it is ranked the 9th largest cryptocurrency in the world."
+                        }
+                    ]
+
+                }
+            },
+            methods: {
+                convertLink(coin) {
+                    var coinArr = coin.coinName.split(' ');
+                    if (coinArr.length > 1) {
+                        var link = coinArr[0];
+                        return link.toLowerCase();
+                    }
+                    return coin.coinName.toLowerCase();
+                }
+
+            },
+            computed: {
+
+            }
+        })
+        app.mount('#coinDiv')
+
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+</html>

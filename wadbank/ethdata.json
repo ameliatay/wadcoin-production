@@ -1,0 +1,792 @@
+{
+    "data": [
+        {
+            "news_url": "https://www.dcforecasts.com/ethereum-news/ethereums-supply-could-shrink-after-the-eth-2-0-upgrade/",
+            "image_url": "https://crypto.snapi.dev/images/v1/b/p/eth-gas-cost-73675.jpg",
+            "title": "Ethereum's Supply Could Shrink After The ETH 2.0 Upgrade",
+            "text": "Ethereum's supply could shrink after the new ETH 2.0 upgrade as the EIP-1559 added deflationary pressure to the coin so let's read more in our latest Ethereum news today. There is now over 118 million ETH in circulation and even though there's no supply cap on the crypto, don't expect the number to get higher.",
+            "source_name": "DCForecasts",
+            "date": "Wed, 27 Oct 2021 06:07:34 -0400",
+            "topics": [
+                "upgrade"
+            ],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://ambcrypto.com/will-ethereums-new-ath-bear-the-same-results-as-it-did-in-may/",
+            "image_url": "https://crypto.snapi.dev/images/v1/m/a/videoblocks-virtual-cryptocurrency-ethereum-sign-in-digital-cyberspace-4k-uhd-animation-loop-with-digit-rvdo0paqm-thumbnail-full01-1024x576-1-73673.jpg",
+            "title": "Will Ethereum's new ATH bear the same results as it did in May",
+            "text": "After months of waiting, Ethereum finally accomplished what investors had been waiting for. By hitting $4,361 on the charts, ETH marked a new all-time high and joined the league of cryptos that have already registered new ATHs of their own.",
+            "source_name": "AMBCrypto",
+            "date": "Wed, 27 Oct 2021 06:00:23 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://www.cryptopolitan.com/ethereum-price-analysis-2021-10-27/",
+            "image_url": "https://crypto.snapi.dev/images/v1/k/m/ethereum-price-analysis-2021-10-27-73661.png",
+            "title": "Ethereum Price Analysis: ETH spikes below $4,000 as the overall market falls",
+            "text": "TL;DR Breakdown Ethereum price analysis is bullish today. ETH/USD saw heavy selling this morning.",
+            "source_name": "Cryptopolitan",
+            "date": "Wed, 27 Oct 2021 05:26:38 -0400",
+            "topics": [
+                "tanalysis"
+            ],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://www.dailyfx.com/forex/market_alert/2021/10/27/Bitcoin-BTC-Ethereum-ETH-Slump-Alt-Coins-Hit-Hard.html",
+            "image_url": "https://crypto.snapi.dev/images/v1/p/7/crypto11-73659.jpg",
+            "title": "Bitcoin (BTC), Ethereum (ETH) Slump, Alt-Coins Hit Hard",
+            "text": "The cryptocurrency market is trying to recover from an early morning sell-off that sent prices plummeting across the board.",
+            "source_name": "DailyFX",
+            "date": "Wed, 27 Oct 2021 05:03:00 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://cryptonews.com//news/usd-500m-liquidated-as-bitcoin-falls-below-usd-60k-ethereum-below-usd-4k.htm",
+            "image_url": "https://crypto.snapi.dev/images/v1/q/g/bed9af3ce9-media-library-original-900-600-73644.jpg",
+            "title": "USD 500M Liquidated as Bitcoin Falls Below USD 60K, Ethereum Below USD 4K",
+            "text": "Nearly USD 500m in long positions were liquidated across the crypto market in just one hour on Wednesday, as the price of bitcoin (BTC) fell below the psychologically important USD 60,000 level, and ethereum (ETH) dropped below USD 4,000.",
+            "source_name": "Cryptonews",
+            "date": "Wed, 27 Oct 2021 04:42:00 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://en.cryptonomist.ch/2021/10/27/ethereum-above-50000-dollars-by-2030/",
+            "image_url": "https://crypto.snapi.dev/images/v1/z/l/ethereum-50k-300x200-73637.jpg",
+            "title": "Ethereum above 50,000 dollars by 2030?",
+            "text": "A panel of experts at Finder has made predictions on both the short and long term",
+            "source_name": "The Cryptonomist",
+            "date": "Wed, 27 Oct 2021 03:40:44 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://dailyhodl.com/2021/10/27/analyst-predicts-monster-uptrends-for-ethereum-and-aave-says-red-hot-solana-could-run-hard/",
+            "image_url": "https://crypto.snapi.dev/images/v1/p/i/ethereum-aave-solana-uptrendsjpgfit10242c600ssl1-73617.jpg",
+            "title": "Analyst Predicts Monster Uptrends for Ethereum and Aave, Says Red-Hot Solana Could Run Hard",
+            "text": "A popular crypto strategist and trader is predicting strong uptrends for Ethereum (ETH) while saying that explosive altcoin Solana (SOL) could continue its impressive performance. The pseudonymous trader Smart Contracter tells his 176,000 Twitter followers that he's keeping a close watch on Ethereum against Bitcoin (ETH/BTC) because he believes the trading pair remains bullish after [\u2026] The post Analyst Predicts Monster Uptrends for Ethereum and Aave, Says Red-Hot Solana Could Run Hard appeared first on The Daily Hodl.",
+            "source_name": "The Daily Hodl",
+            "date": "Wed, 27 Oct 2021 03:04:45 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "AAVE",
+                "ETH",
+                "SOL"
+            ]
+        },
+        {
+            "news_url": "https://ambcrypto.com/ethereum-ahead-of-the-altair-update-heres-where-the-nodes-are/",
+            "image_url": "https://crypto.snapi.dev/images/v1/k/h/samuel-regan-asante-stdn0dxy8os-unsplash-73614.jpg",
+            "title": "Ethereum: Ahead of the Altair update, here's where the nodes are",
+            "text": "These are good times for Ethereum, with the altcoin recording a market cap of over $500 billion for the first time this month. In fact, ETH breached its resistance levels on the charts very recently, hitting a new ATH of $4,361 in the process.",
+            "source_name": "AMBCrypto",
+            "date": "Wed, 27 Oct 2021 03:00:35 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://en.cryptonomist.ch/2021/10/27/bitcoin-ethereum-avalanche-price-analyses-2/",
+            "image_url": "https://crypto.snapi.dev/images/v1/v/h/bitcoin-price-1-1-300x200-73619.jpg",
+            "title": "Bitcoin, Ethereum, Avalanche Price Analyses",
+            "text": "Bitcoin's price on Tuesday was mostly static until the day's final 4-hour candle",
+            "source_name": "The Cryptonomist",
+            "date": "Wed, 27 Oct 2021 02:39:18 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "AVAX",
+                "BTC",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://www.newsbtc.com/analysis/eth/ta-ethereum-outperforms-bitcoin-why-eth-could-rally-to-new-ath/",
+            "image_url": "https://crypto.snapi.dev/images/v1/x/9/shutterstock-755970418-73604.jpg",
+            "title": "TA: Ethereum Outperforms Bitcoin, Why ETH Could Rally To New ATH",
+            "text": "Ethereum started a fresh increase above $4,175 against the US Dollar. ETH could gain pace if there is a clear break above $4,300 in the near term.",
+            "source_name": "NewsBTC",
+            "date": "Wed, 27 Oct 2021 01:58:28 -0400",
+            "topics": [
+                "tanalysis"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://cryptonews.com//news/bitcoin-ethereum-try-to-recover-shib-rallies.htm",
+            "image_url": "https://crypto.snapi.dev/images/v1/8/c/doge-and-3-coinsjpgfit10242c600ssl1-73114-73596.jpg",
+            "title": "Bitcoin, Ethereum Try to Recover, SHIB Rallies",
+            "text": "Bitcoin price struggled to clear the USD 64,000 resistance zone. BTC is moving lower and is currently (04:33 UTC) trading above USD 61,400 after dropping to almost USD 60,000 earlier today. A downside break below USD 60,000 could put pressure on the bulls in the near term.",
+            "source_name": "Cryptonews",
+            "date": "Wed, 27 Oct 2021 00:49:00 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "ETH",
+                "SHIB"
+            ]
+        },
+        {
+            "news_url": "https://cryptoslate.com/is-a-cardano-ethereum-bridge-likely-to-stoke-their-rivalry-even-further/",
+            "image_url": "https://crypto.snapi.dev/images/v1/r/9/ethereum-cardano-bridge-73580.jpg",
+            "title": "Is a Cardano-Ethereum bridge likely to stoke their rivalry even further?",
+            "text": "Bondly Finance has announced the rollout of a cross-chain bridge to connect the Cardano and Ethereum blockchains. The post Is a Cardano-Ethereum bridge likely to stoke their rivalry even further?",
+            "source_name": "CryptoSlate",
+            "date": "Tue, 26 Oct 2021 21:01:14 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "ADA",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://dailyhodl.com/2021/10/26/ethereum-competitor-could-power-major-real-world-use-cases-according-to-hedge-fund-veteran-anthony-scaramucci/",
+            "image_url": "https://crypto.snapi.dev/images/v1/g/r/eth-competitor-1jpgfit10242c600ssl1-73565.jpg",
+            "title": "Ethereum Competitor Could Power Major Real-World Use Cases, According to Hedge Fund Veteran Anthony Scaramucci",
+            "text": "SkyBridge Capital founder Anthony Scaramucci says one Ethereum competitor is well-equipped to power complex use cases in the real world. In a new interview with Real Vision, the hedge fund veteran says the decentralized blockchain network Algorand (ALGO) could breathe new life into the consumer goods sector. Scaramucci explains, \u201cIf you're flying American or Delta, [\u2026] The post Ethereum Competitor Could Power Major Real-World Use Cases, According to Hedge Fund Veteran Anthony Scaramucci appeared first on The Daily Hodl.",
+            "source_name": "The Daily Hodl",
+            "date": "Tue, 26 Oct 2021 18:05:01 -0400",
+            "topics": [
+                "institutions"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://decrypt.co/84520/ethereum-supply-pace-shrink-eth-2-upgrade",
+            "image_url": "https://crypto.snapi.dev/images/v1/s/r/ethereum-in-hand-gid-6-73557.jpeg",
+            "title": "Ethereum Supply on Pace to Shrink After ETH 2.0 Upgrade",
+            "text": "The supply of Ethereum should decrease after the network transitions from proof of work to proof of stake.",
+            "source_name": "Decrypt",
+            "date": "Tue, 26 Oct 2021 17:41:11 -0400",
+            "topics": [
+                "upgrade"
+            ],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://decrypt.co/84508/economist-defi-rabbit-hole-nft-sells-419k-ethereum",
+            "image_url": "https://crypto.snapi.dev/images/v1/3/j/economist-nft-cover-gid-6-73551.jpeg",
+            "title": "Economist 'DeFi Rabbit Hole' Cover NFT Sells for $419K in Ethereum",
+            "text": "The publication expects that the experiment will help better inform its readers about the fast-rising NFT space.",
+            "source_name": "Decrypt",
+            "date": "Tue, 26 Oct 2021 17:00:17 -0400",
+            "topics": [
+                "NFT"
+            ],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://cryptopotato.com/defi-tvl-smashes-past-236b-biggest-contributors-include-ethereum-fantom-solana/",
+            "image_url": "https://crypto.snapi.dev/images/v1/7/z/defi-73513.jpg",
+            "title": "DeFi TVL Smashes Past $236B, Biggest Contributors include Ethereum, Fantom, Solana",
+            "text": "The total value locked across the leading protocols soared to a new all-time high on the back of a broader market increase and enthusiasm.",
+            "source_name": "CryptoPotato",
+            "date": "Tue, 26 Oct 2021 16:15:19 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH",
+                "FTM",
+                "SOL"
+            ]
+        },
+        {
+            "news_url": "https://investorplace.com/2021/10/eth-news-12-things-to-know-about-the-ethereum-crypto-altair-upgrade/",
+            "image_url": "https://crypto.snapi.dev/images/v1/l/s/crypto2-73511.jpg",
+            "title": "ETH News: 12 Things to Know About the Ethereum Altair Upgrade as It Goes Live",
+            "text": "ETH news is a hot topic as investors gear up for Ethereum's Altair upgrade, slated for Oct. 27. It sets the stage for the huge Merge.",
+            "source_name": "Investorplace",
+            "date": "Tue, 26 Oct 2021 16:12:38 -0400",
+            "topics": [
+                "upgrade"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://investorplace.com/2021/10/why-ethereum-buyers-should-consider-the-trump-spacs-lessons/",
+            "image_url": "https://crypto.snapi.dev/images/v1/5/a/crypto3-73512.jpg",
+            "title": "Why Ethereum Buyers Should Consider the Trump SPAC's Lessons",
+            "text": "While Ethereum proponents push the decentralization agenda, it aligns with the same questions facing the Trump SPAC.",
+            "source_name": "Investorplace",
+            "date": "Tue, 26 Oct 2021 16:11:54 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://news.bitcoin.com/finders-panel-of-fintech-experts-predict-ethereum-will-reach-5114-this-year-over-50k-by-2030/",
+            "image_url": "https://crypto.snapi.dev/images/v1/8/f/finders-panel-of-fintech-experts-predict-ethereum-will-reach-5114-this-year-over-50k-by-2030-73507.jpg",
+            "title": "Finder's Panel of Fintech Experts Predict Ethereum Will Reach $5,114 This Year, Over $50K by 2030",
+            "text": "At the end of July, the product comparison website Finder.com published its research findings from a panel of experts that predicted the crypto asset ethereum would reach $4.5K this year. On October 25, Finder updated its \u201cEthereum Price Predictions Report\u201d that polled 50 financial technology specialists and ethereum is now expected to reach \u201c$5,114 by [\u2026]",
+            "source_name": "Bitcoin",
+            "date": "Tue, 26 Oct 2021 16:00:12 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://investorplace.com/2021/10/7-cryptos-that-are-likely-to-be-top-performing-cryptocurrencies-over-the-next-year/",
+            "image_url": "https://crypto.snapi.dev/images/v1/1/5/crypto19-73487.jpg",
+            "title": "7 Cryptos That Are Likely to Be Top-Performing Cryptocurrencies Over the Next Year",
+            "text": "These 7 cryptos have good prospects and recent developments make them suited to be the best performing cryptocurrencies in the next year.",
+            "source_name": "Investorplace",
+            "date": "Tue, 26 Oct 2021 14:48:56 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ADA",
+                "ALGO",
+                "AVAX",
+                "BTC",
+                "ETH",
+                "SOL",
+                "XLM"
+            ]
+        },
+        {
+            "news_url": "https://dailyhodl.com/2021/10/26/is-elon-musk-a-shiba-inu-holder-tesla-ceo-says-he-owns-these-three-crypto-assets/",
+            "image_url": "https://crypto.snapi.dev/images/v1/s/i/musk-shiba-inujpgfit10242c600ssl1-73499.jpg",
+            "title": "Is Elon Musk a Shiba Inu Holder? Tesla CEO Says He Owns These Three Crypto Assets",
+            "text": "Tesla CEO and tech mogul Elon Musk says he owns only three crypto assets. Earlier this month, Tesla CEO Elon Musk tweeted a photo of his Shiba Inu puppy, which sparked speculation about his support for the surging Ethereum-based memecoin. However, when a Twitter user quizzed Musk about his SHIB holdings on Sunday, Musk said [\u2026] The post Is Elon Musk a Shiba Inu Holder? Tesla CEO Says He Owns These Three Crypto Assets appeared first on The Daily Hodl.",
+            "source_name": "The Daily Hodl",
+            "date": "Tue, 26 Oct 2021 14:45:14 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "DOGE",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://blockonomi.com/pangolin-guide/",
+            "image_url": "https://crypto.snapi.dev/images/v1/m/s/pangolin-1024x682-73477.jpg",
+            "title": "Pangolin: A Decentralized Exchange for Avalanche & Ethereum",
+            "text": "When evaluating the performance of a cryptocurrency exchange, liquidity is always the most important thing to consider. Over the last 2-3 years, an increasing number of platforms that function as automated market maker (AMM) have emerged.",
+            "source_name": "Blockonomi",
+            "date": "Tue, 26 Oct 2021 14:27:35 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "AVAX",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://dailyhodl.com/2021/10/26/secret-crypto-asset-far-outperforms-bitcoin-and-ethereum-surpassing-1000000000-market-cap-with-massive-7-day-rally/",
+            "image_url": "https://crypto.snapi.dev/images/v1/q/a/secret-cryptojpgfit10242c600ssl1-73475.jpg",
+            "title": "\u2018Secret' Crypto Asset Far Outperforms Bitcoin and Ethereum, Surpassing $1,000,000,000 Market Cap With Massive 7-Day Rally",
+            "text": "An altcoin project focused squarely on secrecy just shot into the top 100 crypto assets by market cap. The cryptocurrency called Secret (SCRT) is up 97% in the last seven days according to CoinGecko, jumping from about $4.50 to its current price of $8.87 at time of publishing. SCRT's rapid rise far outpaces Bitcoin (BTC) [\u2026] The post \u2018Secret' Crypto Asset Far Outperforms Bitcoin and Ethereum, Surpassing $1,000,000,000 Market Cap With Massive 7-Day Rally appeared first on The Daily Hodl.",
+            "source_name": "The Daily Hodl",
+            "date": "Tue, 26 Oct 2021 14:05:53 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH",
+                "SCRT"
+            ]
+        },
+        {
+            "news_url": "https://decrypt.co/84474/bored-ape-yacht-club-ethereum-nft-breaks-sales-record",
+            "image_url": "https://crypto.snapi.dev/images/v1/t/0/bored-ape-nft-sothebys-record-sale-gid-4-73464.png",
+            "title": "Bored Ape Yacht Club Ethereum NFT Breaks Record With $3.4M Sale",
+            "text": "Sotheby's sets a new high mark for a single Bored Ape sale\u2014but a Rare Pepe NFT sold for even more cash.",
+            "source_name": "Decrypt",
+            "date": "Tue, 26 Oct 2021 13:41:32 -0400",
+            "topics": [
+                "NFT"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://www.cryptodaily.co.uk/2021/10/eth-usd-hovering-around-4187-retracement-level-sally-ho-technical-analysis-27-october-2021-eth-ethereum",
+            "image_url": "https://crypto.snapi.dev/images/v1/b/q/ethereum-altair-300x200-72905-73462.jpg",
+            "title": "ETH/USD Hovering Around 4187 Retracement Level: Sally Ho's Technical Analysis 27 October 2021 ETH",
+            "text": "Ethereum (ETH/USD) sought to retain its recent bid early in the Asian session as traders continued to accumulate long positions around the 4200 level after the pair recently traded as high as the 4257.71 area, with that interday high representing a test of the 76.4% retracement of the recent depreciating range from 4374.95 to 3885.25.\u00a0 \u00a0Buying pressure recently emerged around the 50-bar, 240-minute simple moving average and 200-hour simple moving average, indications of technical trading activity that saw ETH/USD remain bid above the 3962.05 level.",
+            "source_name": "Crypto Daily",
+            "date": "Tue, 26 Oct 2021 13:15:00 -0400",
+            "topics": [
+                "tanalysis"
+            ],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://cointelegraph.com/news/ethereum-2-0-inches-closer-with-the-beacon-chain-s-altair-upgrade",
+            "image_url": "https://crypto.snapi.dev/images/v1/m/f/840-ahr0chm6ly9zmy5jb2ludgvszwdyyxbolmnvbs91cgxvywrzlziwmjetmtavytq4mjnkzdmtzmvkms00mja0lwe2y2mtmzfjm2vhnzk5ngy5lmpwzw-73437.jpg",
+            "title": "Ethereum 2.0 inches closer with the Beacon Chain's Altair upgrade",
+            "text": "The Altair upgrade later this month will be the first update to the Beacon Chain, marking the first preparatory move for the upcoming Merge.",
+            "source_name": "Cointelegraph",
+            "date": "Tue, 26 Oct 2021 12:07:00 -0400",
+            "topics": [
+                "upgrade"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://cryptopotato.com/layer-2-solutions-are-the-future-of-ethereum-scaling-says-vitalik-buterin/",
+            "image_url": "https://crypto.snapi.dev/images/v1/q/r/ethereum3-min-73405.jpg",
+            "title": "Layer 2 Solutions Are The Future of Ethereum Scaling, Says Vitalik Buterin",
+            "text": "Vitalik Buterin said that Layer 2 solutions are the future when it comes to Ethereum scaling.",
+            "source_name": "CryptoPotato",
+            "date": "Tue, 26 Oct 2021 10:59:22 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://beincrypto.com/multi-coin-analysis-near-protocol-near-reaches-new-all-time-high/",
+            "image_url": "https://crypto.snapi.dev/images/v1/j/r/crypto14-72996-73374.jpg",
+            "title": "Multi Coin Analysis : Near Protocol (NEAR) Reaches New All-Time High & Ethereum (ETH) Could Follow",
+            "text": "BeInCrypto takes a look at seven cryptocurrencies, including Ethereum (ETH), which is very close to reaching a new all-time high.\u00a0 The post Multi Coin Analysis : Near Protocol (NEAR) Reaches New All-Time High & Ethereum (ETH) Could Follow appeared first on BeInCrypto.",
+            "source_name": "BeInCrypto",
+            "date": "Tue, 26 Oct 2021 09:59:59 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH",
+                "NEAR"
+            ]
+        },
+        {
+            "news_url": "https://cryptonews.com//news/bitcoin-and-ethereum-consolidate-altcoins-eye-upside-break.htm",
+            "image_url": "https://crypto.snapi.dev/images/v1/o/y/optimized-thought-catalog-bj8u389a9n8-unsplash-72994-73328.jpg",
+            "title": "Bitcoin and Ethereum Consolidate, Altcoins Eye Upside Break",
+            "text": "Bitcoin price settled above the USD 62,000 level. However, BTC is struggling to gain pace above USD 63,000 and USD 63,200. It is currently (11:55 UTC) trading in a positive zone, but a close above USD 63,000 is important for more upsides.",
+            "source_name": "Cryptonews",
+            "date": "Tue, 26 Oct 2021 08:04:00 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://decrypt.co/84411/beginners-guide-to-nfts-how-to-buy-an-ethereum-nft",
+            "image_url": "https://crypto.snapi.dev/images/v1/0/z/non-fungible-tokens-gid-2-pid-4-73324.png",
+            "title": "Beginner's Guide To NFTs: How To Buy An Ethereum NFT",
+            "text": "Most NFTs are on the Ethereum network, with the majority being traded on OpenSea. Here's how to buy your first NFT.",
+            "source_name": "Decrypt",
+            "date": "Tue, 26 Oct 2021 07:57:51 -0400",
+            "topics": [
+                "NFT"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://beincrypto.com/ethereum-eth-on-chain-analysis-interest-defi-grow/",
+            "image_url": "https://crypto.snapi.dev/images/v1/g/t/stake-ethereum-73312.jpg",
+            "title": "Ethereum (ETH) On-Chain Analysis: Interest in DeFi Continues to Grow",
+            "text": "BeInCrypto takes a look at on-chain indicators for Ethereum (ETH), more specifically the total value locked in decentralized finance (DeFi) products and transactions on the Uniswap exchange. The post Ethereum (ETH) On-Chain Analysis: Interest in DeFi Continues to Grow appeared first on BeInCrypto.",
+            "source_name": "BeInCrypto",
+            "date": "Tue, 26 Oct 2021 07:30:00 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://www.cryptopolitan.com/ethereum-price-analysis-2021-10-26/",
+            "image_url": "https://crypto.snapi.dev/images/v1/x/r/ethereum-price-analysis-2021-10-26-73310.png",
+            "title": "Ethereum Price Analysis: ETH slowly returns above $4,200, more upside to follow?",
+            "text": "TL;DR Breakdown Ethereum price analysis is bullish today. ETH/USD set higher local high.",
+            "source_name": "Cryptopolitan",
+            "date": "Tue, 26 Oct 2021 07:17:13 -0400",
+            "topics": [
+                "tanalysis"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://investorplace.com/2021/10/buy-ethereum-now-before-it-takes-its-next-big-jump-higher/",
+            "image_url": "https://crypto.snapi.dev/images/v1/u/x/crypto16-73278.jpg",
+            "title": "Buy Ethereum Now Before It Takes Its Next Big Jump Higher",
+            "text": "As the price of Bitcoin rallies to new all-time highs, Ethereum appears to have been left behind. The launch this week of ProShares Bitcoin Strategy exchange traded fund, the first full-fledged cryptocurrency ETF offered in the U.S., sent Bitcoin skyrocketing to a new all-time high above $66,000.",
+            "source_name": "Investorplace",
+            "date": "Tue, 26 Oct 2021 06:00:31 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://cryptopotato.com/ethereum-price-analysis-eth-primed-to-take-a-stab-at-ath-once-again/",
+            "image_url": "https://crypto.snapi.dev/images/v1/l/a/ethereum-price-analysis-2021-10-24-72651-73268.png",
+            "title": "Ethereum Price Analysis: ETH Primed to Take a Stab at ATH Once Again",
+            "text": "Ethereum appears primed to take another shot at its all-time high as it has been consolidating below resistance for a few days.",
+            "source_name": "CryptoPotato",
+            "date": "Tue, 26 Oct 2021 05:55:40 -0400",
+            "topics": [
+                "tanalysis"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://u.today/less-than-48-hours-until-ethereum-altair-update-but-30-of-nodes-are-not-yet-ready",
+            "image_url": "https://crypto.snapi.dev/images/v1/l/s/10401-73266.jpg",
+            "title": "Less Than 48 Hours Until Ethereum Altair Update, But 30% of Nodes Are Not Yet Ready",
+            "text": "With Ethereum Altair update coming, users are not being dexterous",
+            "source_name": "UToday",
+            "date": "Tue, 26 Oct 2021 05:49:00 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://en.cryptonomist.ch/2021/10/26/santiment-ethereum-could-stay-above-4000/",
+            "image_url": "https://crypto.snapi.dev/images/v1/w/l/ethereum-4000-dollars-1-300x200-73281.jpg",
+            "title": "Santiment: Ethereum could stay above $4,000",
+            "text": "Onchain metrics reveal substantial calm, which is a scenario that may endure\u00a0",
+            "source_name": "The Cryptonomist",
+            "date": "Tue, 26 Oct 2021 05:41:56 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://www.dailyfx.com/forex/market_alert/2021/10/26/Crypto-Update-Bitcoin-BTC-and-Ethereum-ETH-Aim-for-ATH-as-Rally-Continues.html",
+            "image_url": "https://crypto.snapi.dev/images/v1/6/m/crypto13-73267.jpg",
+            "title": "Crypto Update: Bitcoin (BTC) and Ethereum (ETH) Aim for ATH as Rally Continues",
+            "text": "Cryptos are back on the rise as investors continue to buy the dip ahead of new all-time highs",
+            "source_name": "DailyFX",
+            "date": "Tue, 26 Oct 2021 05:30:00 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://en.cryptonomist.ch/2021/10/26/bitcoin-in-consolidation-btc-eth-price-analyses/",
+            "image_url": "https://crypto.snapi.dev/images/v1/2/w/bitcoin-consolidation-300x200-73215.jpg",
+            "title": "Bitcoin in consolidation: BTC, Ethereum, Solana Price Analyses",
+            "text": "The Fear and Greed Index is 76 Extreme Greed\u00a0",
+            "source_name": "The Cryptonomist",
+            "date": "Tue, 26 Oct 2021 02:42:50 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "ETH",
+                "SOL"
+            ]
+        },
+        {
+            "news_url": "https://www.newsbtc.com/analysis/eth/ethereum-gains-momentum-4200/",
+            "image_url": "https://crypto.snapi.dev/images/v1/y/e/shutterstock-547233985-73201.jpg",
+            "title": "TA: Ethereum Gains Momentum, Why Bulls Could Aim More Upsides",
+            "text": "Ethereum started a fresh increase above $4,200 against the US Dollar. ETH could gain pace if there is a clear\u00a0 break above $4,250 in the near term.",
+            "source_name": "NewsBTC",
+            "date": "Tue, 26 Oct 2021 01:28:30 -0400",
+            "topics": [
+                "tanalysis"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://cryptonews.com//news/bitcoin-and-ethereum-show-signs-of-fresh-increase.htm",
+            "image_url": "https://crypto.snapi.dev/images/v1/j/l/bitcoindollar-unsplash-1-72523-72763-73195.jpg",
+            "title": "Bitcoin and Ethereum Show Signs of Fresh Increase",
+            "text": "Bitcoin price formed a base and climbed above the USD 62,000 resistance. BTC broke the USD 62,500 and even spiked above USD 63,000. It is currently (04:32 UTC) trading below USD 63,000, but it might increase towards USD 64,500 in the near term.",
+            "source_name": "Cryptonews",
+            "date": "Tue, 26 Oct 2021 00:43:00 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://www.benzinga.com/markets/cryptocurrency/21/10/23548998/bitcoin-gets-its-mojo-back-defi-coins-pale-against-ethereum-dogecoin-slips-into-the-red-as",
+            "image_url": "https://crypto.snapi.dev/images/v1/w/s/executium-ltazfutkcl8-unsplash-3-6-73175.jpg",
+            "title": "Bitcoin Gets Its Mojo Back, DeFi Coins Pale Against Ethereum, Dogecoin Slips Into The Red As Rival Shiba Inu Spikes",
+            "text": "Bitcoin (CRYPTO: BTC) and other major coins were buoyant Monday night as the global cryptocurrency market capitalization rose 3.2% to $2.62 trillion.",
+            "source_name": "Benzinga",
+            "date": "Mon, 25 Oct 2021 21:32:03 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "DOGE",
+                "ETH",
+                "SHIB"
+            ]
+        },
+        {
+            "news_url": "https://www.newsbtc.com/news/cardano/bondly-ethereum-to-cardano-bridge/",
+            "image_url": "https://crypto.snapi.dev/images/v1/k/c/cardano-1-1-73150.jpeg",
+            "title": "New Ethereum-to-Cardano Bridge Will Provide NFT Creators Eco-friendly Options",
+            "text": "Bondly has announced a new functionality on the Cardano blockchain that is aimed at creators. Energy consumption has been a major problem on the Ethereum network, especially given the increased usage of the blockchain over the past couple of months.",
+            "source_name": "NewsBTC",
+            "date": "Mon, 25 Oct 2021 19:00:08 -0400",
+            "topics": [
+                "NFT"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ADA",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://www.crypto-reporter.com/newsfeed/vesper-finance-launches-aggressive-grow-pools-for-dai-eth-and-wbtc-19816/",
+            "image_url": "https://crypto.snapi.dev/images/v1/y/h/drawkit-illustrations-8iiudnrq87o-unsplash-scaled-69994-70969-72171-73257.jpg",
+            "title": "Vesper Finance Launches Aggressive Grow Pools for DAI, ETH and WBTC",
+            "text": "CHICAGO--(BUSINESS WIRE)--Vesper Finance, a leading DeFi ecosystem and growth engine for crypto assets, today announced the availability of three new aggressive Grow Pools \u2014 DAI, Ethereum (ETH), and Wrapped Bitcoin (WBTC) \u2014 on Vesper's web app followin...",
+            "source_name": "Crypto Reporter",
+            "date": "Mon, 25 Oct 2021 18:22:00 -0400",
+            "topics": [
+                "stablecoins"
+            ],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "ETH",
+                "DAI",
+                "WBTC"
+            ]
+        },
+        {
+            "news_url": "https://www.benzinga.com/markets/cryptocurrency/21/10/23541020/ethereums-price-increased-more-than-4-within-24-hours",
+            "image_url": "https://crypto.snapi.dev/images/v1/o/y/eth-bull-image-2-73126.png",
+            "title": "Ethereum's Price Increased More Than 4% Within 24 hours",
+            "text": "Over the past 24 hours, Ethereum's (CRYPTO: ETH) price has risen 4.63% to $4,209.01. This continues its positive trend over the past week where it has experienced a 13.0% gain, moving from $3,745.46 to its current price.",
+            "source_name": "Benzinga",
+            "date": "Mon, 25 Oct 2021 16:32:48 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://news.bitcoin.com/swarm-of-alternative-crypto-assets-outpace-bitcoins-gains-by-double-digits-this-week/",
+            "image_url": "https://crypto.snapi.dev/images/v1/v/a/shutterstock-1770858713-73121.jpg",
+            "title": "Swarm of Alternative Crypto Assets Outpace Bitcoin's Gains by Double Digits This Week",
+            "text": "After the price of bitcoin tapped an all-time high above the $67K handle, it then dropped below the $60K zone to $59,510 per unit. Since then, the leading crypto asset has regained some of the losses and bitcoin is still up 2.4% during the last seven days. However, a great number of crypto assets have [\u2026]",
+            "source_name": "Bitcoin",
+            "date": "Mon, 25 Oct 2021 16:30:58 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH",
+                "NEAR",
+                "NEXO",
+                "OKB",
+                "RUNE",
+                "SAFEMOON",
+                "SHIB"
+            ]
+        },
+        {
+            "news_url": "https://cointelegraph.com/news/price-analysis-10-25-btc-eth-bnb-ada-xrp-sol-dot-doge-luna-uni",
+            "image_url": "https://crypto.snapi.dev/images/v1/b/g/840-ahr0chm6ly9zmy5jb2ludgvszwdyyxbolmnvbs91cgxvywrzlziwmjetmtavnzzmmmjlzmqtogi3ms00mtdjlthlyjatnthlzti4zdcyy2u4lmpwzw-73117.jpg",
+            "title": "Price analysis 10/25: BTC, ETH, BNB, ADA, XRP, SOL, DOT, DOGE, LUNA, UNI",
+            "text": "Bitcoin and several altcoins are attempting to resume their uptrend, but higher levels are likely to witness strong resistance from the bears.",
+            "source_name": "Cointelegraph",
+            "date": "Mon, 25 Oct 2021 16:21:42 -0400",
+            "topics": [
+                "tanalysis"
+            ],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "ADA",
+                "BNB",
+                "BTC",
+                "DOGE",
+                "ETH",
+                "LUNA",
+                "SOL",
+                "XRP",
+                "DOT",
+                "UNI"
+            ]
+        },
+        {
+            "news_url": "https://www.benzinga.com/markets/cryptocurrency/21/10/23538064/crypto-whale-just-moved-166m-worth-of-ethereum-eth-off-binance",
+            "image_url": "https://crypto.snapi.dev/images/v1/7/t/eth-whale-image-23-73086.png",
+            "title": "Crypto Whale Just Moved $166M Worth Of Ethereum (ETH) Off Binance",
+            "text": "What happened: An Ethereum (CRYPTO: ETH) whale sent $165,644,229 worth of Ethereum off Binance today. The ETH address associated with this transaction has been identified as: 0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+            "source_name": "Benzinga",
+            "date": "Mon, 25 Oct 2021 14:52:21 -0400",
+            "topics": [
+                "whales"
+            ],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://cryptoslate.com/just-17-of-all-ethereum-addresses-bought-80-of-all-nfts-this-year/",
+            "image_url": "https://crypto.snapi.dev/images/v1/8/l/ethereum-nft-73062.jpg",
+            "title": "Just 17% of all Ethereum addresses bought 80% of all NFTs this year",
+            "text": "A report by Moonstream has revealed that 17 percent of addresses control over 80% of all Ethereum-based NFTs. The post Just 17% of all Ethereum addresses bought 80% of all NFTs this year appeared first on CryptoSlate.",
+            "source_name": "CryptoSlate",
+            "date": "Mon, 25 Oct 2021 14:01:14 -0400",
+            "topics": [
+                "NFT"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://investorplace.com/2021/10/dear-eth-crypto-fans-mark-your-calendars-for-an-ethereum-catalyst-on-oct-27/",
+            "image_url": "https://crypto.snapi.dev/images/v1/g/v/crypto20-73050.jpg",
+            "title": "Dear ETH Crypto Fans, Mark Your Calendars for an Ethereum Catalyst on Oct. 27",
+            "text": "The ETH crypto is taking up much of the crypto world's spotlight as it begins laying the tracks for its merge upgrade starting on Wednesday.",
+            "source_name": "Investorplace",
+            "date": "Mon, 25 Oct 2021 13:39:47 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://www.cryptodaily.co.uk/2021/10/eth-usd-gains-in-very-technical-trading-sally-ho-technical-analysis-26-october-2021-eth-ethereum",
+            "image_url": "https://crypto.snapi.dev/images/v1/6/r/pexels-photo-730552-e1635105881764-72741-73040.jpeg",
+            "title": "ETH/USD Gains in Very Technical Trading: Sally Ho's Technical Analysis 26 October 2021 ETH",
+            "text": "Ethereum (ETH/USD) worked to extend recent gains early in the Asian session as the pair moved back above the 4100 level after consolidating recent gains that saw it trade as high as the 4374.95 area, just shy of a fresh all-time high.\u00a0 Buying pressure recently emerged around the 50-bar, 240-minute simple moving average and 200-hour simple moving average, indications of technical trading activity that saw ETH/USD remain bid above the 3962.05 level.",
+            "source_name": "Crypto Daily",
+            "date": "Mon, 25 Oct 2021 13:15:00 -0400",
+            "topics": [
+                "tanalysis"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "ETH"
+            ]
+        }
+    ]
+}

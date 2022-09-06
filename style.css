@@ -1,0 +1,237 @@
+/* External Style Sheet */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+:root{
+    --dirt: #A89E7E;
+    --lightbeige: #FFFCF2;
+    --darkbeige: #F4EBD0;
+    --darkblue: #6D78A8;
+    --lightblue: #D0D7F5;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 70px;
+    background-color: var(--lightbeige);
+}
+
+.customMargins {
+    padding-top: 2%;
+    padding-left: 3%;
+    padding-right: 5%;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+html { 
+    scroll-behavior: smooth;
+}
+
+
+/*header.html*/
+#wadcoin{
+    margin-left:20px;
+}
+
+#challenge, #learn, #wadbank{
+    margin-left: 13px;
+}
+
+/* Smoothens corners of dropdown menu */
+#experience-menu, #account-menu, #learn-menu {
+    border-radius: 15px;
+    background-color: grey;
+}
+
+/* Aligns the bottom of the tabs to "WADCoin */
+#experience, #challenge, #learn, #wadbank{
+    padding-top: 11px;
+}
+
+#account {
+    padding-top: 12px;
+}
+
+/* When mouse hovers over the dropdown choices, backfround color changes */
+#overview:hover, #buy-page, #sell-page, #challenges:hover, #leaderboard:hover, #profile:hover, #settings:hover, #sign-out:hover, #forum:hover, #lessons:hover, #wadbankNavbar:hover, #signout:hover{
+    background-color: rgb(143, 94, 5);
+    border-radius: 10px;
+}
+
+
+/*coinspage.html*/
+/* Enables tables to not be wrapped, automatically adding a scroll bar */
+#table-current, #table-overall-container, #table-history, #table_container{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#table_container_prices {
+    margin-top: 5%;
+    min-width: 650px;
+}
+
+.round-table-bdr {border-radius: 10px;overflow:hidden;}
+
+#row-logos,#row-overview, #row-graph, #row-purchase {
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.coins-logo{
+    border: 1px solid black; 
+    border-radius: 50px; 
+    width: 50px;
+}
+
+#row-about{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+
+#loading_container{
+    display: none; 
+    width: 200px;
+}
+  
+  
+#chartContainer{
+    height: 300px; 
+    width: auto; 
+}
+
+
+.coins {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+
+/*buy.html & sell.html*/
+#buy-page-btn, #sell-page-btn {
+    font-size: 10px;
+    justify-content: center;
+    width: 50px;
+    height: auto;
+    font-weight: bold;
+    padding-left: 10px;
+    color: white;
+}
+
+#viewDetails {
+    margin-top: 40px;
+}
+
+#check-balance {
+    margin-top: 34px;
+}
+
+#check-sell-input {
+    margin-top: 92px;
+}
+
+#buy-success, #sell-percent-success, #sell-qty-success{
+    color: rgb(15, 228, 15);
+}
+
+#view-error, #buy-error, #check-purchase-error, #sell-percent-error, #sell-qty-error , #check-sell-error{
+    color: rgb(219, 53, 53);
+}
+
+#info-msg {
+    border-radius: 15px;
+    background-color: lightgray;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.keyData{
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+
+#galaxy-container {
+    position: relative;
+    height: 100px;
+}
+
+#earth {
+    width: 80px;
+    height: 80px;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+#rocket {
+    width: 75px;
+    height: 100px;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-bottom: 50px;
+    position: relative;
+}
+
+#moon {
+    width: 80px;
+    height: 60px;
+}
+
+/* footer */
+.heading{
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: black;
+} 
+
+.subheading{
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+} 
+
+.subtext {
+    font-size: 13px;
+}
+
+.socials-link img{
+    width: 50px;
+    margin-right: 5px;
+}
+
+#map {
+    height: 200px; 
+    width: 100%; 
+}
+
+/* header */
+.navbar{
+    position: fixed;
+    top: 1.5rem;
+    width: 100%;
+    padding-right: 45px;
+    z-index: 100;
+}
+
+.navbar-link{
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: black;
+} 
+
+a {
+    text-decoration: none;
+}

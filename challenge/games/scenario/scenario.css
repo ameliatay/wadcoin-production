@@ -1,0 +1,32 @@
+#chartContainer{
+    height: 300px; 
+    width: auto;
+    margin-top: 5%;
+    text-align: center;
+}
+
+#challenge {
+    text-align: center;
+}
+
+#nextPage{
+    display:none;
+    text-align:center;
+}
+
+#transaction{
+    display:none; 
+    align-content:center;
+}
+
+#complete{
+    display:none;
+}
+
+#restart{
+    display:none;
+}
+
+#summary{
+    display:none;
+}

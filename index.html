@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Import style.css -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="./images/logos/logo_size_invert.jpg">
+
+    <style>
+        body {
+            background-color: var(--lightbeige);
+        }
+        /* General Styles */
+        .container {
+            margin: 0;
+            padding: 0;
+            top:0;
+            left: 0;
+            width: 100%;
+            position: relative;
+        }
+        /* End of General Styles */
+
+        /* Page Background */
+        .bg {
+            /* The image used */
+            background-image: url("images/cryptoBG.jpg");
+
+            /* Full height */
+            height: 50%; 
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: var(--lightbeige);
+            opacity: 0.8;
+        }
+        /* End of Page Background */
+
+        /* Navbar */
+        .top-bar{
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            z-index: 100;
+            margin: 0;
+        }
+
+        .navbar{
+            position: fixed;
+            top: 1.5rem;
+            width: 100%;
+            padding-right: 1rem;
+            z-index: 100;
+        }
+
+        .navbar-link{
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: black;
+            padding-left: 20px;
+            padding-right: 20px;
+        } 
+
+        a {
+            text-decoration: none;
+        }
+
+        .logo { 
+            position: fixed;
+            top:1rem;
+            left:1.5rem;
+            font-size: 2rem;
+            color:white;
+            z-index: 2000;
+        }
+        /* End of Navbar */
+
+        /* Home Section */
+        #home-section {
+            height: 100vh;
+            width: 100%;
+            left: 0;
+            top:0;
+            justify-content: center;
+            align-items: center; 
+            display: flex;
+            text-align: left;
+            color: white;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .main-text {
+            width: 100%;
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        .sub-text {
+            font-size: 2rem;
+            font-weight: 200;
+        }
+        /* End of Home Section */
+
+        /* Mission Section */
+        .quote {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 550;
+            font-size: 20px;
+            text-shadow: 0 .1rem .4rem grey;
+        }
+
+        .explanation {
+            margin-bottom: 20px;
+        }
+
+        @keyframes quoteTextAnim {
+        0% {
+            color: var(--lightblue);
+            top: 0;
+        }
+        10%,
+        90% {
+            color: var(--darkblue);
+            top: 2rem;
+        }
+        100% {
+            color: var(--lightblue);
+            top: 0;
+        }
+        }
+        /* End of Mission Section */
+
+        /* Solution Section */
+        .our-solution {
+            margin-top: 60px;
+            margin-bottom: 40px;
+            width: 100%;
+            left: 0;
+            justify-content: center;
+            align-items: center; 
+            display: flex;
+            text-align: center;
+            color: black;
+            position: relative;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .typewrite {
+            text-align: center;
+            color:black;
+        }
+
+        /* Animated Circles */
+        .circles {
+            margin-top: 40px;
+            height: fit-content;
+            margin-bottom: 30px;
+        }
+
+        .circle {
+            width: 18rem;
+            height: 18rem;
+            border-radius: 50%;
+            align-self: center;
+            justify-self: center;
+            opacity: 0.5;
+            position: relative;
+            transition: left 2s, top 2s;
+            margin: auto;
+            display: block;
+            text-align:center;
+        }
+
+        .circle-1 {
+            background: url(./images/papertrading.jpg) center no-repeat;
+            background-size: cover;
+            background-clip: content-box;
+            border: 0.5rem dotted var(--darkblue);
+        }
+
+        .circle-2 {
+            background: url(./images/challenges.jpg) center no-repeat;
+            background-size: cover;
+            background-clip: content-box;
+            border: 0.5rem dashed var(--darkblue);
+        }
+
+        .circle-3 {
+            background: url(./images/class.jpg) center no-repeat;
+            background-size: cover;
+            background-clip: content-box;
+            border: 1rem double var(--darkblue);
+        }
+
+        .function {
+            margin-top: 20px;
+            margin-bottom: 50px;
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+        /* End of Solution Section */
+        .anchor{
+            display: block;
+            height: 10%; /*same height as header*/
+            margin-top: -10%; /*same height as header*/
+            visibility: hidden;
+        }
+
+        .heading{
+            font-size: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: black;
+        } 
+
+        .subheading{
+            font-size: 15px;
+            font-weight: 500;
+            color: black;
+        } 
+    </style>
+
+    <title>
+        WADCoin
+    </title>
+</head>
+<body>
+        <!--Navigation-->
+        <div class = "container-fluid top-bar" data-aos="fade-down">
+            <div class="row">
+                <nav class="navbar navbar-expand-md navbar-light" style='background: var(--darkbeige); top:0; padding-top: 20px;'>
+                    <a id = "wadcoin" class="text-black" href="#home-section"><h1>WADCoin</h1></a>
+                    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="#home-section" class="navbar-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#our-mission" class="navbar-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#our-solution" class="navbar-link">Our Solution</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="auth/login.html" class="navbar-link">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="auth/registration.html" class="navbar-link">Sign Up</a>
+                        </li>
+                      </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--End of Navigation-->
+        
+        <div class="container-fluid p-0 w-100">
+            <!--Home Section-->
+            <div class="home-section bg" id="home-section">
+                <div class="container-fluid">
+                    <div style='width: 300px; text-align: end; margin-right: 10%; color: black;' class='float-end text-black' data-aos="fade-left">
+                        <div class="main-text">WADCoin</div>
+                        <div class="sub-text">Your One-Stop Solution to Mastering Cryptocurrency</div>
+                        <a class="btn btn-success" style='width: auto; margin-top: 20px; font-size: 1rem;' href='auth/registration.html'>Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+            <!--End of Home Section-->
+            <!--Mission Section-->
+            <span class="anchor" id="our-mission"></span>
+            <section class="p-5 w-100" style='margin-top: 10%;'>
+                <div class="container-fluid">
+                    <div><h3 style='font-weight: bold; font-size: 50px;' data-aos="fade-up">About Us</h3></div>
+                    <div class="quote" data-aos="fade-up"></div>
+                    <div class="row my-5" data-aos="fade-right">
+                        <div class="col-md-6 order-md-1 h-100">
+                            <div class="heading mb-3">Do you want to join the crypto game?</div>
+                            <div class="subheading">People have been earning alot from cryptocurrency trading. According to CNBC, Americans earned over $4 billion from BitCoin in 2020. In Singapore, approximately 43% of all individuals are invested, to varying degrees, in the cryptocurrenct market.</div>
+                        </div>
+                        <div class="col-md-6 order-md-0"><img src="images/trading.jpg" alt="" width='100%' height='auto'></div>
+                    </div>
+                    <div class="row my-5" data-aos="fade-left">
+                        <div class="col-md-6">
+                            <div class="heading mb-3">Are you too afraid of trading?</div>
+                            <div class="subheading">While many people want to try, there's also a bulk of individuals too fearful of the volatility. And that's completely understandable.</div>
+                        </div>
+                        <div class="col-md-6 order-md-0"><img src="images/risky.jpg" alt="" width='100%' height='auto'></div>
+                    </div>
+                    <div class="row my-5" data-aos="fade-right">
+                        <div class="col-md-6 order-md-1">
+                            <div class="heading mb-3">Have you been losing money from cryptocurrency?</div>
+                            <div class="subheading">On the other side, there are equally a lot of people at the complete mercy of the market. Making decisions without understanding trading concepts, leaving themselves frustrated from the losses and consequences.</div>
+                        </div>
+                        <div class="col-md-6 order-md-0"><img src="images/money.jpg" alt="" width='100%' height='auto'></div>
+                    </div>
+                    <div><h3 class='center my-5' style='font-weight: bold; font-size: 40px; color: black' data-aos="zoom-in">WADCoin is here to help!</h3></div>
+                </div>
+            </section>
+            <!--End of Mission Section-->
+            <!--Solution Section-->
+            <span class="anchor" id="our-solution"></span>
+            <section class="our-solution" style='padding-top: 40px;'>
+                <div class="container" data-aos="fade-up" >
+                    <div style='text-align: start;'><h3 style='font-weight: bold; font-size: 50px;' >Our Solution</h3></div>
+                    <h4><div href="" class="typewrite" style='text-align: start;' data-period="2000" data-type='[ "Cryptotrading simulations", "A community to learn with", "Paper-trading challenges", "Structured curriculum" ]'><span class="wrap"></span></div></h4>
+                    <div class="row circles">
+                        <div class="col-lg-4 px-auto">
+                            <div class="container"><div class="circle circle-1"></div></div>
+                            <div class="function circle1word">Paper-Trading Simulation</div>
+                        </div>
+                        <div class="col-lg-4 px-auto">
+                            <div class="circle circle-2"></div>
+                            <div class="function circle2word">Crypto Trivia & Challenges</div>
+                        </div>
+                        <div class="col-lg-4 px-auto">
+                            <div class="circle circle-3"></div>
+                            <div class="function circle3word">Step-by-Step Tutorials</div>
+                        </div>
+                    </div>
+                    <a style='font-weight: bold; font-size: 1.5rem; text-align: center; color: black' href='#home-section'>And more! Join us to explore all the features today.</a>
+                </div>
+            </section>
+            <!--End of Solution Section-->
+        
+        </div>
+        <div class="container-fluid mt-5" style='background-color: var(--darkbeige);'>
+            <div class="p-4">
+                <div class="row heading py-1 px-3">
+                    WADCoin
+                </div>
+                <div class="row">
+                    <div class="col-md-3 p-3">
+                        <div class="subheading mb-3">About Us</div>
+                        <div class='subtext'>WADCoin is a non-profit organisation that aims to make cryptocurrency trading accessible to everyone. The problem we aim to tackle is one that many individuals can relate to - being too fearful to start trading cryptocurrency or lacking the knowledge to do it well. Through a number of features that tackle these two root issues, WADCoin teaches, encourages, and exposes you to the world of cryptocurrency trading. Take a look around and contact us if you require any further assistance!</div>
+                    </div>
+                    <div class="col-md-6 p-3">
+                        <div class="subheading mb-3">Contact Us</div>
+                        <div class="row">
+                            <div class="col-md-6"><div id='map'></div></div>
+                            <div class="col-md-6 subtext">
+                                <div class="row">
+                                    <div>WADCoin HQ, Singapore Management University</div>
+                                    <div class='mb-3'>81 Victoria St, Singapore 188065</div>
+                                    <div>Tel: +65 9123 4567</div>
+                                    <div>Email: wadcoin@smu.edu.sg</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 p-3">
+                        <div class="subheading mb-3">Follow Us</div>
+                        <div>
+                            <a href="https://www.linkedin.com/school/singapore-management-university/" class="socials-link"><img src="images/social-icons/linkedin.png"></a>
+                            <a href="https://www.instagram.com/sgsmu/" class="socials-link"><img src="images/social-icons/instagram.png"></a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div id = "galaxy-container" class="row center" onclick = "moveRocketGeneral(12)">
+                    <img id = "earth" src= "images/earth/earth.PNG" class='h-100 w-auto'>
+                    <img id = "rocket" src = "images/rocket/rocket.PNG" class='h-100 w-auto'>
+                    <img id = "moon" class = "ms-auto float-end h-100 w-auto" src = "images/moon/moon.PNG">
+                </div>
+                <hr>
+                <div>
+                    © 2021 WADCoin. All Rights Reserved.
+                </div>
+            </div>
+                
+        </div>
+    <!-- Bundled Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+    <script>
+        // Quote Text
+        const quoteText = document.querySelector(".quote");
+        const quoteTextContent =
+        "Nothing is more expensive than a missed opportunity.";
+
+        Array.from(quoteTextContent).forEach((char) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        quoteText.appendChild(span);
+
+        span.addEventListener("mouseenter", (e) => {
+            e.target.style.animation = "quoteTextAnim 3s infinite";
+        });
+        });
+        // End of Quote Text
+
+        var TxtType = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtType.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+            delta = this.period;
+            this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
+            }
+
+            setTimeout(function() {
+            that.tick();
+            }, delta);
+        };
+
+        window.onload = function() {
+            var elements = document.getElementsByClassName('typewrite');
+            for (var i=0; i<elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-type');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                new TxtType(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid}";
+            document.body.appendChild(css);
+        };
+
+        // Animated Circles
+        const circle1 = document.querySelector(".circle-1")
+        const circle1text = document.querySelector('.circle1word')
+        circle1.addEventListener('mouseenter', (e) => {
+            circle1.style = 'opacity:100%'
+            circle1text.style = 'font-weight:700'
+        })
+        circle1.addEventListener('mouseleave', (e) => {
+            circle1.style = 'opacity:0.5'
+            circle1text.style = 'font-weight:300'
+        })
+
+        const circle2 = document.querySelector(".circle-2")
+        const circle2text = document.querySelector('.circle2word')
+        circle2.addEventListener('mouseenter', (e) => {
+            circle2.style = 'opacity:100%'
+            circle2text.style = 'font-weight:700'
+        })
+        circle2.addEventListener('mouseleave', (e) => {
+            circle2.style = 'opacity:0.5'
+            circle2text.style = 'font-weight:300'
+        })
+
+        const circle3 = document.querySelector(".circle-3")
+        const circle3text = document.querySelector('.circle3word')
+        circle3.addEventListener('mouseenter', (e) => {
+            circle3.style = 'opacity:100%'
+            circle3text.style = 'font-weight:700'
+        })
+        circle3.addEventListener('mouseleave', (e) => {
+            circle3.style = 'opacity:0.5'
+            circle3text.style = 'font-weight:300'
+        })
+        // End of Animated Circles
+        function initMap() {
+            // The location of SIS, SMU
+            var sis = {lat: 1.297538, lng: 103.849558};
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 18, center: sis});
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({position: sis, map: map});
+        }
+
+        function moveRocketGeneral(varNum) {
+            
+            var moon = document.getElementById("moon");
+            var rocket = document.getElementById("rocket");
+            
+            let posLeft = getOffset(rocket).left;
+            var originalPosLeft = getOffset(rocket).left;
+            var transMoonPosLeft = getOffset(moon).left - 160
+
+            // Check if browser width is too narrow or if the rocket has not returned to earth
+            if (transMoonPosLeft < posLeft || this.rocket == false) {
+                return
+            }
+
+            // Prevents user from spamming
+            this.rocket = false
+            let id = null;
+
+            clearInterval(id);
+
+            id = setInterval(frame, 5);
+
+            function frame() {
+                if (posLeft > transMoonPosLeft) {
+                    clearInterval(id);
+
+                    this.rocket = false
+                    setTimeout(() => {
+                        rocket.style.left = originalPosLeft - 120 - varNum + "px";
+                        this.rocket = true;
+                    }, 500)
+                }
+                else {
+                    posLeft += 2; 
+                    rocket.style.left = posLeft + "px"; 
+                }
+            }
+        }
+
+        function getOffset(el) {
+            const rect = el.getBoundingClientRect();
+            return {
+                left: rect.left + window.scrollX,
+                top: rect.top + window.scrollY
+            };
+        }
+    </script>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz1s0Ex53pfhZhg2-J6BV7tQaPB5JQkUM&callback=initMap">
+    </script>
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+    
+</body>
+</html>

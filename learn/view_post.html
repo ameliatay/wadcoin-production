@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Import style.css -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logos/logo_size_invert.jpg">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- VUEJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+    
+    <!-- Import common files-->
+    <script src="../jquery-3.6.0.js"></script> 
+    <script>
+        $(document).ready(function(){
+           $('#header').load("../general/header.html");
+           $('#footer').load("../general/footer.html");
+        });
+     </script>
+
+    <script src = "../experience/functions.js"></script>
+
+     <script>
+        const url = window.location.href;
+        const index = url.search('=');
+        const postID = url.slice(index + 1)
+     </script>
+
+    <script type='module' src='../index.js'></script>
+    <script type='module' src='comments_controller.js'></script>
+    <script type='module' src='whats_new.js'></script>
+    <script type='module'>
+        import { collection, doc, setDoc, getDoc, getDocs, getFirestore, query, orderBy } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+        const db = getFirestore();
+
+        // Get Main Post Information
+        const docRef = doc(db, "posts", postID);
+        const docSnap = await getDoc(docRef);
+        const posterID = docSnap.data().posterID;
+        const userRef = doc(db, "users", posterID);
+        const userSnap = await getDoc(userRef);
+        const posterName = userSnap.data().name;
+        const postTime = docSnap.data().dateStr;
+        const postTitle = docSnap.data().title;
+        const postDesc = docSnap.data().desc;
+
+        document.getElementById('mainPost').innerHTML = `
+        <div class="card-body text-white border-0" style='border:none'>
+            <div class="card-title my-0" id='posterName'>${posterName}</div>
+            <div class='card-text'><small style='color: var(--darkbeige)'>Posted on ${postTime}</small></div>
+            <h3 class="card-subtitle my-3" id='postTitle'>${postTitle}</h3>
+            <div class="card-text my-2" id='postDesc'>${postDesc}</div> 
+        </div>
+        `
+    </script>
+    <title>
+        WADCoin
+    </title>
+</head>
+<body>
+    <div id='header'></div>
+    <div class="customMargins">
+        <div class='row'>
+            <div class="container m-0 p-0 col-12" data-aos='fade-right'>
+                <div class='row mx-2'>
+                    <div class="col-md-8 p-4">
+                        <a class='btn text-white fw-bold' style='background-color: var(--darkblue);' href='learn.html'>&laquo; Back to Community Page</a>
+                        <div class="card my-3" style='background-color: var(--dirt);' style='color:white' id='mainPost'>
+                            <div class="w-100 center my-4" id='spinner'>
+                                <div class="spinner-border" role="status">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Comments</h4>
+                        <div id='comments'>
+                            <div class="w-100 center" id='spinner'>
+                                <div class="spinner-border" role="status">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='m-4'>
+                            <div>Your Comment</div>
+                            <textarea id='comment-text' style='width:100%; padding: 10px' placeholder="Type your comment"></textarea>
+                            <div class="btn btn-primary" id='commentBtn'>Comment</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-4">
+                        <div class="container-fluid p-4" style='border: 2px solid rgba(0, 0, 0, 0.849); border-radius: 5px'>
+                            <div style='font-weight: 200;'>What's New?</div>
+                            <h3>Recent Posts</h3>
+                            <div id='recents'>
+                                <div class="w-100 center my-5" id='spinnerNew'>
+                                    <div class="spinner-border" role="status">
+                                        <span class="sr-only"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='footer'></div>
+    <script type='module'>
+        import { collection, addDoc, getFirestore } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+        const db = getFirestore();
+        const auth = getAuth();
+
+        const commentBtn = document.querySelector('#commentBtn');
+        
+        commentBtn.addEventListener('click', () => {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    const uid = user.uid;
+                    const time = new Date();
+                    const dateStr = time.toDateString();
+                    const timeStr = time.toTimeString();
+                    const comment = document.getElementById("comment-text");
+
+                    if (comment.value.trim().length == 0) {
+                        swal({
+                            text: "Comment cannot be empty.",
+                            icon: 'warning'
+                        })
+                    } else {
+                        swal({
+                            title: 'Posted!',
+                            text: "Please wait a few seconds for the page to reload",
+                            icon: 'success'
+                        }).then(function() {
+                            const commentsRef = collection(db, `posts/${postID}/comments`);
+                            addDoc(commentsRef,{
+                                'posterID': uid,
+                                'time': time,
+                                'dateStr': dateStr,
+                                'timeStr': timeStr,
+                                'comment': comment.value,
+                            })
+                            .then(() => {
+                                window.location.reload()
+                            })
+                        })
+                    }
+                }
+                else {
+                    swal ({
+                        title: "Log Out",
+                        text: "Successfully logged out! You will be redirected to the login page.",
+                        icon: "info",
+                        closeOnClickOutside: false,
+                    })
+                    .then(function() {
+                        window.location.href = '../auth/login.html'
+                    })
+                }
+            })
+        })
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>

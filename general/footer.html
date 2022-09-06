@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS library -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+    crossorigin="anonymous">
+    <link rel= stylesheet href = "../style.css">
+</head>
+<body>
+    <div class="container-fluid mt-5" style='background-color: var(--darkbeige);'>
+        <div class="p-4">
+            <div class="row heading py-1 px-3">
+                WADCoin
+            </div>
+            <div class="row">
+                <div class="col-md-3 p-3">
+                    <div class="subheading mb-3">About Us</div>
+                    <div class='subtext'>WADCoin is a non-profit organisation that aims to make cryptocurrency trading accessible to everyone. The problem we aim to tackle is one that many individuals can relate to - being too fearful to start trading cryptocurrency or lacking the knowledge to do it well. Through a number of features that tackle these two root issues, WADCoin teaches, encourages, and exposes you to the world of cryptocurrency trading. Take a look around and contact us if you require any further assistance!</div>
+                </div>
+                <div class="col-md-6 p-3">
+                    <div class="subheading mb-3">Contact Us</div>
+                    <div class="row">
+                        <div class="col-md-6"><div id='map'></div></div>
+                        <div class="col-md-6 subtext">
+                            <div class="row">
+                                <div>WADCoin HQ, Singapore Management University</div>
+                                <div class='mb-3'>81 Victoria St, Singapore 188065</div>
+                                <div>Tel: +65 9123 4567</div>
+                                <div>Email: wadcoin@smu.edu.sg</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 p-3">
+                    <div class="subheading mb-3">Follow Us</div>
+                    <div>
+                        <a href="https://www.linkedin.com/school/singapore-management-university/" class="socials-link"><img src="../images/social-icons/linkedin.png"></a>
+                        <a href="https://www.instagram.com/sgsmu/" class="socials-link"><img src="../images/social-icons/instagram.png"></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id = "galaxy-container" class="row center" onclick = "moveRocketGeneral(12)">
+                <img id = "earth" src= "../images/earth/earth.PNG" class='h-100 w-auto'>
+                <img id = "rocket" src = "../images/rocket/rocket.PNG" class='h-100 w-auto'>
+                <img id = "moon" class = "ms-auto float-end h-100 w-auto" src = "../images/moon/moon.PNG">
+            </div>
+            <hr>
+            <div>
+                © 2021 WADCoin. All Rights Reserved.
+            </div>
+        </div>
+            
+    </div>
+    <script>
+        function initMap() {
+            // The location of SIS, SMU
+            var sis = {lat: 1.297538, lng: 103.849558};
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 18, center: sis});
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({position: sis, map: map});
+        }
+
+        function moveRocketGeneral(varNum) {
+            
+            var moon = document.getElementById("moon");
+            var rocket = document.getElementById("rocket");
+            
+            let posLeft = getOffset(rocket).left;
+            var originalPosLeft = getOffset(rocket).left;
+            var transMoonPosLeft = getOffset(moon).left - 160
+
+            // Check if browser width is too narrow or if the rocket has not returned to earth
+            if (transMoonPosLeft < posLeft || this.rocket == false) {
+                return
+            }
+
+            // Prevents user from spamming
+            this.rocket = false
+            let id = null;
+
+            clearInterval(id);
+
+            id = setInterval(frame, 5);
+
+            function frame() {
+                if (posLeft > transMoonPosLeft) {
+                    clearInterval(id);
+
+                    this.rocket = false
+                    setTimeout(() => {
+                        rocket.style.left = originalPosLeft - 120 - varNum + "px";
+                        this.rocket = true;
+                    }, 500)
+                }
+                else {
+                    posLeft += 2; 
+                    rocket.style.left = posLeft + "px"; 
+                }
+            }
+        }
+
+        function getOffset(el) {
+            const rect = el.getBoundingClientRect();
+            return {
+                left: rect.left + window.scrollX,
+                top: rect.top + window.scrollY
+            };
+        }
+    </script>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz1s0Ex53pfhZhg2-J6BV7tQaPB5JQkUM&callback=initMap">
+    </script>
+</body>
+</html>

@@ -1,0 +1,732 @@
+{
+    "data": [
+        {
+            "news_url": "https://coingape.com/dirextion-to-offer-us-etf-shorting-bitcoin-futures/",
+            "image_url": "https://crypto.snapi.dev/images/v1/t/3/bitcoin-etf-sweden-fsa-73702.jpg",
+            "title": "Dirextion to Offer US ETF Shorting Bitcoin Futures",
+            "text": "The Direxion Bitcoin Strategy Bear exchange-traded fund has decided to run against the crypto bull and is planning to offer the shorting option to CME Bitcoin futures contracts, which is revealed in a filing with the Securities and Exchange Commission (SEC) yesterday. Nevertheless, the phrase \u2018higher the risk the higher the return' fits correctly for The post Dirextion to Offer US ETF Shorting Bitcoin Futures appeared first on Coingape.",
+            "source_name": "Coingape",
+            "date": "Wed, 27 Oct 2021 07:21:41 -0400",
+            "topics": [
+                "futures"
+            ],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.dcforecasts.com/bitcoin-news/tesla-could-resume-accepting-bitcoin-in-the-future-sec-filing/",
+            "image_url": "https://crypto.snapi.dev/images/v1/p/m/elon-musk-twitter-fb-73696.jpg",
+            "title": "Tesla Could Resume Accepting Bitcoin In The Future: SEC Filing",
+            "text": "Tesla could resume accepting Bitcoin payments in the future according to a new SEC Filing while in the past, the electric car company stopped accepting Bitcoin as a payment option due to environmental concerns so let's read more about it in our latest Bitcoin news today. In the SEC filing yesterday, the company said that [\u2026]",
+            "source_name": "DCForecasts",
+            "date": "Wed, 27 Oct 2021 07:06:34 -0400",
+            "topics": [
+                "regulations"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://decrypt.co/84552/bitcoin-drops-below-60000-for-the-first-time-in-10-days",
+            "image_url": "https://crypto.snapi.dev/images/v1/f/u/bitcoin-flash-crash-gid-2-73694.jpg",
+            "title": "Bitcoin Drops Below $60,000 For The First Time in 10 Days",
+            "text": "Bitcoin has dropped below $60,000 for the first time in over a week, ending a bullish run driven by the launch of several Bitcoin futures ETFs.",
+            "source_name": "Decrypt",
+            "date": "Wed, 27 Oct 2021 06:46:30 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://cointelegraph.com/news/dubai-finance-watchdog-approves-listing-of-bitcoin-fund",
+            "image_url": "https://crypto.snapi.dev/images/v1/5/8/840-ahr0chm6ly9zmy5jb2ludgvszwdyyxbolmnvbs91cgxvywrzlziwmjetmtavm2vhzgywmzqty2zjmy00njblltkzogmtzgfjmje1nmq2nwi2lmpwzw-73692.jpg",
+            "title": "Dubai finance watchdog approves listing of Bitcoin fund",
+            "text": "The DFSA is establishing itself as an innovative regulator for the region by focusing on fintech and innovative technology.",
+            "source_name": "Cointelegraph",
+            "date": "Wed, 27 Oct 2021 06:44:28 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://u.today/new-bitcoin-etf-offers-shorting-bitcoin-futures-creators-warn-of-multiple-risks",
+            "image_url": "https://crypto.snapi.dev/images/v1/9/7/10442-73691.jpg",
+            "title": "New Bitcoin ETF Offers Shorting Bitcoin Futures, Creators Warn of Multiple Risks",
+            "text": "Direxion has filed for a Bitcoin ETF that allows traders to short BTC futures contracts",
+            "source_name": "UToday",
+            "date": "Wed, 27 Oct 2021 06:42:00 -0400",
+            "topics": [
+                "futures"
+            ],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.cryptopolitan.com/bitcoin-price-analysis-2021-10-27/",
+            "image_url": "https://crypto.snapi.dev/images/v1/q/t/bitcoin-price-analysis-bitcoin-crashes-south-of-60k-has-the-reversal-started-73689.jpg",
+            "title": "Bitcoin price analysis: Bitcoin crashes south of $60k. Has the reversal started?",
+            "text": "TL;DR Breakdown Bitcoin price analysis is bearish today. BTC flash crashed below the psychological mark of $60,000.",
+            "source_name": "Cryptopolitan",
+            "date": "Wed, 27 Oct 2021 06:40:54 -0400",
+            "topics": [
+                "tanalysis"
+            ],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://decrypt.co/84551/british-police-seize-2-7-million-worth-of-bitcoin-from-teenager",
+            "image_url": "https://crypto.snapi.dev/images/v1/x/l/bitcoin-handcuffs-gid-1-73690.jpg",
+            "title": "British Police Seize $2.7 Million Worth of Bitcoin from Teenager",
+            "text": "An unnamed 17-year-old boy has had \u00a32 million worth of Bitcoin seized by police following a \u201csophisticated cyber fraud.\u201d",
+            "source_name": "Decrypt",
+            "date": "Wed, 27 Oct 2021 06:40:03 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://news.bitcoin.com/ukraine-security-service-busts-criminal-group-selling-bitcoin-stealing-malware/",
+            "image_url": "https://crypto.snapi.dev/images/v1/w/z/shutterstock-349605527-c-73687.jpg",
+            "title": "Ukraine Security Service Busts Criminal Group Selling Bitcoin-Stealing Malware\u00a0",
+            "text": "Law enforcement authorities in Ukraine have exposed a crime ring specializing in cryptocurrency theft and laundering of illicit funds for hackers. The gang, which provided services to clients on the darknet, has been dismantled as a result of a joint operation carried out with the United States. Cybercriminals From Ukraine Launder Millions, Offer Flash Drives [\u2026]",
+            "source_name": "Bitcoin",
+            "date": "Wed, 27 Oct 2021 06:30:58 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://ambcrypto.com/heres-what-the-purchase-of-bitcoin-worth-2-1b-might-mean/",
+            "image_url": "https://crypto.snapi.dev/images/v1/t/d/11-2-73686.jpg",
+            "title": "Here's what the purchase of Bitcoin worth $2.1B might mean",
+            "text": "Bitcoin, in its bid, to continue rising, needs to find some support from its investors. The new all-time high registered a couple of days ago was the result of the consistent rally this month.",
+            "source_name": "AMBCrypto",
+            "date": "Wed, 27 Oct 2021 06:30:37 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.cryptopolitan.com/182-bitcoin-liquidated-price/",
+            "image_url": "https://crypto.snapi.dev/images/v1/9/q/maxim-hopman-fixlqxahcfk-unsplash-73681.jpg",
+            "title": "$182M in Bitcoin liquidated as price tanked almost $2,000 within an hour",
+            "text": "TL;DR Breakdown: The price of Bitcoin dropped almost $2,000 early today, within a matter of minutes.\u00a0 The crash resulted in the liquidation of over $89 million BTC positions.",
+            "source_name": "Cryptopolitan",
+            "date": "Wed, 27 Oct 2021 06:28:48 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.dcforecasts.com/bitcoin-news/bitcoins-unsuccessful-attempt-to-overcome-64k-leads-btc-to-58k/",
+            "image_url": "https://crypto.snapi.dev/images/v1/n/6/bitcoin-fund-73424-73666.jpeg",
+            "title": "Bitcoin's Unsuccessful Attempt To Overcome $64K Leads BTC To $58K",
+            "text": "Bitcoin's unsuccessful attempt to overcome $64K led the number one cryptocurrency to retrace to $58K and most altcoins followed along as the market cap dumped $200 billion in one day. In today's altcoin news, we are reading some more.",
+            "source_name": "DCForecasts",
+            "date": "Wed, 27 Oct 2021 05:40:29 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://cryptodaily.co.uk/2021/10/Huge-Bitcoin-dump-or-last-short-term-flush-out",
+            "image_url": "https://crypto.snapi.dev/images/v1/6/n/bitprice-73664.jpeg",
+            "title": "Huge Bitcoin dump \u2013 or last short-term flush out?",
+            "text": "Some bitcoin investors will be extremely jittery right now as the bitcoin price took a good tumble this morning. Is the wick down to the $58,000 price\u00a0level\u00a0 the\u00a0limit of the damage, or is it the beginning of a far more extensive correction?",
+            "source_name": "Crypto Daily",
+            "date": "Wed, 27 Oct 2021 05:30:00 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.forbes.com/sites/billybambrough/2021/10/27/new-research-reveals-systemic-risk-to-bitcoin-as-its-price-crashes-under-60000/",
+            "image_url": "https://crypto.snapi.dev/images/v1/n/2/new-research-reveals-systemic-risk-to-bitcoin-as-its-price-crashes-under-60000-73658.jpg",
+            "title": "New Research Reveals \u2018Systemic Risk' To Bitcoin As Its Price Crashes Under $60,000",
+            "text": "Ahead of bitcoin's price plummet, researchers found the cryptocurrency is still concentrated among a handful of holders, warning this makes \"bitcoin susceptible to systemic risk\"...",
+            "source_name": "Forbes",
+            "date": "Wed, 27 Oct 2021 05:15:13 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.dailyfx.com/forex/market_alert/2021/10/27/Bitcoin-BTC-Ethereum-ETH-Slump-Alt-Coins-Hit-Hard.html",
+            "image_url": "https://crypto.snapi.dev/images/v1/p/7/crypto11-73659.jpg",
+            "title": "Bitcoin (BTC), Ethereum (ETH) Slump, Alt-Coins Hit Hard",
+            "text": "The cryptocurrency market is trying to recover from an early morning sell-off that sent prices plummeting across the board.",
+            "source_name": "DailyFX",
+            "date": "Wed, 27 Oct 2021 05:03:00 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://ambcrypto.com/bitcoin-is-under-60000-but-should-traders-sell-or-hold-now/",
+            "image_url": "https://crypto.snapi.dev/images/v1/z/h/marissa-eric-tcwe0iqattw-unsplash-compressed-scaled-e1635324374468-73650.jpg",
+            "title": "Bitcoin is under $60,000, but should traders sell or hold now",
+            "text": "Another curveball is being thrown at the crypto-industry right now, with Bitcoin and co. collectively bleeding on the charts.",
+            "source_name": "AMBCrypto",
+            "date": "Wed, 27 Oct 2021 04:57:27 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://u.today/bitcoin-drops-below-60000-as-500-million-in-crypto-gets-liquidated-in-one-hour",
+            "image_url": "https://crypto.snapi.dev/images/v1/v/p/10440-73647.jpg",
+            "title": "Bitcoin Drops Below $60,000 as $500 Million in Crypto Gets Liquidated in One Hour",
+            "text": "The flagship cryptocurrency declines below the $60,000 level and Ethereum goes under $4,000, while over $500 million in crypto got liquidated in a single hour",
+            "source_name": "UToday",
+            "date": "Wed, 27 Oct 2021 04:52:00 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://beincrypto.com/bitcoin-btc-drops-60000-correction/",
+            "image_url": "https://crypto.snapi.dev/images/v1/v/t/aleksi-raisa-y-bihyjjhv4-unsplash-640x398-73498-73645.jpg",
+            "title": "Bitcoin (BTC) Drops Below $60,000 But Correction Could Be Short-Lived",
+            "text": "Bitcoin (BTC) is likely in the middle of a short-term correction that has taken it below $60,000. Following this correction, a rebound in price is likely.",
+            "source_name": "BeInCrypto",
+            "date": "Wed, 27 Oct 2021 04:48:12 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://cryptopotato.com/bitcoin-plunges-below-60k-shiba-inu-shib-with-another-20-daily-surge-market-watch/",
+            "image_url": "https://crypto.snapi.dev/images/v1/y/a/bitcoinrednegative-73646.jpg",
+            "title": "Bitcoin Plunges Below $60K: Shiba Inu (SHIB) With Another 20% Daily Surge (Market Watch)",
+            "text": "The cryptocurrency market capitalization dumped by almost $200 billion in a day as bitcoin dropped to $58,000 and most alts followed.",
+            "source_name": "CryptoPotato",
+            "date": "Wed, 27 Oct 2021 04:47:45 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "SHIB"
+            ]
+        },
+        {
+            "news_url": "https://cryptonews.com//news/usd-500m-liquidated-as-bitcoin-falls-below-usd-60k-ethereum-below-usd-4k.htm",
+            "image_url": "https://crypto.snapi.dev/images/v1/q/g/bed9af3ce9-media-library-original-900-600-73644.jpg",
+            "title": "USD 500M Liquidated as Bitcoin Falls Below USD 60K, Ethereum Below USD 4K",
+            "text": "Nearly USD 500m in long positions were liquidated across the crypto market in just one hour on Wednesday, as the price of bitcoin (BTC) fell below the psychologically important USD 60,000 level, and ethereum (ETH) dropped below USD 4,000.",
+            "source_name": "Cryptonews",
+            "date": "Wed, 27 Oct 2021 04:42:00 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://cointelegraph.com/news/bitcoin-drops-1k-in-five-minutes-in-fresh-dip-below-60k",
+            "image_url": "https://crypto.snapi.dev/images/v1/w/1/840-ahr0chm6ly9zmy5jb2ludgvszwdyyxbolmnvbs91cgxvywrzlziwmjetmdyvodaxy2q3zjgtngi2mc00n2q5ltkyzmmtmjy3y2zjnzhiyti5lmpwzw-73641.jpg",
+            "title": "Bitcoin drops $1K in five minutes in fresh dip below $60K",
+            "text": "Ethereum slips below $4,000 as an anticipated correction suddenly takes hold of crypto markets.",
+            "source_name": "Cointelegraph",
+            "date": "Wed, 27 Oct 2021 04:28:51 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://cryptoslate.com/bitcoin-drops-1900-in-minutes-66-million-in-liquidations/",
+            "image_url": "https://crypto.snapi.dev/images/v1/s/b/bitcoin-liquidation-73638.jpg",
+            "title": "Bitcoin drops $1,900 in minutes. $66 million in liquidations.",
+            "text": "Bitcoin dropped $1,900 this morning as funding rates for its futures across crypto exchanges soared to dangerous levels. The post Bitcoin drops $1,900 in minutes.",
+            "source_name": "CryptoSlate",
+            "date": "Wed, 27 Oct 2021 04:27:13 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://cryptoslate.com/200-million-bitcoin-fund-receives-approval-for-listing-on-nasdaq-dubai/",
+            "image_url": "https://crypto.snapi.dev/images/v1/1/b/nasdaq-dubai-bitcoin-73633.jpg",
+            "title": "$200 million \u2018Bitcoin Fund' receives approval for listing on Nasdaq Dubai",
+            "text": "The Bitcoin Fund, the Middle East's first listed digital asset-based fund has received approval from the Dubai Financial Services Authority (DFSA) for its At-the-Market program on Nasdaq Dubai. The post $200 million \u2018Bitcoin Fund' receives approval for listing on Nasdaq Dubai appeared first on CryptoSlate.",
+            "source_name": "CryptoSlate",
+            "date": "Wed, 27 Oct 2021 04:01:15 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://cryptonews.com//news/exiting-times-as-australian-managers-ready-inevitable-bitcoin-etf-offerings.htm",
+            "image_url": "https://crypto.snapi.dev/images/v1/3/w/0268a5d408-73630.jpg",
+            "title": "\u2018Exiting Times' as Australian Managers Ready \u2018Inevitable' Bitcoin ETF Offerings",
+            "text": "Australian funds are ready to pile aboard the international bitcoin (BTC) exchange-traded fund (ETF) bandwagon \u2013 and could have their products ready for the market as early as the middle of 2022, provided regulators decide to play ball.",
+            "source_name": "Cryptonews",
+            "date": "Wed, 27 Oct 2021 03:45:00 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://coinpedia.org/bitcoin/bitcoin-price-hovers-below-64k/",
+            "image_url": "https://crypto.snapi.dev/images/v1/r/i/crypto8-73635.jpg",
+            "title": "Bitcoin Price Hovers Below $64k, Here is What On-Chain Analysts Have to Say!",
+            "text": "Bitcoin traded yesterday and reached a high of $63,666 as it faces further depreciation. Before the return of rising momentum, purchasers will have to lift BTC's price over the $64,000 high, as previously said. Bitcoin appears to be stuck in a range for a few days below the $64,000 high. As buyers attempt to retest \u2026",
+            "source_name": "CoinPedia",
+            "date": "Wed, 27 Oct 2021 03:10:22 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://cryptodaily.co.uk/2021/10/FDIC-Chair-Believes-Banks-Should-Be-Allowed-To-Hold-Bitcoin",
+            "image_url": "https://crypto.snapi.dev/images/v1/0/a/fdic-73616.jpg",
+            "title": "FDIC Chair Believes Banks Should Be Allowed To Hold Bitcoin",
+            "text": "Jelena McWilliams, the Chair of the Federal Deposit Insurance Corporation (FDIC), one of the country's top financial regulators, has stated that she believes banks should be allowed to hold cryptocurrencies such as Bitcoin both for themselves and their clients.\u00a0 She also revealed that she is working on formally allowing banks to hold crypto-assets such as Bitcoin.",
+            "source_name": "Crypto Daily",
+            "date": "Wed, 27 Oct 2021 03:00:00 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://en.cryptonomist.ch/2021/10/27/bitcoin-ethereum-avalanche-price-analyses-2/",
+            "image_url": "https://crypto.snapi.dev/images/v1/v/h/bitcoin-price-1-1-300x200-73619.jpg",
+            "title": "Bitcoin, Ethereum, Avalanche Price Analyses",
+            "text": "Bitcoin's price on Tuesday was mostly static until the day's final 4-hour candle",
+            "source_name": "The Cryptonomist",
+            "date": "Wed, 27 Oct 2021 02:39:18 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "AVAX",
+                "BTC",
+                "ETH"
+            ]
+        },
+        {
+            "news_url": "https://en.cryptonomist.ch/2021/10/27/germany-seized-bitcoin-up-for-auction/",
+            "image_url": "https://crypto.snapi.dev/images/v1/8/k/golden-bitcoin-metallic-coin-dollar-euro-banknotes-1-300x219-73609.jpg",
+            "title": "Germany, seized Bitcoin up for auction",
+            "text": "The German judiciary organized an online auction for the sale of the digital loot seized from Darknet",
+            "source_name": "The Cryptonomist",
+            "date": "Wed, 27 Oct 2021 02:23:50 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.crypto-reporter.com/newsfeed/bots-inc-celebrates-the-grand-opening-of-its-parkersburg-west-virginia-campus-including-bitcoin-miners-repair-training-program-19877/",
+            "image_url": "https://crypto.snapi.dev/images/v1/y/a/bitcoin-coin-73432-73453-73622.jpg",
+            "title": "BOTS, Inc. Celebrates the Grand Opening of Its Parkersburg, West Virginia Campus Including Bitcoin Miners Repair Training Program",
+            "text": "San Juan, Puerto Rico, Oct. 27, 2021 (GLOBE NEWSWIRE) -- via NewMediaWire \u2013 BOTS, Inc. (OTC: BTZI), (\"BOTS\" or \"The Company\"), a global technology conglomerate specialized in Blockchain-based solutions including decentralized finance applications, cy...",
+            "source_name": "Crypto Reporter",
+            "date": "Wed, 27 Oct 2021 01:57:00 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://coingape.com/bitcoin-btc-under-pressure-can-valkyries-newly-filed-leverage-bitcoin-futures-etf-help/",
+            "image_url": "https://crypto.snapi.dev/images/v1/n/e/bitcoin-etf-sweden-fsa-73601.jpg",
+            "title": "Bitcoin (BTC) Under Pressure, Can Valkyrie's Newly Filed Leverage Bitcoin Futures ETF help?",
+            "text": "After hitting an all-time high last week above $67,000 Bitcoin (BTC) has once again come under pressure. The world's largest crypto is trading 1.79% down at $61,169 with a market cap of $1.156 trillion.",
+            "source_name": "Coingape",
+            "date": "Wed, 27 Oct 2021 01:39:33 -0400",
+            "topics": [
+                "futures"
+            ],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://thecurrencyanalytics.com/bitcoin/bitcoin-btc-is-once-in-a-thousand-year-monetary-innovation-34918.php",
+            "image_url": "https://crypto.snapi.dev/images/v1/n/l/bitcoin-btc-is-once-in-a-thousand-year-monetary-innovation-73597.jpg",
+            "title": "Bitcoin (BTC) Is Once in A Thousand-Year Monetary Innovation",
+            "text": "Catch up on the latest crypto market news at The Currency Analytics. Bitcoin has been around over a decade and is still just getting started.",
+            "source_name": "The Currency Analytics",
+            "date": "Wed, 27 Oct 2021 01:00:07 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://cryptonews.com//news/bitcoin-ethereum-try-to-recover-shib-rallies.htm",
+            "image_url": "https://crypto.snapi.dev/images/v1/8/c/doge-and-3-coinsjpgfit10242c600ssl1-73114-73596.jpg",
+            "title": "Bitcoin, Ethereum Try to Recover, SHIB Rallies",
+            "text": "Bitcoin price struggled to clear the USD 64,000 resistance zone. BTC is moving lower and is currently (04:33 UTC) trading above USD 61,400 after dropping to almost USD 60,000 earlier today. A downside break below USD 60,000 could put pressure on the bulls in the near term.",
+            "source_name": "Cryptonews",
+            "date": "Wed, 27 Oct 2021 00:49:00 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC",
+                "ETH",
+                "SHIB"
+            ]
+        },
+        {
+            "news_url": "https://coingape.com/92707-2/",
+            "image_url": "https://crypto.snapi.dev/images/v1/p/y/bitcoindollar-unsplash-1-72523-72763-73195-73593.jpg",
+            "title": "Bitcoin Price Pullback To $60,000 Is An Opportunity To Buy The Dip",
+            "text": "Bitcoin price fails to break the resistance at $64,000, resulting in losses back to $60,000. Investors are expected to buy the dip as anticipation for $70,000 grows.",
+            "source_name": "Coingape",
+            "date": "Wed, 27 Oct 2021 00:09:49 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://dailyhodl.com/2021/10/26/approved-proshares-bitcoin-futures-etf-blazes-path-for-crypto-mainstream-adoption/",
+            "image_url": "https://crypto.snapi.dev/images/v1/b/i/btc-futures-warningjpgfit10242c600ssl1-73590.jpg",
+            "title": "Approved ProShares Bitcoin Futures ETF Blazes Path for Crypto Mainstream Adoption",
+            "text": "2021 will be remembered as a turning point for the cryptocurrency industry in the US as its regulators began to embrace and accept cryptocurrencies \u2013\u00a0indicating that they are here to stay. After years of waiting and hoping by potential sponsors, Bitcoin investing is finally open to everyone with the implicit approval of US regulators of [\u2026] The post Approved ProShares Bitcoin Futures ETF Blazes Path for Crypto Mainstream Adoption appeared first on The Daily Hodl.",
+            "source_name": "The Daily Hodl",
+            "date": "Tue, 26 Oct 2021 23:40:30 -0400",
+            "topics": [
+                "futures"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.newsbtc.com/analysis/btc/bitcoin-could-correct-below-60k/",
+            "image_url": "https://crypto.snapi.dev/images/v1/n/c/shutterstock-127419983-73588.jpg",
+            "title": "Why Bitcoin Could Correct Lower Below $60K In Near-Term",
+            "text": "Bitcoin price started a downside correction from well above $64,000 against the US Dollar. BTC could extend its decline below the $60,000 support in the near term.",
+            "source_name": "NewsBTC",
+            "date": "Tue, 26 Oct 2021 23:08:56 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://cointelegraph.com/news/new-bitcoin-etfs-filed-one-for-bears-the-other-with-leverage-for-ants",
+            "image_url": "https://crypto.snapi.dev/images/v1/l/n/840-ahr0chm6ly9zmy5jb2ludgvszwdyyxbolmnvbs91cgxvywrzlziwmjetmtavmzjkzdnjnzktyjq5mi00zjdhltlknmytnzi0ztk4zjnhywfmlmpwzw-73587.jpg",
+            "title": "New Bitcoin ETFs filed: One for bears, the other with \u2018leverage for ants'",
+            "text": "ETF issuers are getting creative with two new filings for inverse and leveraged funds.",
+            "source_name": "Cointelegraph",
+            "date": "Tue, 26 Oct 2021 22:47:15 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.newsbtc.com/news/bitcoin/bitcoin-mining-vs-the-world-sustainable-energy/",
+            "image_url": "https://crypto.snapi.dev/images/v1/n/s/executium-laacvscqz-0-unsplash-73586.jpg",
+            "title": "Bitcoin Mining Vs. The World: BTC Leads Sustainable Energy",
+            "text": "Recent reports show that Bitcoin mining uses great amounts of renewable energy due to economic incentives. This turn of events raised their numbers of sustainable power mix to almost three times higher than the world average.",
+            "source_name": "NewsBTC",
+            "date": "Tue, 26 Oct 2021 22:35:08 -0400",
+            "topics": [
+                "mining"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://bitcoinist.com/latin-america-tipping-point-bitcoin-beach-brazil-colombia-atms-mining-arg/?utm_source=rss&utm_medium=rss&utm_campaign=latin-america-tipping-point-bitcoin-beach-brazil-colombia-atms-mining-arg",
+            "image_url": "https://crypto.snapi.dev/images/v1/c/w/1500x500-640x213-73581.jpg",
+            "title": "Latin America, Tipping Point: Bitcoin Beach Brazil, Colombia ATMs, Mining Arg",
+            "text": "Did we overestimate Latin America's interest in Bitcoin and other cryptocurrencies? Even though the continent seems to need the technology the most, mainstream adoption feels so far away.",
+            "source_name": "Bitcoinist",
+            "date": "Tue, 26 Oct 2021 21:01:52 -0400",
+            "topics": [
+                "mining"
+            ],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://bitcoinmagazine.com/culture/bitcoin-is-a-gravity-universal-connection",
+            "image_url": "https://crypto.snapi.dev/images/v1/w/p/img-6312-73579.png",
+            "title": "Bitcoin, Gravity And Universal Connection",
+            "text": "Bitcoin is a universal consensus that could be a framework for grand operations of connectivity.",
+            "source_name": "Bitcoin Magazine",
+            "date": "Tue, 26 Oct 2021 21:00:00 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://ambcrypto.com/inflow-season-is-here-and-bitcoin-might-soon-see-new-highs-because-of-it/",
+            "image_url": "https://crypto.snapi.dev/images/v1/v/m/webpnet-resizeimage-1-7-73578.png",
+            "title": "\u2018Inflow season' is here and Bitcoin might soon see new highs because of it",
+            "text": "Institutions, to a fair extent, never considered Bitcoin to be a worthwhile investment option during its formative years. It was tagged as a \u2018showy' and \u2018worthless' asset at that time.",
+            "source_name": "AMBCrypto",
+            "date": "Tue, 26 Oct 2021 20:30:46 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.newsbtc.com/news/bitcoin/breaking-down-bitcoin-binance-crash/",
+            "image_url": "https://crypto.snapi.dev/images/v1/r/z/bitcoin-btc-btcusd-1-1-73572.jpg",
+            "title": "Breaking Down The Bitcoin Binance Flash Crash By The Second",
+            "text": "On October 21st, 2021, crypto exchange Binance US experienced a Bitcoin flash crash to led BTC's price to dropped by over 80%. The industry is maturing, but these occurrences reminiscent the times when a crypto flash was business as usual.",
+            "source_name": "NewsBTC",
+            "date": "Tue, 26 Oct 2021 19:15:11 -0400",
+            "topics": [],
+            "sentiment": "Negative",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://cryptoslate.com/el-salvadors-bitcoin-wallet-chivo-is-set-to-remove-its-trade-profiting-feature/",
+            "image_url": "https://crypto.snapi.dev/images/v1/t/i/elsalvador-bitcoin-airdrop-73569.jpg",
+            "title": "El Salvador's Bitcoin wallet Chivo is set to remove its trade profiting feature",
+            "text": "Chivo will be removing its scalping feature to curb growing speculative tendencies involving Bitcoin, it said in a tweet last night. The post El Salvador's Bitcoin wallet Chivo is set to remove its trade profiting feature appeared first on CryptoSlate.",
+            "source_name": "CryptoSlate",
+            "date": "Tue, 26 Oct 2021 19:01:15 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://bitcoinist.com/u-s-government-to-kickstart-three-day-bitcoin-auction-on-tuesday/?utm_source=rss&utm_medium=rss&utm_campaign=u-s-government-to-kickstart-three-day-bitcoin-auction-on-tuesday",
+            "image_url": "https://crypto.snapi.dev/images/v1/5/b/us-crypto-currency-560x420-73570.jpg",
+            "title": "U.S. Government To Kickstart Three-day Bitcoin Auction On Tuesday",
+            "text": "The U.S. government has announced that it will be auctioning off bitcoins in a three-day auction starting Tuesday, October 26th. The auction will be carried out online and will see the bitcoins auctioned off in batches by the U.S. government.",
+            "source_name": "Bitcoinist",
+            "date": "Tue, 26 Oct 2021 19:00:56 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.coindesk.com/business/2021/10/26/brazilian-ride-hailing-giant-99-to-enable-bitcoin-trading/",
+            "image_url": "https://crypto.snapi.dev/images/v1/d/s/cip2yszsnjbilemycnc5ahmqf4-73571.jpg",
+            "title": "Brazilian Ride-Hailing Giant 99 to Enable Bitcoin Trading",
+            "text": "The company will offer users of its digital wallet, 99Pay, commission-free buying and selling of the largest cryptocurrency by market capitalization.",
+            "source_name": "Coindesk",
+            "date": "Tue, 26 Oct 2021 18:55:00 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://news.bitcoin.com/germany-auctions-bitcoin-seized-from-darknet-bargain-hunters-flock-to-buy-cheap-btc/",
+            "image_url": "https://crypto.snapi.dev/images/v1/2/q/auction-73563.jpg",
+            "title": "Germany Auctions Bitcoin Seized From Darknet: Bargain Hunters Flock to Buy Cheap BTC",
+            "text": "German authorities are auctioning bitcoin seized from the darknet in cybercrime cases. The auction website reportedly experienced high traffic to bitcoin listings, with 4,000 new registered users over the past few days. German Government Auctioning Seized Bitcoin The Justice Ministry of North Rhine-Westphalia, Germany's largest state by population, announced Monday an auction of bitcoin seized [\u2026]",
+            "source_name": "Bitcoin",
+            "date": "Tue, 26 Oct 2021 18:00:37 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://bitcoinmagazine.com/markets/examining-short-term-bitcoin-holder-behavior",
+            "image_url": "https://crypto.snapi.dev/images/v1/o/x/giving-bitcoin-73560.jpg",
+            "title": "Examining Short-Term Bitcoin Holder Behavior",
+            "text": "Examining the dynamics of short-term holders during bitcoin bull markets and bear markets.",
+            "source_name": "Bitcoin Magazine",
+            "date": "Tue, 26 Oct 2021 18:00:00 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.coindesk.com/business/2021/10/26/etf-issuer-direxion-files-for-short-bitcoin-futures-product/",
+            "image_url": "https://crypto.snapi.dev/images/v1/y/n/rpihm74azje3pmaw34g55b3354-73564.jpg",
+            "title": "ETF Issuer Direxion Files for Short Bitcoin Futures Product",
+            "text": "ETF issuers are getting creative after last week's watershed bitcoin ETF launch.",
+            "source_name": "Coindesk",
+            "date": "Tue, 26 Oct 2021 17:57:00 -0400",
+            "topics": [
+                "futures"
+            ],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://bitcoinmagazine.com/business/bitcoin-exchange-ftx-buys-super-bowl-ad",
+            "image_url": "https://crypto.snapi.dev/images/v1/h/k/636626331879905047-xlix-73558.jpg",
+            "title": "Bitcoin Exchange FTX Buys Super Bowl Ad",
+            "text": "Bitcoin exchange FTX bought an ad for the upcoming NFL Super Bowl for an undisclosed amount, said to take advantage of the game's high viewership.",
+            "source_name": "Bitcoin Magazine",
+            "date": "Tue, 26 Oct 2021 17:42:25 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.theblockcrypto.com/news+/122135/what-the-launch-of-bitcoin-futures-etfs-means-in-the-quest-for-a-spot-etf",
+            "image_url": "https://crypto.snapi.dev/images/v1/0/6/20201113-garygensler-daily-800x450-73548.jpg",
+            "title": "What the launch of bitcoin futures ETFs means in the quest for a bitcoin spot ETF",
+            "text": "Quick Take The first bitcoin-based ETFs have finally launched in the U.S. \u2014 but they are tied to bitcoin futures, not bitcoin itself.\u00a0 Why are regulators happy to allow futures ETFs but not bitcoin spot ETFs? And what does this mean for issuers still hoping to launch spot ETFs?",
+            "source_name": "The Block",
+            "date": "Tue, 26 Oct 2021 17:00:10 -0400",
+            "topics": [
+                "paywall",
+                "futures"
+            ],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://www.benzinga.com/markets/cryptocurrency/21/10/23571063/not-enough-volatility-valkyrie-files-for-leveraged-bitcoin-etf",
+            "image_url": "https://crypto.snapi.dev/images/v1/f/j/bitcoin-4205661-1920-0-73553.jpg",
+            "title": "Not Enough Volatility? Valkyrie Files For Leveraged Bitcoin ETF",
+            "text": "Asset manager Valkyrie Investments is apparently looking to see how far it can venture with crypto products now that U.S. federal regulators started approving Bitcoin (CRYPTO: BTC) futures-backed exchange-traded funds (ETFs).",
+            "source_name": "Benzinga",
+            "date": "Tue, 26 Oct 2021 17:00:02 -0400",
+            "topics": [],
+            "sentiment": "Neutral",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        },
+        {
+            "news_url": "https://decrypt.co/84507/we-need-allow-banks-hold-bitcoin-fdic-chair",
+            "image_url": "https://crypto.snapi.dev/images/v1/u/f/mcwilliams2-large-e1635280545220-gid-4-73523.jpeg",
+            "title": "'We Need to Allow Banks' to Hold Bitcoin: FDIC Chair",
+            "text": "FDIC Chair Jelena McWilliams says her goal on an interagency team is to create a way for banks to be able to custody crypto assets.",
+            "source_name": "Decrypt",
+            "date": "Tue, 26 Oct 2021 16:38:55 -0400",
+            "topics": [],
+            "sentiment": "Positive",
+            "type": "Article",
+            "tickers": [
+                "BTC"
+            ]
+        }
+    ]
+}
